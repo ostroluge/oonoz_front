@@ -17,8 +17,12 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             controller: 'LoginCtrl'
         })
         .when('/home',{
-            templateUrl: 'components/home/homeView.html',
+            templateUrl: 'components/home/homeView.html'
             //controller: 'LoginCtrl'
+        })
+        .when('/signup', {
+            templateUrl: 'components/signup/signupView.html',
+            controller: 'SignUpCtrl'
         })
         .otherwise({redirectTo: '/login'});
 }]);
