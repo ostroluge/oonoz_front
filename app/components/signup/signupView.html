@@ -37,7 +37,8 @@
         <div ng-show="wannaBeSupplier">
             <br>
             <label><input type="radio" name="typeAccount" ng-model="typeAccount" value="personal">Particulier</label>
-            <label><input type="radio" name="typeAccount" ng-model="typeAccount" value="professional">Professionnel</label>
+            <label><input type="radio" name="typeAccount" ng-model="typeAccount"
+                          value="professional">Professionnel</label>
         </div>
         <div ng-show="typeAccount == 'professional' && wannaBeSupplier">
             <br>
