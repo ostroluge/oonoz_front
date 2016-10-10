@@ -2,35 +2,35 @@
     <meta charset="UTF-8">
 </head>
 <div ng-app="oonozApp" xmlns="http://www.w3.org/1999/xhtml">
-    <form name="signupForm" novalidate class="css-form">
+    <form name="signupForm" >
         Username :
         <input type="text" name="username" ng-model="username" required>
-        <span class="help-inline" ng-show="signupForm.$submitted">Le username n'est pas valide !</span>
+        <!--<span class="help-inline" ng-show="signupForm.$submitted">Le username n'est pas valide !</span>-->
         <br><br>
         Prénom :
-        <input type="text" name="firstname" ng-model="fistname" required>
-        <span class="help-inline" ng-show="signupForm.$submitted">Le prénom n'est pas valide !</span>
+        <input type="text" name="firstName" ng-model="firstName" required>
+        <!--<span class="help-inline" ng-show="signupForm.$submitted">Le prénom n'est pas valide !</span>-->
         <br><br>
         Nom :
-        <input type="text" name="lastname" ng-model="lastname" required>
-        <span class="help-inline" ng-show="signupForm.$submitted">Le nom n'est pas valide !</span>
+        <input type="text" name="lastName" ng-model="lastName" required>
+        <!--<span class="help-inline" ng-show="signupForm.$submitted">Le nom n'est pas valide !</span>-->
         <br><br>
         Adresse mail :
-        <input type="email" name="email" ng-model="email" required>
-        <span class="help-inline" ng-show="signupForm.$submitted && !loginForm.password.$valid">L'adresse mail n'est pas valide !</span>
+        <input type="email" name="mail" ng-model="mail" required>
+        <!--<span class="help-inline" ng-show="signupForm.$submitted && !loginForm.password.$valid">L'adresse mail n'est pas valide !</span>-->
         <br><br>
         Mot de passe :
         <input type="password" name="password" ng-model="password" required>
-        <span class="help-inline" ng-show="signUpForm.$submitted">Le mot de passe n'est pas valide !</span>
+        <!--<span class="help-inline" ng-show="signUpForm.$submitted">Le mot de passe n'est pas valide !</span>-->
         <br><br>
         Confirmation de mot de passe :
         <input type="password" name="passwordConfirmation" ng-model="passwordConfirmation" required>
-        <span class="help-inline"
-              ng-show="signupForm.$submitted">Le confirmation de mot de passe n'est pas valide !</span>
+        <!--<span class="help-inline"
+              ng-show="signupForm.$submitted">Le confirmation de mot de passe n'est pas valide !</span>-->
         <br><br>
         Date de naissance :
-        <input type="date" name="birthdate" ng-model="birthdate" required>
-        <span class="help-inline" ng-show="signupForm.$submitted">La date de naissance n'est pas valide !</span>
+        <input type="date" name="birthDate" ng-model="birthDate" required>
+        <!--<span class="help-inline" ng-show="signupForm.$submitted">La date de naissance n'est pas valide !</span>-->
         <br><br>
         <label><input type="checkbox" name="wannaBeSupplier" ng-model="wannaBeSupplier">Je veux devenir fournisseur
             ?</label><br>
@@ -53,7 +53,7 @@
             <br>
         </div>
         <br>
-        <input class="button" type="submit" ng-click="signupForm.$valid" value="S'inscrire"><br><br>
+        <button  ng-click="submit()"  value="S'inscrire">S'inscrire</button><br><br>
         Déjà un compte ? </span><a href="#/login">Se connecter</a>
     </form>
 </div>

@@ -2,12 +2,14 @@
 
 // Declare app level module which depends on views, and components
 var services=angular.module('services',[]);
+var models=angular.module('models',[]);
 var controllers = angular.module('controllers', []);
 var oonozApp = angular.module('oonozApp', [
     'ngRoute',
     'ngResource',
     'services',
-    'controllers'
+    'controllers',
+    'models'
 ]);
 
 oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider) {

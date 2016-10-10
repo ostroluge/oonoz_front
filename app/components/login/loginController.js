@@ -18,7 +18,7 @@ controllers.controller('LoginCtrl', ['$scope','LoginService','$location',
             $scope.userPassword = "";
 
             $scope.authenticate = function () {
-                LoginService.login($scope.username,$scope.userPassword).login()
+                LoginService.login($scope.username,$scope.userPassword).query()
                     .$promise
                     .then(
                         function success(response) {
