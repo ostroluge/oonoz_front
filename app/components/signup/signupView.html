@@ -139,7 +139,7 @@
 
             <fieldset class="form-group">
                 <label for="companySIRET">Numéro de SIRET :</label>
-                <input type="number" name="companySIRET" id="companySIRET" ng-model="companySIRET" class="form-control"
+                <input type="number" name="companySIRET" id="companySIRET" ng-model="siretNumber" class="form-control"
                        placeholder="Numéro de SIRET"
                        ng-required="typeAccount == 'professional' && wannaBeSupplier">
                 <span ng-show="signupForm.companySIRET.$error.required && signupForm.companySIRET.$dirty">Champ obligatoire</span>

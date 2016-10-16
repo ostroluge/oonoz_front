@@ -3,11 +3,25 @@
  */
 services.factory('SignUpService', ['$resource','$location',
     function($resource){
-                return $resource("http://localhost:8080/user/signupPlayer", {}, {
-                    signup: {
+        return {
+            signUpPlayer: function () {
+                return $resource("http://localhost:8080/user/signUpPlayer", {}, {
+
+                    save: {
+                        method: 'POST',
+                        cache: false,
+                        isArray: false
+                    }
+                });
+            },
+            signUpSupplier: function () {
+                return $resource("http://localhost:8080/user/signUpSupplier", {}, {
+
+                    save: {
                         method: 'POST',
                         cache: false, isArray: false
                     }
                 });
-            } ,
-        ]);
+            }
+        }}]);
+

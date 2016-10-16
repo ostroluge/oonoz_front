@@ -10,24 +10,47 @@
  * # SignUpCtrl
  * Controller of the oonozApp
  */
-controllers.controller('SignUpCtrl', ['$scope','$location','SignUpService','PlayerModel',
-    function ($scope, $location,SignUpService,PlayerModel) {
+controllers.controller('SignUpCtrl', ['$scope','$location','SignUpService','PlayerModel','SupplierModel',
+    function ($scope, $location,SignUpService,PlayerModel,SupplierModel) {
 
         $scope.submit=function () {
 
-            var player=new PlayerModel($scope);
+            if($scope.wannaBeSupplier==true){
+                var supplier=new SupplierModel($scope);
+                if($scope.typeAccount.toString()=="professional") {
+                    supplier.isPrivateIndividual = "false";
+                }
 
-            console.log(player);
-            SignUpService.signup(player)
-                .$promise
-                .then(
-                    function success(response) {
-                        $location.path('/login');
-                    },
-                    function error() {
-                        console.log("Error signup REST service");
-                    }
-                );
+                SignUpService.signUpSupplier().save(supplier)
+                    .$promise
+                    .then(
+                        function success(response) {
+                            alert("Votre inscription a été enregistré ! Vous allez recevoir un e-mail pour la valider.");
+                            $location.path('/login');
+                        },
+                        function error() {
+                            console.log("Error signup REST service");
+                        }
+                    );
+
+            }
+            else{
+                var player=new PlayerModel($scope);
+                console.log(player);
+
+                SignUpService.signUpPlayer().save(player)
+                    .$promise
+                    .then(
+                        function success(response) {
+                            $location.path('/login');
+                        },
+                        function error() {
+                            console.log("Error signup REST service");
+                        }
+                    );
+            }
+            
+
         }
 
     }]);
