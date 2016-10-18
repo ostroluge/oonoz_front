@@ -1,0 +1,104 @@
+/**/
+
+.debutForm {
+	height:90px;
+}
+
+
+/*DEBUT*/
+.debutForm .titre{
+	font-size : 25px;
+	font-weight: bold;
+}
+
+.debutForm a {
+  color: white;
+}
+
+/*LIGNE*/
+
+.ligneForm{
+    display: block;
+    margin-top: 8px;
+    height:65px;
+    max-width: 430px;
+    margin-left:auto;
+    margin-right:auto;
+    border:none;
+}
+
+.inputForm{
+   display:block;
+   border: 1px;
+   background:none;
+   color:white;
+   height:90%;
+   border-bottom : 1px solid white;
+   font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.imgForm{
+    display:block;
+    float:left;
+}
+
+/*En deça de 1250px, l'icone fera 13% de la largeur*/
+@media screen and (max-width:1249px) {
+    .inputForm{
+        width:83%;
+        max-width:350px;
+        margin-left:13%;
+        padding-left:5px;
+    }
+    .imgForm{
+        width:13%;
+    }
+}
+
+/*Au dela de 1250px, l'icone ne fera que 65px sur 65px*/
+@media screen and (min-width:1250px) {
+    .inputForm{
+        margin-left:70px;
+        width:350px;
+    }
+    .imgForm{
+        height:65px;
+    }
+}
+
+input:focus
+{
+    outline: none;
+}
+
+.errorForm{
+    display: block;
+    color: #48E590;
+    text-align:right;
+}
+
+/*FIN*/
+.finForm{
+	margin-top: 20px;
+}
+
+.finForm .button {
+  color: white;
+  background-color: #48E590;
+  height:35px;
+  width: 90px;
+  border: none;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.finForm .button:hover {
+  background-color: #287F50;
+}
+
+.finForm a{
+	color: white;
+    display: block;
+}
