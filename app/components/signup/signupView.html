@@ -58,10 +58,11 @@
 
         <fieldset class="form-group">
             <label for="password">Mot de passe :</label>
-            <input type="password" name="password" id="password" ng-model="password" class="form-control"
+            <input type="password" name="password" id="password" ng-model="password"
                    placeholder="Mot de passe"
+                   ng-keypress="checkPasswords()"
                    ng-minlength="8" ng-maxlength="40"
-                   ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" required>
+                   ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" required >
             <span ng-show="signupForm.password.$error.required && signupForm.password.$dirty">Champ obligatoire</span>
                 <span ng-show="!signupForm.password.$error.minLength && !signupForm.password.$error.maxLength &&
                 signupForm.password.$error.pattern && signupForm.password.$dirty">Le mot de passe doit être formé d'au moins une majuscule, une minuscule, et au moins 1 chiffre ou caractère spécial</span>
@@ -75,12 +76,14 @@
         <fieldset class="form-group">
             <label for="passwordConfirmation">Confirmation de mot de passe :</label>
             <input type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="passwordConfirmation"
-                   class="form-control"
+
+                   ng-keypress="checkPasswords()"
                    placeholder="Confirmation de mot de passe"
                    ng-minlength="8" ng-maxlength="40"
-                   ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" required>
+                   ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/"
+                   required>
             <span ng-show="signupForm.passwordConfirmation.$error.required && signupForm.passwordConfirmation.$dirty">Champ obligatoire</span>
-            <!--<span ng-show="signupForm.passwordConfirmation.$error.compareTo">Doit être identique au mot de passe</span>-->
+            <span ng-show="passwordsMatch">Doit être identique au mot de passe</span>
         </fieldset>
 
         <br/>
@@ -88,7 +91,7 @@
         <fieldset class="form-group">
             <label for="birthDate">Date de naissance :</label>
             <input type="date" name="birthDate" id="birthDate" ng-model="birthDate" class="form-control"
-                   placeholder="Date de naissance"
+                   placeholder="YYYY-MM-DD"
                    required>
             <span ng-show="signupForm.birthDate.$error.required && signupForm.birthDate.$dirty">Champ obligatoire</span>
         </fieldset>

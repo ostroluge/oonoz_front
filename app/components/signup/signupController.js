@@ -10,12 +10,12 @@
  * # SignUpCtrl
  * Controller of the oonozApp
  */
-controllers.controller('SignUpCtrl', ['$scope','$location','SignUpService','PlayerModel',
-    function ($scope, $location,SignUpService,PlayerModel) {
+controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'PlayerModel', 'dialogs',
+    function ($scope, $location, SignUpService, PlayerModel, dialogs) {
 
-        $scope.submit=function () {
+        $scope.submit = function () {
 
-            var player=new PlayerModel($scope);
+            var player = new PlayerModel($scope);
 
             console.log(player);
             SignUpService.signup(player)
@@ -30,4 +30,17 @@ controllers.controller('SignUpCtrl', ['$scope','$location','SignUpService','Play
                 );
         }
 
+        $scope.passwordsMatch = true;
+
+        $scope.checkPasswords = function () {
+           // dialogs.notify('Coucou', '');
+            console.log($scope.password);
+            console.log($scope.passwordConfirmation);
+            if ($scope.password === $scope.passwordConfirmation) {
+                $scope.passwordsMatch = false;
+            } else {
+                $scope.passwordsMatch = true;
+            }
+
+        }
     }]);
