@@ -1,18 +1,33 @@
-<head>
-    <meta charset="utf-8">
-</head>
-<div ng-app="oonozApp" xmlns="http://www.w3.org/1999/xhtml">
-    <form name="loginForm" novalidate class="css-form">
-        Username :
-        <input type="text" name="username" ng-model="username" required>
-        <span class="help-inline" ng-show="loginForm.$submitted">Le username n'est pas valide !</span>
-        <br><br>
-        Password :
-        <input type="password" name="password" ng-model="userPassword" required>
-        <span class="help-inline" ng-show="loginForm.$submitted && !loginForm.password.$valid">Le mot de passe n'est pas valide !</span>
-        <br><br>
-        <input class="button" type="submit" ng-click="loginForm.$valid && authenticate()" value="Connexion"><br><br>
-        <a href="">Mot de passe oublié ?</a><br>
-        Pas encore de compte ? </span><a href="#/signup">S'inscrire</a>
-    </form>
+<div class="offlineConteneur" ng-app="oonozApp" xmlns="http://www.w3.org/1999/xhtml">
+    <div class="offlineHorsCol">
+        <p>Oonoz, dépassez vous.</p>
+    </div>
+    <div class="offlineGauche">
+        <p>Une application hors du commun</p>
+        <p>Pour apprendre, s'amuser, partager et gagner de nombreux cadeaux</p>
+        <p>Vous découvrez ici les quizz tels que vous ne les avez jamais vu.</p>
+    </div>
+    <div class="offlineDroite">
+        <form name="loginForm" novalidate>
+            <div class="debutForm">
+                <div class="titre">Je me connecte</div>
+            </div>
+            <div class="ligneForm">
+                <img class="imgForm" src="images/mail.png">
+                <input class="inputForm" placeholder="Adresse mail" type="text" name="username" ng-model="username" required>
+            </div>
+            <span class="errorForm" ng-show="loginForm.$submitted">Le username n'est pas valide !</span>
+
+            <div class="ligneForm">
+                <img class="imgForm" src="images/locked.png">
+                <input class="inputForm" placeholder="Mot de passe" type="password" name="password" ng-model="userPassword" required>
+            </div>
+            <span class="errorForm" ng-show="loginForm.$submitted && !loginForm.password.$valid">Le mot de passe n'est pas valide !</span>
+            <div class="finForm">
+                <input class="button" type="submit" ng-click="loginForm.$valid && authenticate()" value="Connexion">
+                <a href="">Mot de passe oublié ?</a>
+                <a href="#/signup">Pas de compte? Je m'inscris</a>
+            </div>
+        </form>
+    </div>
 </div>
