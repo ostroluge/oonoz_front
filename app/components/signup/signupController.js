@@ -25,11 +25,14 @@ controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'P
                     .$promise
                     .then(
                         function success(response) {
-                            alert("Votre inscription a été enregistré ! Vous allez recevoir un e-mail pour la valider.");
+                            notifySucces();
                             $location.path('/login');
                         },
-                        function error() {
+                        function error(response) {
                             console.log("Error signup REST service");
+                            if (response.status == 409) {
+                                notifyUsernameMailUnavailable();
+                            }
                         }
                     );
 
@@ -42,13 +45,26 @@ controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'P
                     .$promise
                     .then(
                         function success(response) {
+                            notifySucces();
                             $location.path('/login');
                         },
-                        function error() {
+                        function error(response) {
                             console.log("Error signup REST service");
+                            if (response.status == 409) {
+                                notifyUsernameMailUnavailable();
+                            }
                         }
                     );
             }
+        }
+
+        function notifySucces () {
+            dialogs.notify("Succès Inscription", "Vous allez recevoir un e-mail de confirmation" +
+                " d'inscription afin d'activer votre compte.")
+        }
+
+        function notifyUsernameMailUnavailable () {
+            dialogs.error("Erreur", "Le username/adresse mail n'est pas disponible !")
         }
 
         $scope.passwordsMatch = true;
