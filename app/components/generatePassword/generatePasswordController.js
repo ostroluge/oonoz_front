@@ -14,7 +14,8 @@ controllers.controller('generatePasswordCtrl', ['$scope','$location','generatePa
     function ($scope, $location,generatePasswordService,PlayerModel) {
 
         $scope.submit=function () {
-            generatePasswordService.generate($scope.mail)
+            var mail={"mail":$scope.mail};
+            generatePasswordService.generate(mail)
                 .$promise
                 .then(
                     function success(response) {
