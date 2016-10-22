@@ -27,7 +27,7 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             controller: 'SignUpCtrl'
         })
         .when('/generatePassword', {
-            templateUrl: 'components/signup/generatePasswordView.html',
+            templateUrl: 'components/generatePassword/generatePasswordView.html',
             controller: 'GeneratePasswordCtrl'
         })
         .otherwise({redirectTo: '/login'});
