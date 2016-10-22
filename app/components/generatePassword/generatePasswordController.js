@@ -14,7 +14,16 @@ controllers.controller('generatePasswordCtrl', ['$scope','$location','generatePa
     function ($scope, $location,generatePasswordService,PlayerModel) {
 
         $scope.submit=function () {
-
+            generatePasswordService.generate($scope.mail)
+                .$promise
+                .then(
+                    function success(response) {
+                        $location.path('/login');
+                    },
+                    function error() {
+                        console.log("Error signup REST service");
+                    }
+                );
         }
 
     }]);
