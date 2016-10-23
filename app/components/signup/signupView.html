@@ -79,7 +79,7 @@
             <div class="ligneForm">
                 <input type="password" name="passwordConfirmation" id="passwordConfirmation"
                        ng-model="passwordConfirmation"
-                       ng-keypress="checkPasswords()"
+                       ng-keyup="checkPasswords()"
                        class="inputForm"
                        placeholder="Confirmation de mot de passe"
                        ng-minlength="8" ng-maxlength="40"

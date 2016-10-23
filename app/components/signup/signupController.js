@@ -67,12 +67,9 @@ controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'P
             dialogs.error("Erreur", "Le username/adresse mail n'est pas disponible !")
         }
 
-        $scope.passwordsMatch = true;
+        $scope.passwordsMatch = false;
 
         $scope.checkPasswords = function () {
-            // dialogs.notify('Coucou', '');
-            console.log($scope.password);
-            console.log($scope.passwordConfirmation);
             if ($scope.password === $scope.passwordConfirmation) {
                 $scope.passwordsMatch = false;
             } else {
