@@ -32,5 +32,9 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             templateUrl: 'components/signup/validationSignupView.html',
             controller: 'ValidationSignUpCtrl'
         })
+        .when('/terms/:type', {
+            templateUrl: 'components/term/termView.html',
+            controller: 'TermCtrl'
+        })
         .otherwise({redirectTo: '/login'});
 }]);
