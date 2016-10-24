@@ -12,6 +12,10 @@ html{
 	min-height: 100%;
 }
 
+body {
+	background-color: transparent;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: white;
     font-family: 'Source Sans Pro', sans-serif;
