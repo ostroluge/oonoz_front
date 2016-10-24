@@ -23,11 +23,10 @@ controllers.controller('LoginCtrl', ['$scope','LoginService','$location',
                     .then(
                         function success(response) {
                             $location.path('/home');
-                            //$rootScope.user=response;
                         },
                         function error() {
-                            $scope.infoMessage = null;
-                            $scope.errorMessage = "Identification invalide."
+                            $scope.authFailed = true;
+
                         }
                     );
             }
