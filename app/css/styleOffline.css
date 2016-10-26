@@ -1,8 +1,6 @@
 html, body, #main, .ng-scope{
-	background-color: transparent;
 	width:100%;
 	min-height: 100%;
-	position:absolute;
 }
 
 .offlineConteneur{
@@ -17,6 +15,7 @@ html, body, #main, .ng-scope{
 	font-family: 'Source Sans Pro', sans-serif;
 	width: 100%;
 	min-height: 100%;
+	position: absolute;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
