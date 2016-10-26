@@ -42,9 +42,10 @@ describe('Test the login component', function() {
         element(by.model('passwordConfirmation')).sendKeys('Password59');
         element(by.model('birthDate')).sendKeys('25/10/2016');
         element(by.buttonText("S'inscrire")).click();
-        expect(element(by.className('modal-dialog')).isDisplayed()).toBe(true);
+        expect(element(by.className('modal-body')).getText()).toMatch("Le username/adresse mail n'est pas disponible !");
     });
+
     
-    
+
 
 });

@@ -10,8 +10,8 @@
  * # SignUpCtrl
  * Controller of the oonozApp
  */
-controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'PlayerModel', 'dialogs',
-    function ($scope, $location, SignUpService, PlayerModel, dialogs) {
+controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'PlayerModel','SupplierModel','dialogs',
+    function ($scope, $location, SignUpService, PlayerModel,SupplierModel, dialogs) {
 
         $scope.submit = function () {
 
@@ -32,7 +32,9 @@ controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'P
                             if (response.status == 409) {
                                 notifyUsernameMailUnavailable();
                             }
-
+                            else {
+                                notifyInternalErrorOccurs ();
+                            }
                         }
                     );
 
