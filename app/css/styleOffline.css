@@ -1,19 +1,22 @@
-html{
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url(../images/imageBackground.jpg);
-    background-attachment: fixed;
-    margin:0;
+html, body, #main, .ng-scope{
+	background-color: transparent;
+	width:100%;
+	min-height: 100%;
+	position:absolute;
+}
+
+.offlineConteneur{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url(../images/imageBackground.jpg);
+	background-attachment: fixed;
+	margin:0;
 	padding:0;
-    -webkit-background-size: cover;
-    background-size: cover; 
+	-webkit-background-size: cover;
+	background-size: cover;
 	font-family: 'Source Sans Pro', sans-serif;
 	width: 100%;
 	min-height: 100%;
-}
-
-body {
-	background-color: transparent;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -60,8 +63,8 @@ body {
 	Line-Height: 2;
 	font-size: larger;
 	color:white;
-	
 }
+
 .offlineDroite{
 	margin-top: 3%;
 	padding-left:5%;
