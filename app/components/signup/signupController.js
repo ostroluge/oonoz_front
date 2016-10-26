@@ -29,17 +29,16 @@ controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'P
                             $location.path('/login');
                         },
                         function error(response) {
-                            console.log("Error signup REST service");
                             if (response.status == 409) {
                                 notifyUsernameMailUnavailable();
                             }
+
                         }
                     );
 
             }
             else {
                 var player = new PlayerModel($scope);
-                console.log(player);
 
                 SignUpService.signUpPlayer().save(player)
                     .$promise
@@ -49,9 +48,11 @@ controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'P
                             $location.path('/login');
                         },
                         function error(response) {
-                            console.log("Error signup REST service");
                             if (response.status == 409) {
                                 notifyUsernameMailUnavailable();
+                            }
+                            else {
+                                notifyInternalErrorOccurs ();
                             }
                         }
                     );
@@ -65,6 +66,10 @@ controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'P
 
         function notifyUsernameMailUnavailable () {
             dialogs.error("Erreur", "Le username/adresse mail n'est pas disponible !")
+        }
+
+        function notifyInternalErrorOccurs () {
+            dialogs.error("Erreur", "Une erreur interne s'est produite !");
         }
 
         $scope.passwordsMatch = false;
