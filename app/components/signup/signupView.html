@@ -1,4 +1,4 @@
-<div class="offlineConteneur" ng-app="oonozApp" xmlns="http://www.w3.org/1999/xhtml">
+<div class="offlineConteneur"  xmlns="http://www.w3.org/1999/xhtml">
     <div class="offlineHorsCol">
         <p>Oonoz, dépassez vous.</p>
     </div>
@@ -153,7 +153,7 @@
                     <img class="imgForm" src="images/official.png">
                     <input type="number" name="companySIRET" id="companySIRET" ng-model="siretNumber" class="inputForm"
                            placeholder="Numéro de SIRET"
-                           ng-required="typeAccount == 'professional' && wannaBeSupplier">
+                           ng-required="typeAccount == 'professional' && wannaBeSupplier"  ng-minlength="14" ng-maxlength="14">
                 </div>
                 <!--<span class="errorForm"
                           ng-show="signupForm.companySIRET.$error.required && signupForm.companySIRET.$dirty">Champ obligatoire</span>-->
