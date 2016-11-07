@@ -98,7 +98,7 @@
             </div>
             <span class="errorForm" ng-show="signupForm.birthDate.$error.required && signupForm.birthDate.$dirty">Champ obligatoire</span>
 
-            <div class="finForm">
+            <div class="finForm checkBoxVerte">
                 <input type="checkbox" name="wannaBeSupplier" id="wannaBeSupplier" ng-model="wannaBeSupplier"
                        ng-click="updateStatus()">
                 <label for="wannaBeSupplier"><span class="ui"></span>Je veux devenir fournisseur ?</label>
@@ -160,9 +160,9 @@
 
             </div>
 
-            <div class="finForm">
-                <input type="checkbox" name="termsOfService" id="termsOfService" ng-model="termsOfService">
+            <div>
                 <label for="termsOfService">J'accepte les <a ng-href="#/terms/{{kindTerm}}">conditions générales d'utilisation</a>
+                <input type="checkbox" name="termsOfService" id="termsOfService" ng-model="termsOfService">
                 </label>
             </div>
 
