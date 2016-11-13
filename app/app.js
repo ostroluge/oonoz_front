@@ -11,7 +11,8 @@ var oonozApp = angular.module('oonozApp', [
     'controllers',
     'models',
     'dialogs.main',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ultimateDataTableServices'
 ]);
 
 oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider) {
@@ -35,10 +36,14 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
         .when('/generatePassword', {
             templateUrl: 'components/generatePassword/generatePasswordView.html',
             controller: 'generatePasswordCtrl'
-	})
+	    })
         .when('/terms/:type', {
             templateUrl: 'components/term/termView.html',
             controller: 'TermCtrl'
+        })
+        .when('/admin/userList', {
+            templateUrl: 'components/admin/userList/userListView.html',
+            controller: 'UserListCtrl'
         })
         .otherwise({redirectTo: '/login'});
 }]);

@@ -1,0 +1,22 @@
+.filterContainer{
+    display: inline-block;
+    min-height: 100vh;
+    width: 25%;
+    border-right: solid;
+}
+.searchContainer{
+    display: inline-block;
+    min-height: 100%;
+    width: 74%;
+}
+
+.userListContainer{
+    min-height: 100vh;
+}
+/*.resultContainer{
+    display: inline-block;
+}
+
+.modifyContainer{
+    display:inline-block;
+}*/

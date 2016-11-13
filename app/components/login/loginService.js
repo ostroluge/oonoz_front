@@ -1,4 +1,4 @@
-
+'use strict';
 services.factory('LoginService', ['$resource','$location',
     function($resource){
         return{

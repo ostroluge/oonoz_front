@@ -1,0 +1,64 @@
+<div class="userListContainer" xmlns="http://www.w3.org/1999/html">
+    <div class="filterContainer">
+        <form>
+            <div class="ligneForm">
+                <label for="username">Login :</label>
+                <input type="text" name="username" id="username" ng-model="username" placeholder="Login">
+            </div>
+            <div class="ligneForm">
+                <label for="lastname">Nom :</label>
+                <input type="text" name="lastname" id="lastname" ng-model="lastname" placeholder="Nom">
+            </div>
+            <div class="ligneForm">
+                <label for="firstname">Prénom :</label>
+                <input type="text" name="firstname" id="firstname" ng-model="firstname" placeholder="Prénom">
+            </div>
+            <button ng-click="search()">Rechercher</button>
+        </form>
+    </div>
+
+    <!--<div class="resultContainer">
+        <div class="col-md-12 col-lg-12" ultimate-datatable="datatable">
+        </div>
+    </div>-->
+    <div class="searchContainer">
+        <div class="modifyContainer">
+            <div class="ligneForm">
+                <label for="firstnameModification">Id : </label>
+                {{idModification}}
+            </div>
+            <div class="ligneForm">
+                <label for="firstnameModification">Prénom :</label>
+                <input  type="text" name="firstnameModification" id="firstnameModification" ng-model="firstnameModification">
+            </div>
+            <div class="ligneForm">
+                <label for="lastnameModification">Nom :</label>
+                <input  type="text" name="lastnameModification" id="lastnameModification" ng-model="lastnameModification">
+            </div>
+            <div class="ligneForm">
+                <label for="usernameModification">Nom :</label>
+                <input  type="text" name="usernameModification" id="usernameModification" ng-model="usernameModification">
+            </div>
+            <div class="ligneForm">
+                <label for="mailModification">E-mail :</label>
+                <input  type="text" name="mailModification" id="mailModification" ng-model="mailModification">
+            </div>
+        </div>
+
+
+        <div class="container-fluid, resultContainer ">
+            <div class="row">
+                <h3 align=center>Rechercher un utilisateur</h3><br>
+                <div>
+                    <button ng-repeat="i in range.slice(0,repeatCount) track by $index" ng-click="displayPage($index)">
+                        {{$index+1}}
+                    </button>
+                </div>
+                    <div class="col-md-12 col-lg-12" ultimate-datatable="datatable">
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
