@@ -10,7 +10,6 @@ models.factory('PlayerModel', function() {
         this.username=data.username;
         this.password=data.password;
         this.birthDate=data.birthDate;
-
     };
 
 

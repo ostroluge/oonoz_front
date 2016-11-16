@@ -10,6 +10,15 @@ services.factory('UserListService', ['$resource','$location',
                         isArray: false
                     }
                 });
+            },
+            updateUser: function(){
+                return $resource("http://localhost:8080/user/updateUser", {}, {
+                    query: {
+                        method: 'POST',
+                        cache: false,
+                        isArray: false
+                    }
+                });
             }
         };
     }]);
