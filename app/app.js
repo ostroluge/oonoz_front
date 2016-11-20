@@ -20,7 +20,7 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             templateUrl: 'components/login/loginView.html',
             controller: 'LoginCtrl'
         })
-        .when('/home',{
+        .when('/home', {
             templateUrl: 'components/home/homeView.html'
             //controller: 'LoginCtrl'
         })
@@ -28,17 +28,21 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             templateUrl: 'components/signup/signupView.html',
             controller: 'SignUpCtrl'
         })
-        .when('/mailValidation/:mail/:mailKey',{
+        .when('/mailValidation/:mail/:mailKey', {
             templateUrl: 'components/signup/validationSignupView.html',
             controller: 'ValidationSignUpCtrl'
         })
         .when('/generatePassword', {
             templateUrl: 'components/generatePassword/generatePasswordView.html',
             controller: 'generatePasswordCtrl'
-	})
+        })
         .when('/terms/:type', {
             templateUrl: 'components/term/termView.html',
             controller: 'TermCtrl'
+        })
+        .when('/themes', {
+            templateUrl: 'components/admin/themeList/themeListView.html',
+            controller: 'ThemeListCtrl'
         })
         .otherwise({redirectTo: '/login'});
 }]);
