@@ -1,8 +1,3 @@
-html, body, #main, .ng-scope{
-	width:100%;
-	min-height: 100%;
-}
-
 .offlineConteneur{
 	background-repeat: no-repeat;
 	background-position: center;
@@ -12,7 +7,6 @@ html, body, #main, .ng-scope{
 	padding:0;
 	-webkit-background-size: cover;
 	background-size: cover;
-	font-family: 'Source Sans Pro', sans-serif;
 	width: 100%;
 	min-height: 100%;
 	position: absolute;

@@ -1,0 +1,99 @@
+.headerInline * {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:1.2em;
+    margin:0 3px;
+    color:white;
+}
+
+.headerInline {
+    text-align:justify;
+    line-height:0;
+    background:#6b727c;
+    padding:0;
+    box-shadow:0 0 5px;
+}
+
+.headerInline:after {
+    content:'';
+    display:inline-block;
+    width:99%;
+    vertical-align:top;
+}
+
+.menuHeaderInline {
+    -webkit-padding-start: 0px;
+}
+
+.imageHeaderInline{
+    padding:5px 5px 5px 5px;
+    height:40px;
+}
+
+.headerInline ul a,a:visited{
+    color: white;
+    text-decoration:none;
+}
+
+.headerInline a:hover, a:active{
+    color: #48E590;
+    text-decoration: none;
+}
+
+/*Style 'show menu' label button and hide it by default*/
+.show-menu {
+    text-decoration: none;
+    color: #fff;
+    background:#6b727c;
+    text-align: center;
+    padding: 0px 0;
+    display: none;
+    color:#48E590;
+}
+
+.show-menu img{
+    padding:5px 5px 5px 5px;
+    height:40px;
+}
+
+/*Hide checkbox*/
+#show-menu{
+    display: none;
+}
+
+/*Show menu when invisible checkbox is checked*/
+#show-menu:checked ~ .headerInline{
+    display: block;
+}
+
+/*Responsive Styles*/
+
+@media screen and (max-width : 925px){
+
+    .imageHeaderInline{
+        display:none;
+    }
+
+    .headerInline{
+        display: none;
+        text-align:center;
+    }
+
+    /*Make dropdown links appear inline*/
+    ul {
+        position: static;
+        display: none;
+    }
+    /*Create vertical spacing*/
+    li {
+        margin-bottom: 1px;
+    }
+    /*Make all menu links full width*/
+    ul li, li a {
+        width: 100%;
+    }
+    /*Display 'show menu' link*/
+    .show-menu {
+        display:block;
+    }
+}
