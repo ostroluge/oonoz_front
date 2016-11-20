@@ -44,5 +44,9 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             templateUrl: 'components/admin/themeList/themeListView.html',
             controller: 'ThemeListCtrl'
         })
+        .when('/themes/new', {
+            templateUrl: 'components/admin/addTheme/addThemeView.html',
+            controller: 'AddThemeCtrl'
+        })
         .otherwise({redirectTo: '/login'});
 }]);
