@@ -85,7 +85,7 @@ controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'P
         };
 
         $scope.passwordsMatch = false;
-
+    
         $scope.checkPasswords = function () {
             if ($scope.password === $scope.passwordConfirmation) {
                 $scope.passwordsMatch = false;

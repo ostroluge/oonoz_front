@@ -44,7 +44,64 @@
                     <label for="birthDate">Date de naissance :</label>
                     <input type="date"  name="birthDate" id="birthDate" ng-model="birthDateModification" placeholder="Date de naissance" required/>
                 </div>
-                <button ng-click="update()">Modifier</button>
+                <div class="radioForm">
+                    <label>Type d'utilisateur :</label>
+                    <label class="modificationRadioLabel">Joueur</label>
+                    <input class="modificationRadioButton" type="radio" name="userType" ng-model="userType"
+                           ng-checked="userType==false" value="false"  ng-click="userType=false; professionalState=true"/>
+
+
+                    <label class="modificationRadioLabel">Fournisseur</label>
+                    <input class="modificationRadioButton" type="radio"  name="userType" ng-model="userType"
+                           ng-checked="userType==true" value="true" ng-click="userType=true"/>
+                </div>
+
+                <div class="radioForm">
+                    <label>Statut compte :</label>
+                    <label class="modificationRadioLabel">Actif</label>
+                    <input class="modificationRadioButton" type="radio"  name="accountState" ng-model="accountState"
+                           ng-checked="accountState==true" value="true"/>
+
+
+                    <label class="modificationRadioLabel">Inactif</label>
+                    <input class="modificationRadioButton" type="radio"  name="accountState" ng-model="accountState"
+                           ng-checked="accountState==false" value="false" />
+                </div>
+                <div ng-show="userType">
+                    <div>
+                    <label>Professionel :</label>
+                    <label class="modificationRadioLabel">Oui</label>
+                    <input class="modificationRadioButton" type="radio" name="professionalState" ng-model="professionalState"
+                           ng-checked="professionalState==false" value="false" ng-click="professionalState=false"/>
+                    <label class="modificationRadioLabel">Non</label>
+                    <input class="modificationRadioButton" type="radio" name="professionalState" ng-model="professionalState"
+                           ng-checked="professionalState==true" value="true" ng-click="professionalState=true" />
+                    </div>
+                    <div>
+                        <label>Statut compte fournisseur :</label>
+                        <label class="modificationRadioLabel" >Valide</label>
+                        <input class="modificationRadioButton" type="radio" name="supplierAccountState" ng-model="supplierAccountState"
+                               ng-checked="supplierAccountState==true" value="true" />
+                        <label class="modificationRadioLabel" >Non-valide</label>
+                        <input class="modificationRadioButton" type="radio" name="supplierAccountState" ng-model="supplierAccountState"
+                               ng-checked="supplierAccountState==false" value="false" />
+                    </div>
+                </div>
+                <div class="professionalContainer" ng-show="!professionalState">
+                    <div>
+                        <label for="companyNameModification">Nom de l'entreprise :</label>
+                        <input  type="text" name="companyNameModification"  ng-model="companyNameModification" id="companyNameModification"/>
+                    </div>
+                    <div>
+                        <label for="companyAddressModification">Adresse de l'entreprise :</label>
+                        <input  type="text" name="companyAddressModification"  ng-model="companyAddressModification" id="companyAddressModification"/>
+                    </div>
+                    <div>
+                        <label for="siretNumberModification">Numéro de siret :</label>
+                        <input  type="text" name="siretNumberModification"  ng-model="siretNumberModification" id="siretNumberModification"/>
+                    </div>
+                </div>
+                <button ng-click="update()">Enregistrer les modifications</button>
             </div>
 
 
@@ -65,8 +122,6 @@
                 <div class="tableContainer">
                     <div class="col-md-12 col-lg-12" ultimate-datatable="datatable"/>
                 </div>
-
-
             </div>
         </div>
     </div>

@@ -3,6 +3,8 @@
 controllers.controller('UserListCtrl', ['$scope','datatable','UserListService','dialogs','$filter',
     function ($scope,datatable,UserListService,dialogs,$filter) {
 
+        $scope.userType=false;
+        $scope.professionalState=true;
         var datatableConfig = {
             "name":"simple_datatable",
             "columns":[
@@ -54,7 +56,13 @@ controllers.controller('UserListCtrl', ['$scope','datatable','UserListService','
                     "property":"supplier",
                     "order":false,
                     "type":"text"
-                }
+                }/*,
+                {
+                    "header":"Professionel",
+                    "property":"professionalState",
+                    "order":false,
+                    "type":"text"
+                }*/
                 ],
             /*"edit":{
                 "active":true,
@@ -88,6 +96,21 @@ controllers.controller('UserListCtrl', ['$scope','datatable','UserListService','
                     $scope.usernameModification=data.login;
                     $scope.mailModification=data.email;
                     $scope.birthDateModification=new Date(data.birthdate+'T00:00:00');
+                    $scope.userType=data.supplier;
+                    $scope.accountState=data.active;
+                    if(data.supplier==true){
+                        console.log(data.supplierAccountState);
+                        $scope.supplierAccountState=data.supplierAccountState;
+                        $scope.professionalState=data.professionalState;
+                        $scope.companyNameModification=data.companyName;
+                        $scope.companyAddressModification=data.companyAddress;
+                        $scope.siretNumberModification=data.siretNumber;
+                    }
+                    else{
+                        $scope.professionalState=true;
+                    }
+
+
                 } //The action to execute when a user select a row. Check line.selected to know whether the user selected or unselected a row.
             }
         };
@@ -112,8 +135,15 @@ controllers.controller('UserListCtrl', ['$scope','datatable','UserListService','
                                 "email": response.content[user].mail,
                                 "birthdate":response.content[user].birthDate,
                                 "active":response.content[user].active,
-                                "supplier":response.content[user].supplier
+                                "supplier":response.content[user].supplier,
+                                "professionalState":response.content[user].isPrivateIndividual,
+                                "companyName":response.content[user].companyName,
+                                "supplierAccountState":response.content[user].isValid,
+                                "companyAddress":response.content[user].companyAddress,
+                                "siretNumber":response.content[user].siretNumber
                             });
+
+                            console.log(response.content[user].isValid);
                         }
                         console.log(response.content);
                         $scope.range = new Array(response.totalPages);
@@ -154,14 +184,39 @@ controllers.controller('UserListCtrl', ['$scope','datatable','UserListService','
             user.username=$scope.usernameModification;
             user.mail=$scope.mailModification;
             user.birthDate=$scope.birthDateModification;
-            UserListService.updateUser().query(user).$promise
-                .then(
-                    function success(response) {
-                        dialogs.notify("Succès modification", "Les informations de l'utilisateur ont été modifiées avec succès");
-                    },
-                    function error() {
-                        
-                    }
-                );
+            user.isActive=$scope.accountState;
+            user.isSupplier=$scope.userType;
+
+            if(user.isSupplier==true) {
+                user.isPrivateIndividual=$scope.professionalState;
+                user.isValid=$scope.supplierAccountState;
+
+                if(user.isPrivateIndividual==false){
+                    console.log("fskdfhksdfhk");
+                    user.companyName=$scope.companyNameModification;
+                    user.companyAddress=$scope.companyAddressModification;
+                    user.siretNumber=$scope.siretNumberModification;
+                }
+                UserListService.updateSupplier().query(user).$promise
+                    .then(
+                        function success(response) {
+                            dialogs.notify("Succès modification", "Les informations de l'utilisateur ont été modifiées avec succès");
+                        },
+                        function error() {
+
+                        }
+                    );
+            }
+            else{
+                UserListService.updatePlayer().query(user).$promise
+                    .then(
+                        function success(response) {
+                            dialogs.notify("Succès modification", "Les informations de l'utilisateur ont été modifiées avec succès");
+                        },
+                        function error() {
+
+                        }
+                    );
+            }
         }
     }]);

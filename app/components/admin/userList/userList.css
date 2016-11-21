@@ -4,7 +4,6 @@
     width: 25%;
     border-right: solid;
     position: relative;
-   /*margin-top:5%;*/
 }
 
 .filterContainer label{
@@ -20,124 +19,18 @@
 
 }
 
+.modifyContainer .modificationRadioLabel{
+    width:13%;
+    margin-left:0%;
+}
+
+.modifyContainer .modificationRadioButton {
+    margin-top: 2% !important;
+    margin-right: 3% !important;
+}
+
 .modifyContainer .modifyIdDiv{
     margin-top:4%;
-}
-
-
-
-.modifyContainer{
-    /*margin-top: 5%;*/
-}
-.pageNumberContainer{
-    margin-left: 3%;
-}
-
-.tableContainer tbody{
-    height:40%;
-}
-
-/* BEGIN COLUMN 1 */
-.tableContainer thead tr th:nth-child(1){
-    width:3em;
-}
-
-.tableContainer tr:first-child td:nth-child(1) {
-    width:3em;
-}
-
-/* END COLUMN 1 */
-
-/* BEGIN COLUMN 2 */
-.tableContainer thead tr th:nth-child(2){
-    width:12em;
-}
-
-.tableContainer tr:first-child td:nth-child(2) {
-    width:12em;
-}
-/* END COLUMN 2 */
-
-/* BEGIN COLUMN 3 */
-.tableContainer thead tr th:nth-child(3){
-    width:10em;
-}
-
-.tableContainer tr:first-child td:nth-child(3) {
-    width:10em;
-}
-
-/* END COLUMN 3 */
-
-/* BEGIN COLUMN 4 */
-.tableContainer thead tr th:nth-child(4){
-    width:10em;
-}
-
-.tableContainer tr:first-child td:nth-child(4) {
-    width:10em;
-}
-
-/* END COLUMN 4*/
-
-/* BEGIN COLUMN 5 */
-.tableContainer thead tr th:nth-child(5){
-    width:20em;
-}
-
-.tableContainer tr:first-child td:nth-child(5) {
-    width:20em;
-}
-
-/* END COLUMN 5*/
-
-/* BEGIN COLUMN 6 */
-.tableContainer thead tr th:nth-child(6){
-    width:10em;
-}
-
-.tableContainer tr:first-child td:nth-child(6) {
-    width:10em;
-}
-
-/* END COLUMN 6*/
-
-/* BEGIN COLUMN 7*/
-.tableContainer thead tr th:nth-child(7){
-    width:4em;
-}
-
-.tableContainer tr:first-child td:nth-child(7) {
-    width:4em;
-}
-
-/* END COLUMN 7*/
-
-/* BEGIN COLUMN 7*/
-.tableContainer thead tr th:nth-child(8){
-    width:6em;
-}
-
-.tableContainer tr:first-child td:nth-child(8) {
-    width:6em;
-}
-
-/* END COLUMN 7*/
-
-@media screen and (max-width:1249px) {
-
-
-    .filterContainer {
-        width: 25%;
-    }
-
-    .filterContainer label {
-        font-size: 10px;
-    }
-
-    .filterContainer input {
-        width: 50%;
-    }
 }
 
 .tableContainer tbody{
@@ -145,25 +38,7 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
-.tableContainer tbody,
-.tableContainer thead {
-    display: block;
-}
 
-.tableContainer thead {
-    width:100%;
-}
-
-.tableContainer thead tr th {
-    /*height: 30px;
-    line-height: 30px;*/
-    text-align: center;
-    /* text-align: left; */
-}
-
-.tableContainer td{
-    text-align: center;
-}
 
 .searchContainer{
     display: inline-block;
@@ -175,18 +50,14 @@
 .userListContainer{
     min-height: 100vh;
     position:relative;
-    overflow-x:hidden;
-    overflow-y:hidden;
 }
 
-
+.pageNumberContainer{
+    margin-left: 3%;
+}
 
 
 .resultContainer{
     /*display: inline-block;*/
     border-top: solid;
 }
-
-/*.modifyContainer{
-    display:inline-block;
-}*/
