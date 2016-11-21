@@ -1,7 +1,32 @@
-<div class="userListContainer" xmlns="http://www.w3.org/1999/html">
-    <div class="filterContainer">
+<label for="show-menu" class="show-menu">
+    <img src="images/eclair vert clair - 48E590.png" />
+    Menu
+</label>
+<input type="checkbox" id="show-menu" role="button">
+
+<nav class="headerInline">
+    <img class="imageHeaderInline" src="images/eclair vert clair - 48E590.png" />
+
+    <ul  class="menuHeaderInline">
+        <li class="lienJoueur"><a href="">Thèmes</a></li> <!-- Liste des thèmes, représentés par leur image, accès au sous themes quand on clique sur un theme, puis au qcm.. -->
+        <li class="lienJoueur"><a href="">QCM</a></li> <!-- Simple recherche de QCM avec possiblité d'y jouer-->
+        <li class="lienJoueur"><a href="">Profil</a></li> <!--comprends les stats, le porte feuille, l'accès à l'édition du profil, à une demande pour devenir fournisseur etc-->
+        <li class="lienJoueur"><a href="">Communautés</a></li> <!-- -->
+        <li class="lienFournisseur lienAdministrateur"><a href="">Gérer les QCM</a></li> <!--Pour les fournisseurs, ajouter, supprimer modifier les QCM, + acceder au stat par qcm?
+                                                    Pour les adminitrateurs : la gestion en general avec ceux en attente, plus vue de tous les qcm-->
+        <li class="lienAdministrateur"><a href="">Editer les règlements</a></li><!-- Uniquement pour les administrateurs -->
+        <li class="lienAdministrateur"><a href="#/admin/userList">Gèrer les comptes</a></li><!-- Uniquement pour les administrateurs -->
+        <li class="lienAdministrateur"><a href="">Demandes fournisseurs</a></li><!-- Uniquement pour les administrateurs -->
+        <li class="lienAdministrateur"><a href="">Gérer les thèmes</a></li><!-- Uniquement pour les administrateurs -->
+    </ul>
+
+</nav>
+
+<div class="contenuInline">
+
+    <div class="userListFilters">
         <form>
-            <div class="filterLoginDiv">
+            <div>
                 <label for="username">Login :</label>
                 <input type="text" name="username" id="username" ng-model="username" placeholder="Login">
             </div>
@@ -15,37 +40,37 @@
             </div>
             <button ng-click="search()">Rechercher</button>
         </form>
+        </div>
     </div>
 
-
-        <div class="searchContainer">
-            <div class="modifyContainer">
-                <div class="modifyIdDiv">
-                    <label for="firstnameModification">Id : </label>
+    <div class="userListModifyContainer">
+        <div class="userListModify">
+                <div>
+                    <label class="userListModifyLabel" for="firstnameModification">Id : </label>
                     {{idModification}}
                 </div>
                 <div>
-                    <label for="firstnameModification">Prénom :</label>
+                    <label class="userListModifyLabel" for="firstnameModification">Prénom :</label>
                     <input  type="text" name="firstnameModification" id="firstnameModification" ng-model="firstnameModification"/>
                 </div>
                 <div>
-                    <label for="lastnameModification">Nom :</label>
+                    <label class="userListModifyLabel" for="lastnameModification">Nom :</label>
                     <input  type="text" name="lastnameModification" id="lastnameModification" ng-model="lastnameModification"/>
                 </div>
                 <div>
-                    <label for="usernameModification">Nom :</label>
+                    <label class="userListModifyLabel" for="usernameModification">Nom :</label>
                     <input  type="text" name="usernameModification" id="usernameModification" ng-model="usernameModification"/>
                 </div>
                 <div>
-                    <label for="mailModification">E-mail :</label>
+                    <label class="userListModifyLabel" for="mailModification">E-mail :</label>
                     <input  type="text" name="mailModification" id="mailModification" ng-model="mailModification"/>
                 </div>
                 <div>
-                    <label for="birthDate">Date de naissance :</label>
+                    <label class="userListModifyLabel" for="birthDate">Date de naissance :</label>
                     <input type="date"  name="birthDate" id="birthDate" ng-model="birthDateModification" placeholder="Date de naissance" required/>
                 </div>
                 <div class="radioForm">
-                    <label>Type d'utilisateur :</label>
+                    <label class="userListModifyLabel">Type d'utilisateur :</label>
                     <label class="modificationRadioLabel">Joueur</label>
                     <input class="modificationRadioButton" type="radio" name="userType" ng-model="userType"
                            ng-checked="userType==false" value="false"  ng-click="userType=false; professionalState=true"/>
@@ -57,7 +82,7 @@
                 </div>
 
                 <div class="radioForm">
-                    <label>Statut compte :</label>
+                    <label class="userListModifyLabel">Statut compte :</label>
                     <label class="modificationRadioLabel">Actif</label>
                     <input class="modificationRadioButton" type="radio"  name="accountState" ng-model="accountState"
                            ng-checked="accountState==true" value="true"/>
@@ -69,7 +94,7 @@
                 </div>
                 <div ng-show="userType">
                     <div>
-                    <label>Professionel :</label>
+                    <label class="userListModifyLabel">Professionel :</label>
                     <label class="modificationRadioLabel">Oui</label>
                     <input class="modificationRadioButton" type="radio" name="professionalState" ng-model="professionalState"
                            ng-checked="professionalState==false" value="false" ng-click="professionalState=false"/>
@@ -78,7 +103,7 @@
                            ng-checked="professionalState==true" value="true" ng-click="professionalState=true" />
                     </div>
                     <div>
-                        <label>Statut compte fournisseur :</label>
+                        <label class="userListModifyLabel">Statut compte fournisseur :</label>
                         <label class="modificationRadioLabel" >Valide</label>
                         <input class="modificationRadioButton" type="radio" name="supplierAccountState" ng-model="supplierAccountState"
                                ng-checked="supplierAccountState==true" value="true" />
@@ -89,41 +114,38 @@
                 </div>
                 <div class="professionalContainer" ng-show="!professionalState">
                     <div>
-                        <label for="companyNameModification">Nom de l'entreprise :</label>
+                        <label class="userListModifyLabel" for="companyNameModification">Nom de l'entreprise :</label>
                         <input  type="text" name="companyNameModification"  ng-model="companyNameModification" id="companyNameModification"/>
                     </div>
                     <div>
-                        <label for="companyAddressModification">Adresse de l'entreprise :</label>
+                        <label class="userListModifyLabel" for="companyAddressModification">Adresse de l'entreprise :</label>
                         <input  type="text" name="companyAddressModification"  ng-model="companyAddressModification" id="companyAddressModification"/>
                     </div>
                     <div>
-                        <label for="siretNumberModification">Numéro de siret :</label>
+                        <label class="userListModifyLabel" for="siretNumberModification">Numéro de siret :</label>
                         <input  type="text" name="siretNumberModification"  ng-model="siretNumberModification" id="siretNumberModification"/>
                     </div>
                 </div>
                 <button ng-click="update()">Enregistrer les modifications</button>
             </div>
-
-
-        <div class="container-fluid, resultContainer ">
-            <select name="singleSelect" ng-model="pageSize" ng-init="pageSize=5">
-                <option value="5" ng-selected="true">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="20">20</option>
-            </select>
-            <div class="row">
-                <h3 align=center>Rechercher un utilisateur</h3><br>
-                <div class="pageNumberContainer">
-                    <button ng-repeat="i in range.slice(0,repeatCount) track by $index" ng-click="displayPage($index)">
-                        {{$index+1}}
-                    </button>
-                </div>
-                <div class="tableContainer">
-                    <div class="col-md-12 col-lg-12" ultimate-datatable="datatable"/>
-                </div>
-            </div>
-        </div>
     </div>
 
+    <div class="userListResults">
+        <label class="userListLabelNumberUsers">Nombre d'utilisateurs par page</label>
+        <select class="userListSelect" name="singleSelect" ng-model="pageSize" ng-init="pageSize=5">
+            <option value="5" ng-selected="true">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+            <label class="userListTitleTable">Liste des utilisateurs</label>
+            <div class="pageNumberContainer">
+                <button ng-repeat="i in range.slice(0,repeatCount) track by $index" ng-click="displayPage($index)">
+                    {{$index+1}}
+                </button>
+            </div>
+            <div class="tableContainer">
+                <div ultimate-datatable="datatable"/>
+            </div>
+    </div>
 </div>
