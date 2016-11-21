@@ -1,0 +1,17 @@
+<div ng-controller="EditThemeCtrl" ng-init="getTheme()">
+    <form>
+        <div>
+            <label>Nom<input type="text" name="label" id="label" ng-model="label"
+                             placeholder="Nom du thème"
+                             ng-minlength="4" ng-maxlength="20" required></label>
+        </div>
+        <div>
+            <label>Description<input type="text" name="description" id="description" ng-model="description"
+                                     placeholder="Description"
+                                     ng-minlength="4" ng-maxlength="20" required></label>
+        </div>
+        <div>
+            <button class="button" ng-click="editTheme()">Éditer le thème</button>
+        </div>
+    </form>
+</div>

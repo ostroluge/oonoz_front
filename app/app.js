@@ -52,5 +52,9 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             templateUrl: 'components/admin/themes/addSubTheme/addSubThemeView.html',
             controller: 'AddSubThemeCtrl'
         })
+        .when('/themes/:id/edit', {
+            templateUrl: 'components/admin/themes/editTheme/editThemeView.html',
+            controller: 'EditThemeCtrl'
+        })
         .otherwise({redirectTo: '/login'});
 }]);

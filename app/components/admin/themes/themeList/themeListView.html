@@ -3,7 +3,7 @@
     <h2>Thèmes et sous-thèmes</h2>
     <a href="#/themes/new">Ajouter un thème</a>
     <div ng-repeat="theme in themes">
-        <p>{{theme.label}}</p>
+        <p>{{theme.label}} <a href="#/themes/{{theme.idTheme}}/edit">Éditer le thème</a></p>
         <div ng-repeat="subtheme in theme.subThemes">
             <p>{{subtheme.label}}</p>
         </div>
