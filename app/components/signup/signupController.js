@@ -70,12 +70,22 @@ controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'P
             dialogs.error("Erreur", "Le username/adresse mail n'est pas disponible !")
         }
 
+
         function notifyInternalErrorOccurs () {
             dialogs.error("Erreur", "Une erreur interne s'est produite !");
         }
+        $scope.kindTerm = 'player';
+
+        $scope.updateStatus = function () {
+            if ($scope.wannaBeSupplier) {
+                $scope.kindTerm = 'supplier';
+            } else {
+                $scope.kindTerm = 'player';
+            }
+        };
 
         $scope.passwordsMatch = false;
-
+    
         $scope.checkPasswords = function () {
             if ($scope.password === $scope.passwordConfirmation) {
                 $scope.passwordsMatch = false;

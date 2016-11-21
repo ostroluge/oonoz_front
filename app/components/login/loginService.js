@@ -1,4 +1,4 @@
-
+'use strict';
 services.factory('LoginService', ['$resource','$location',
     function($resource){
         return{
@@ -9,5 +9,5 @@ services.factory('LoginService', ['$resource','$location',
                         cache: false, isArray: false
                     }
                 });
-            } ,
+            }
         }}]);

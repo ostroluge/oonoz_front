@@ -12,22 +12,22 @@
  */
 //angular.module("LoginCtrl", ['LoginService'])
 controllers.controller('LoginCtrl', ['$scope','LoginService','$location',
-        function ($scope,LoginService,$location) {
-            $scope.user = {};
-            $scope.username = "";
-            $scope.userPassword = "";
+    function ($scope,LoginService,$location) {
+        $scope.user = {};
+        $scope.username = "";
+        $scope.userPassword = "";
 
-            $scope.authenticate = function () {
-                LoginService.login($scope.username,$scope.userPassword).query()
-                    .$promise
-                    .then(
-                        function success(response) {
-                            $location.path('/home');
-                        },
-                        function error() {
-                            $scope.authFailed = true;
+        $scope.authenticate = function () {
+            LoginService.login($scope.username,$scope.userPassword).query()
+                .$promise
+                .then(
+                    function success(response) {
+                        $location.path('/home');
+                    },
+                    function error() {
+                        $scope.authFailed = true;
 
-                        }
-                    );
-            }
-        }]);
+                    }
+                );
+        }
+    }]);
