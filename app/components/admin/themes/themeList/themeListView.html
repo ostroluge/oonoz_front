@@ -1,12 +1,12 @@
 <div ng-controller="ThemeListCtrl" ng-init="getThemes()">
     <h1>Gérer les thèmes</h1>
     <h2>Thèmes et sous-thèmes</h2>
+    <a href="#/themes/new">Ajouter un thème</a>
     <div ng-repeat="theme in themes">
         <p>{{theme.label}}</p>
         <div ng-repeat="subtheme in theme.subThemes">
             <p>{{subtheme.label}}</p>
         </div>
-        <a href="#/subthemes/new">Ajouter un sous-thème</a>
+        <a href="#/themes/{{theme.idTheme}}/subthemes/new">Ajouter un sous-thème</a>
     </div>
-    <a href="#/themes/new">Ajouter un thème</a>
 </div>

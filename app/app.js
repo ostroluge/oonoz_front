@@ -41,12 +41,16 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             controller: 'TermCtrl'
         })
         .when('/themes', {
-            templateUrl: 'components/admin/themeList/themeListView.html',
+            templateUrl: 'components/admin/themes/themeList/themeListView.html',
             controller: 'ThemeListCtrl'
         })
         .when('/themes/new', {
-            templateUrl: 'components/admin/addTheme/addThemeView.html',
+            templateUrl: 'components/admin/themes/addTheme/addThemeView.html',
             controller: 'AddThemeCtrl'
+        })
+        .when('/themes/:id/subthemes/new', {
+            templateUrl: 'components/admin/themes/addSubTheme/addSubThemeView.html',
+            controller: 'AddSubThemeCtrl'
         })
         .otherwise({redirectTo: '/login'});
 }]);
