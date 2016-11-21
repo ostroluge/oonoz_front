@@ -5,7 +5,8 @@
     <div ng-repeat="theme in themes">
         <p>{{theme.label}} <a href="#/themes/{{theme.idTheme}}/edit">Éditer le thème</a></p>
         <div ng-repeat="subtheme in theme.subThemes">
-            <p>{{subtheme.label}}</p>
+            <p>{{subtheme.label}} <a href="#/themes/{{theme.idTheme}}/subthemes/{{subtheme.id}}/edit">Éditer le
+                sous-thème</a></p>
         </div>
         <a href="#/themes/{{theme.idTheme}}/subthemes/new">Ajouter un sous-thème</a>
     </div>
