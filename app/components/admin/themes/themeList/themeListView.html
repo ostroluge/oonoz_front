@@ -3,10 +3,15 @@
     <h2>Thèmes et sous-thèmes</h2>
     <a href="#/themes/new">Ajouter un thème</a>
     <div ng-repeat="theme in themes">
-        <p>{{theme.label}} <a href="#/themes/{{theme.idTheme}}/edit">Éditer le thème</a></p>
+        <p>{{theme.label}}
+            <a href="#/themes/{{theme.idTheme}}/edit">Éditer le thème</a>
+            <a ng-href="" ng-click="deleteTheme(theme.idTheme)">Supprimer le thème</a>
+        </p>
         <div ng-repeat="subtheme in theme.subThemes">
-            <p>{{subtheme.label}} <a href="#/themes/{{theme.idTheme}}/subthemes/{{subtheme.id}}/edit">Éditer le
-                sous-thème</a></p>
+            <p>{{subtheme.label}}
+                <a href="#/themes/{{theme.idTheme}}/subthemes/{{subtheme.id}}/edit">Éditer le sous-thème</a>
+                <a ng-href="" ng-click="deleteSubTheme(theme.idTheme, subtheme.id)">Supprimer le sous-thème</a>
+            </p>
         </div>
         <a href="#/themes/{{theme.idTheme}}/subthemes/new">Ajouter un sous-thème</a>
     </div>

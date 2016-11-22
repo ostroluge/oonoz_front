@@ -12,5 +12,25 @@ services.factory('ThemeListService', ['$resource','$location',
                         isArray: true
                     }
                 });
+            },
+
+            deleteTheme: function(id) {
+                return $resource("http://localhost:8080/themes/"+id, {}, {
+                    query: {
+                        method: 'DELETE',
+                        cache: false,
+                        isArray: false
+                    }
+                });
+            },
+
+            deleteSubTheme: function(idTheme, idSubTheme) {
+                return $resource("http://localhost:8080/themes/"+idTheme+"/subthemes/"+idSubTheme, {}, {
+                    query: {
+                        method: 'DELETE',
+                        cache: false,
+                        isArray: false
+                    }
+                });
             }
         }}]);
