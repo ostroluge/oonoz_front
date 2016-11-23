@@ -16,6 +16,7 @@ controllers.controller('AddThemeCtrl', ['$scope','AddThemeService','$location',
             var theme = {};
             theme.label = $scope.label;
             theme.description = $scope.description;
+            theme.validated = false;
 
             AddThemeService.postTheme().query(theme)
                 .$promise

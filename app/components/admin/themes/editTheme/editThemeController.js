@@ -18,6 +18,7 @@ controllers.controller('EditThemeCtrl', ['$scope', 'EditThemeService', '$locatio
             theme.label = $scope.label;
             theme.description = $scope.description;
             theme.idTheme = $routeParams.id;
+            theme.validated = false;
 
             EditThemeService.editTheme(theme.idTheme).query(theme)
                 .$promise

@@ -17,6 +17,7 @@ controllers.controller('AddSubThemeCtrl', ['$scope','AddSubThemeService','$locat
             subtheme.label = $scope.label;
             subtheme.description = $scope.description;
             subtheme.idTheme = $routeParams.id;
+            subtheme.validated = false;
 
             AddSubThemeService.postSubTheme(subtheme.idTheme).query(subtheme)
                 .$promise

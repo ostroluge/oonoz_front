@@ -19,6 +19,7 @@ controllers.controller('EditSubThemeCtrl', ['$scope', 'EditSubThemeService', '$l
             subtheme.description = $scope.description;
             subtheme.idTheme = $routeParams.idTheme;
             subtheme.idSubTheme = $routeParams.idSubTheme;
+            subtheme.validated = false;
 
             EditThemeService.editSubTheme(subtheme.idTheme, subtheme.idSubTheme).query(subtheme)
                 .$promise

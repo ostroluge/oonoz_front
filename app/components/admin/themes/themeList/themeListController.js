@@ -68,5 +68,57 @@ controllers.controller('ThemeListCtrl', ['$scope', 'ThemeListService', 'dialogs'
                 }
             );
         };
+
+        $scope.validateTheme = function (idTheme) {
+            ThemeListService.validateTheme(idTheme).query()
+                .$promise
+                .then(
+                    function success(data) {
+                        $scope.getThemes();
+                    },
+                    function error() {
+                        console.log("Error themeListCtrl:validateTheme")
+                    }
+                );
+        };
+
+        $scope.validateSubTheme = function (idTheme, idSubTheme) {
+            ThemeListService.validateSubTheme(idTheme, idSubTheme).query()
+                .$promise
+                .then(
+                    function success(data) {
+                        $scope.getThemes();
+                    },
+                    function error() {
+                        console.log("Error themeListCtrl:validateSubTheme")
+                    }
+                );
+        };
+
+        $scope.refuseTheme = function (idTheme) {
+            ThemeListService.deleteTheme(idTheme).query()
+                .$promise
+                .then(
+                    function success(data) {
+                        $scope.getThemes();
+                    },
+                    function error() {
+                        console.log("Error themeListCtrl:refuseTheme")
+                    }
+                );
+        };
+
+        $scope.refuseSubTheme = function (idTheme, idSubTheme) {
+            ThemeListService.deleteSubTheme(idTheme, idSubTheme).query()
+                .$promise
+                .then(
+                    function success(data) {
+                        $scope.getThemes();
+                    },
+                    function error() {
+                        console.log("Error themeListCtrl:refuseSubTheme")
+                    }
+                );
+        };
     }
 ]);
