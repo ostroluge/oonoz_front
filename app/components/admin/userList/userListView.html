@@ -13,7 +13,25 @@
                 <label for="firstname">Prénom :</label>
                 <input type="text" name="firstname" id="firstname" ng-model="firstname" placeholder="Prénom">
             </div>
+            <div >
+                <label for="mail">E-mail :</label>
+                <input type="text" name="mail" id="mail" ng-model="mail" placeholder="E-mail">
+            </div>
+
+            <div>
+                <label for="playerStatusCbox">Joueur</label>
+                <input type="checkbox" id="playerStatusCbox" value="playerStatus" ng-model="playerStatusCbox" ng-init="playerStatusCbox=false">
+                <label for="supplierStatusCbox">Fournisseur</label>
+                <input type="checkbox" id="supplierStatusCbox" value="supplierStatus" ng-model="supplierStatusCbox"  ng-init="supplierStatusCbox=false">
+            </div>
+            <div>
+                <label for="userActiveCbox">Actif</label>
+                <input type="checkbox" id="userActiveCbox" value="userActive" ng-model="userActiveCbox" ng-init="userActiveCbox=false">
+                <label for="userInactiveCbox">Inactif</label>
+                <input type="checkbox" id="userInactiveCbox" value="userInactive" ng-model="userInactiveCbox"  ng-init="userInactiveCbox=false">
+            </div>
             <button ng-click="search()">Rechercher</button>
+            <button ng-click="erase()">Effacer</button>
         </form>
     </div>
 
@@ -33,7 +51,7 @@
                     <input  type="text" name="lastnameModification" id="lastnameModification" ng-model="lastnameModification"/>
                 </div>
                 <div>
-                    <label for="usernameModification">Nom :</label>
+                    <label for="usernameModification">Nom d'utilisateur :</label>
                     <input  type="text" name="usernameModification" id="usernameModification" ng-model="usernameModification"/>
                 </div>
                 <div>
@@ -85,6 +103,7 @@
                         <label class="modificationRadioLabel" >Non-valide</label>
                         <input class="modificationRadioButton" type="radio" name="supplierAccountState" ng-model="supplierAccountState"
                                ng-checked="supplierAccountState==false" value="false" />
+
                     </div>
                 </div>
                 <div class="professionalContainer" ng-show="!professionalState">
@@ -102,11 +121,12 @@
                     </div>
                 </div>
                 <button ng-click="update()">Enregistrer les modifications</button>
+                <button ng-click="delete()">Supprimer un utilisateur</button>
             </div>
 
 
         <div class="container-fluid, resultContainer ">
-            <select name="singleSelect" ng-model="pageSize" ng-init="pageSize=5">
+            <select name="singleSelect" ng-model="pageSize" ng-init="pageSize=5" ng-click="search_(pageSize)">
                 <option value="5" ng-selected="true">5</option>
                 <option value="10">10</option>
                 <option value="15">15</option>
