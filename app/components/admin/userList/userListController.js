@@ -42,7 +42,7 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
                 {
                     "header": "Date de naissance",
                     "property": "birthdate",
-                    "order": false,
+                    "order": true,
                     "type": "text",
                     "format": "date"
                 },
@@ -144,7 +144,13 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
                                 "siretNumber": response.content[user].siretNumber
                             });
                         }
-                        $scope.range = new Array(response.totalPages);
+                        console.log(response.content);
+                        if (response.totalPages!=1) {
+                            $scope.range = new Array(response.totalPages);
+                        }
+                        else{
+                            $scope.range=0;
+                        }
                         $scope.datatable.setData(datatableData);
                     }
                     ,function error(response) {
