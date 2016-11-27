@@ -1,0 +1,63 @@
+.filterContainer{
+    display: inline-block;
+    min-height: 100vh;
+    width: 25%;
+    border-right: solid;
+    position: relative;
+}
+
+.filterContainer label{
+    width: 24%;
+}
+
+.filterContainer .filterLoginDiv{
+    margin-top:4%;
+}
+.modifyContainer label{
+    width:23%;
+    margin-left:5%;
+
+}
+
+.modifyContainer .modificationRadioLabel{
+    width:13%;
+    margin-left:0%;
+}
+
+.modifyContainer .modificationRadioButton {
+    margin-top: 2% !important;
+    margin-right: 3% !important;
+}
+
+.modifyContainer .modifyIdDiv{
+    margin-top:4%;
+}
+
+.tableContainer tbody{
+    height: 35em;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.searchContainer{
+    display: inline-block;
+    /*min-height: 100%;*/
+    width:75%;
+    position: absolute;
+}
+
+.userListContainer{
+    min-height: 100vh;
+    position:relative;
+}
+
+.pageNumberContainer{
+    margin-left: 3%;
+}
+
+
+.resultContainer{
+    /*display: inline-block;*/
+    border-top: solid;
+}
