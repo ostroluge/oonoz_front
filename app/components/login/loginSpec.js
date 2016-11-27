@@ -34,10 +34,10 @@ describe('Test the login component', function() {
 
     it('a signup with existing user', function() {
         browser.get("http://localhost:63342/oonoz_front/app/index.html#/signup");
-        element(by.model('username')).sendKeys('jalzuritro');
-        element(by.model('firstName')).sendKeys('jal');
-        element(by.model('lastName')).sendKeys('zuritro');
-        element(by.model('mail')).sendKeys('jalzuritro@gmail.com');
+        element(by.model('username')).sendKeys('pdurant');
+        element(by.model('firstName')).sendKeys('paul');
+        element(by.model('lastName')).sendKeys('durant');
+        element(by.model('mail')).sendKeys('pdurant@gmail.com');
         element(by.model('password')).sendKeys('Password59');
         element(by.model('passwordConfirmation')).sendKeys('Password59');
         element(by.model('birthDate')).sendKeys('25/10/2016');

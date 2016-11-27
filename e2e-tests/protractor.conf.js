@@ -4,10 +4,12 @@ exports.config = {
   allScriptsTimeout: 11000,
 
   specs: [
+      //Chemin des fichiers de test
     '../app/components/login/*Spec.js'
   ],
 
   capabilities: {
+    //Liste des navigateurs
     'browserName': 'chrome'
   },
 
