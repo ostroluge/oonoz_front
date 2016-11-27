@@ -11,6 +11,9 @@
                                         ng-minlength="4" ng-maxlength="20" required></textarea></label>
         </div>
         <div>
+            <input type="file" ng-model="subThemeImage" accept="image/*" base-sixty-four-input>
+        </div>
+        <div>
             <button class="button" ng-click="postSubTheme()">Ajouter le sous-thème</button>
         </div>
     </form>

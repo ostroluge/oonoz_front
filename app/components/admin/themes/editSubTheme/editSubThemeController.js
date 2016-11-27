@@ -19,9 +19,16 @@ controllers.controller('EditSubThemeCtrl', ['$scope', 'EditSubThemeService', '$l
             subtheme.description = $scope.description;
             subtheme.idTheme = $routeParams.idTheme;
             subtheme.idSubTheme = $routeParams.idSubTheme;
-            subtheme.validated = false;
+            subtheme.validated = true;
 
-            EditThemeService.editSubTheme(subtheme.idTheme, subtheme.idSubTheme).query(subtheme)
+            if ($scope.subThemeImage != null) {
+                subtheme.iconUrl = $scope.subThemeImage;
+            }
+            if ($scope.subThemeImage.base64 != null) {
+                subtheme.iconUrl = $scope.subThemeImage.base64;
+            }
+
+            EditSubThemeService.editSubTheme(subtheme.idTheme, subtheme.idSubTheme).query(subtheme)
                 .$promise
                 .then(
                     function success(data) {
@@ -38,9 +45,11 @@ controllers.controller('EditSubThemeCtrl', ['$scope', 'EditSubThemeService', '$l
                 .$promise
                 .then(
                     function success(data) {
-                        console.log(data.label);
                         $scope.label = data.label;
                         $scope.description = data.description;
+                        $scope.subThemeImage = data.iconUrl;
+                        $scope.idTheme = data.idTheme;
+                        $scope.idSubTheme = data.id;
                     },
                     function error(msg) {
                         console.log("Error EditSubThemeCtrl:getSubTheme")

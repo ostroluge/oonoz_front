@@ -11,7 +11,8 @@ var oonozApp = angular.module('oonozApp', [
     'controllers',
     'models',
     'dialogs.main',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'naif.base64'
 ]);
 
 oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider) {

@@ -18,7 +18,14 @@ controllers.controller('EditThemeCtrl', ['$scope', 'EditThemeService', '$locatio
             theme.label = $scope.label;
             theme.description = $scope.description;
             theme.idTheme = $routeParams.id;
-            theme.validated = false;
+            theme.validated = true;
+
+            if ($scope.themeImage != null) {
+                theme.iconUrl = $scope.themeImage;
+            }
+            if ($scope.themeImage.base64 != null) {
+                theme.iconUrl = $scope.themeImage.base64;
+            }
 
             EditThemeService.editTheme(theme.idTheme).query(theme)
                 .$promise
@@ -39,6 +46,7 @@ controllers.controller('EditThemeCtrl', ['$scope', 'EditThemeService', '$locatio
                     function success(data) {
                         $scope.label = data.label;
                         $scope.description = data.description;
+                        $scope.themeImage = data.iconUrl;
                     },
                     function error(msg) {
                         console.log("Error EditThemeCtrl:getTheme")
