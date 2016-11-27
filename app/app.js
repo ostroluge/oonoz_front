@@ -40,5 +40,9 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             templateUrl: 'components/term/termView.html',
             controller: 'TermCtrl'
         })
+        .when ('/admin/createAccount',{
+            templateUrl: 'components/admin/createAccount/createAccountView.html',
+            controller: 'createAccountCtrl'
+        })
         .otherwise({redirectTo: '/login'});
 }]);

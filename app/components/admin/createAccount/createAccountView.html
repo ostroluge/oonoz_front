@@ -1,10 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="offlineConteneur"  xmlns="http://www.w3.org/1999/xhtml">
+    <form name="signupForm" ng-submit="submit()">
+        <div class="debutForm">
+            <div class="titre">Création d'un compte utilisateur</div>
+        </div>
+
+        <div class="ligneForm">
+            <img class="imgForm" src="images/user.png">
+            <input type="text" name="username" id="username" ng-model="username" class="inputForm"
+                   placeholder="Nom d'utilisateur"
+                   ng-minlength="4" ng-maxlength="20" ng-pattern="/^[A-z][a-zA-Z0-9À-ÿ]*$/" required>
+        </div>
+        <span class="errorForm" ng-show="signupForm.username.$error.required && signupForm.username.$dirty">Champ obligatoire</span>
+        <span class="errorForm" ng-show="!signupForm.username.$error.minLenght && !signupForm.username.$error.maxLength &&
+                    signupForm.username.$error.pattern && signupForm.username.$dirty">Doit commencer par une lettre et contenir uniquement des lettres et chiffres</span>
+        <span class="errorForm" ng-show="!signupForm.username.$error.required
+                    && (signupForm.username.$error.minlength || signupForm.username.$error.maxlength)
+                    && signupForm.username.$dirty"> L'identifiant doit contenir 4 à 20 caractères.</span>
+
+
+        <div class="ligneForm">
+            <img class="imgForm" src="images/id-card.png">
+            <input type="text" name="firstName" id="firstName" ng-model="firstName" class="inputForm"
+                   placeholder="Prénom"
+                   ng-minlength="3" ng-maxlength="40" required>
+        </div>
+        <span class="errorForm" ng-show="signupForm.firstName.$error.required && signupForm.firstName.$dirty">Champ obligatoire</span>
+        <span class="errorForm" ng-show="!signupForm.firstName.$error.required
+                    && (signupForm.firstName.$error.minlength || signupForm.firstName.$error.maxlength)
+                    && signupForm.firstName.$dirty"> Le prénom doit contenir 3 à 40 caractères.</span>
+
+
+        <div class="ligneForm">
+            <input type="text" name="lastName" id="lastName" ng-model="lastName" class="inputForm"
+                   placeholder="Nom"
+                   ng-minlength="3" ng-maxlength="40" required>
+        </div>
+        <span class="errorForm" ng-show="signupForm.lastName.$error.required && signupForm.lastName.$dirty">Champ obligatoire</span>
+        <span class="errorForm" ng-show="!signupForm.lastName.$error.required
+                    && (signupForm.lastName.$error.minlength || signupForm.lastName.$error.maxlength)
+                    && signupForm.lastName.$dirty"> Le nom doit contenir 3 à 40 caractères.</span>
+
+
+        <div class="ligneForm">
+            <img class="imgForm" src="images/mail.png">
+            <input type="email" name="mail" id="mail" ng-model="mail" class="inputForm"
+                   placeholder="Email"
+                   required>
+        </div>
+        <span class="errorForm" ng-show="signupForm.mail.$error.required && signupForm.mail.$dirty">Champ obligatoire</span>
+        <span class="errorForm"
+              ng-show="!signupForm.mail.$error.required && signupForm.mail.$error.mail && signupForm.mail.$dirty">Adresse mail invalide</span>
+
+
+        <div class="ligneForm">
+            <img class="imgForm" src="images/locked.png">
+            <input type="password" name="password" id="password" ng-model="password" class="inputForm"
+                   placeholder="Mot de passe"
+                   ng-minlength="8" ng-maxlength="40"
+                   ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" required>
+        </div>
+        <span class="errorForm" ng-show="signupForm.password.$error.required && signupForm.password.$dirty">Champ obligatoire</span>
+        <span class="errorForm" ng-show="!signupForm.password.$error.minLength && !signupForm.password.$error.maxLength &&
+                    signupForm.password.$error.pattern && signupForm.password.$dirty">Le mot de passe doit être formé d'au moins une majuscule, une minuscule, et au moins 1 chiffre ou caractère spécial</span>
+        <span class="errorForm" ng-show="!signupForm.password.$error.required
+                    && (signupForm.password.$error.minlength || signupForm.password.$error.maxlength)
+                    && signupForm.password.$dirty"> Le mot de passe doit contenir 8 à 40 caractères.</span>
+
+
+        <div class="ligneForm">
+            <input type="password" name="passwordConfirmation" id="passwordConfirmation"
+                   ng-model="passwordConfirmation"
+                   ng-keyup="checkPasswords()"
+                   class="inputForm"
+                   placeholder="Confirmation de mot de passe"
+                   ng-minlength="8" ng-maxlength="40"
+                   ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" required>
+        </div>
+        <span class="errorForm"
+              ng-show="signupForm.passwordConfirmation.$error.required && signupForm.passwordConfirmation.$dirty">Champ obligatoire</span>
+        <span ng-show="passwordsMatch">Doit être identique au mot de passe</span>
+
+
+        <div class="ligneForm">
+            <img class="imgForm" src="images/calendar.png">
+            <input type="date" name="birthDate" id="birthDate" ng-model="birthDate" class="inputForm"
+                   placeholder="Date de naissance"
+                   required>
+        </div>
+        <span class="errorForm" ng-show="signupForm.birthDate.$error.required && signupForm.birthDate.$dirty">Champ obligatoire</span>
+
+        <div class="finForm checkBoxVerte">
+            <input type="checkbox" name="wannaBeSupplier" id="wannaBeSupplier" ng-model="wannaBeSupplier"
+                   ng-click="updateStatus()">
+            <label for="wannaBeSupplier"><span class="ui"></span>Je veux devenir fournisseur ?</label>
+        </div>
+
+        <div ng-show="wannaBeSupplier">
+            <div class="radioForm">
+                <input type="radio" id="personnal-choice" name="typeAccount" ng-model="typeAccount"
+                       value="personal"/>
+                <label for="personnal-choice">Particulier</label>
+            </div>
+            <div class="radioForm">
+                <input type="radio" id="professionnal-choice" name="typeAccount" ng-model="typeAccount"
+                       value="professional"/>
+                <label for="professionnal-choice">Professionnel</label>
+            </div>
+        </div>
+
+        <!--<div ng-show="wannaBeSupplier">
+            <label>
+                <input type="radio" name="typeAccount" ng-model="typeAccount"
+                       value="personal">Particulier
+            </label>
+            <label>
+                <input type="radio" name="typeAccount" ng-model="typeAccount"
+                       value="professional">Professionnel
+            </label>
+        </div>-->
+
+        <div ng-show="typeAccount == 'professional' && wannaBeSupplier">
+            <div class="ligneForm">
+                <img class="imgForm" src="images/company.png">
+                <input type="text" name="companyName" id="companyName" ng-model="companyName" class="inputForm"
+                       placeholder="Nom de l'entreprise"
+                       ng-required="typeAccount == 'professional' && wannaBeSupplier">
+            </div>
+            <span class="errorForm"
+                  ng-show="signupForm.companyName.$error.required && signupForm.companyName.$dirty">Champ obligatoire</span>
+
+
+            <div class="ligneForm">
+                <img class="imgForm" src="images/place.png">
+                <input type="text" name="companyAddress" id="companyAddress" ng-model="companyAddress"
+                       class="inputForm"
+                       placeholder="Adresse de l'entreprise"
+                       ng-required="typeAccount == 'professional' && wannaBeSupplier">
+            </div>
+            <span class="errorForm"
+                  ng-show="signupForm.companyAddress.$error.required && signupForm.companyAddress.$dirty">Champ obligatoire</span>
+
+            <div >
+                <img class="imgForm" src="images/official.png">
+                <input type="number" name="companySIRET" id="companySIRET" ng-model="siretNumber" class="inputForm"
+                       placeholder="Numéro de SIRET"
+                       ng-required="typeAccount == 'professional' && wannaBeSupplier"  ng-minlength="14" ng-maxlength="14">
+            </div>
+            <!--<span class="errorForm"
+                      ng-show="signupForm.companySIRET.$error.required && signupForm.companySIRET.$dirty">Champ obligatoire</span>-->
+
+        </div>
+
+
+
+        <div class="finForm">
+            <button class="button" type="submit" value="S'inscrire"
+                    ng-disabled="!signupForm.$valid || !termsOfService">S'inscrire
+            </button>
+        </div>
+    </form>
+</div>
