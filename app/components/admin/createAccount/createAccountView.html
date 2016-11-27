@@ -151,7 +151,11 @@
 
         </div>
 
-
+        <div>
+            <label for="termsOfService">J'accepte les <a ng-href="#/terms/{{kindTerm}}">conditions générales d'utilisation</a>
+                <input type="checkbox" name="termsOfService" id="termsOfService" ng-model="termsOfService">
+            </label>
+        </div>
 
         <div class="finForm">
             <button class="button" type="submit" value="S'inscrire"

@@ -3,7 +3,7 @@
  */
 
 controllers.controller('createAccountCtrl', ['$scope', '$location', 'createAccountService', 'PlayerModel','SupplierModel','dialogs',
-    function ($scope, $location, SignUpService, PlayerModel,SupplierModel, dialogs) {
+    function ($scope, $location, createAccountService, PlayerModel,SupplierModel, dialogs) {
 
         $scope.submit = function () {
 
@@ -13,12 +13,12 @@ controllers.controller('createAccountCtrl', ['$scope', '$location', 'createAccou
                     supplier.isPrivateIndividual = "false";
                 }
 
-                SignUpService.signUpSupplier().save(supplier)
+                createAccountService.createSupplierAccount().save(supplier)
                     .$promise
                     .then(
                         function success(response) {
                             notifySucces();
-                            $location.path('/login');
+                            $location.path('/admin/createAccount');
                         },
                         function error(response) {
                             if (response.status == 409) {
@@ -34,12 +34,12 @@ controllers.controller('createAccountCtrl', ['$scope', '$location', 'createAccou
             else {
                 var player = new PlayerModel($scope);
 
-                SignUpService.signUpPlayer().save(player)
+                createAccountService.createPlayerAccount().save(player)
                     .$promise
                     .then(
                         function success(response) {
                             notifySucces();
-                            $location.path('/login');
+                            $location.path('/admin/createAccount');
                         },
                         function error(response) {
                             if (response.status == 409) {

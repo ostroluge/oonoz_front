@@ -22,6 +22,15 @@ services.factory('createAccountService', ['$resource','$location',
                         isArray: false
                     }
                 });
+            },
+            validationSignUp: function (mail,key) {
+                return $resource("http://localhost:8080/user/validationMail?mail="+mail+"&key="+key, {}, {
+
+                    query: {
+                        method: 'GET',
+                        cache: false, isArray: false
+                    }
+                });
             }
         }}]);
 
