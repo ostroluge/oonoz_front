@@ -26,10 +26,7 @@
     width:350px;
     display:block;
     margin-bottom:50px;
-    margin-left:auto;
-    margin-right:auto;
     margin-top:25px;
-;
 }
 
 /*Pour aligner les labels principaux*/
@@ -83,6 +80,35 @@
     outline:none;
 }
 
+.userListTable{
+    margin-top:10px;
+}
+
+.userListPageNumberContainer{
+    text-align:center;
+    margin-top:10px;
+}
+
+.userListPageNumber{
+    border:none;
+    border-bottom:1px solid #287F50;
+    color:#287F50;
+    margin-left:2px;
+    background-color:transparent;
+}
+
+button:focus {
+    outline:0;
+}
+
+.userListLabelPageNumber{
+    color: #287F50;
+}
+
+.userListPageNumberContainer label:only-child {
+    visibility:hidden;
+}
+
 @media screen and (min-width : 600px) {
     .userListFilters{
         float:left;
@@ -96,26 +122,20 @@
         background-color: #ceced2;
     }
 
-    .userListTitleTable {
-        display:block;
-        text-align:center;
-        margin-left:250px;
-        font-size:x-large;
-    }
-
-    .userListLabelNumberUsers{
-        float:left;
-    }
-
-    .userListSelect {
-        float:left;
-    }
-
     .userListModifyContainer{
         margin-left:210px;
     }
 
+    .userListModify{
+        margin-left:auto;
+        margin-right:auto;
+    }
 
+    .userListTitleTable {
+        display:block;
+        text-align:center;
+        font-size:x-large;
+    }
 }
 
 @media screen and (max-width : 599px) {
@@ -127,6 +147,10 @@
         padding-top:25px;
         padding-bottom:25px;
         background-color: #ceced2;
+    }
+
+    .userListModify{
+        margin-left:3px;
     }
 
     .userListTitleTable {

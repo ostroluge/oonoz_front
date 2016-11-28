@@ -5,8 +5,7 @@
 <input type="checkbox" id="show-menu" role="button">
 
 <nav class="headerInline">
-    <img class="imageHeaderInline" src="images/eclair vert clair - 48E590.png" />
-
+    <a href="#/home"><img class="imageHeaderInline" src="images/eclair vert clair - 48E590.png"/></a>
     <ul  class="menuHeaderInline">
         <li class="lienJoueur"><a href="">Thèmes</a></li> <!-- Liste des thèmes, représentés par leur image, accès au sous themes quand on clique sur un theme, puis au qcm.. -->
         <li class="lienJoueur"><a href="">QCM</a></li> <!-- Simple recherche de QCM avec possiblité d'y jouer-->
@@ -131,6 +130,7 @@
     </div>
 
     <div class="userListResults">
+        <label class="userListTitleTable">Liste des utilisateurs</label>
         <label class="userListLabelNumberUsers">Nombre d'utilisateurs par page</label>
         <select class="userListSelect" name="singleSelect" ng-model="pageSize" ng-init="pageSize=5">
             <option value="5" ng-selected="true">5</option>
@@ -138,14 +138,14 @@
             <option value="15">15</option>
             <option value="20">20</option>
         </select>
-            <label class="userListTitleTable">Liste des utilisateurs</label>
-            <div class="pageNumberContainer">
-                <button ng-repeat="i in range.slice(0,repeatCount) track by $index" ng-click="displayPage($index)">
-                    {{$index+1}}
-                </button>
-            </div>
-            <div class="tableContainer">
-                <div ultimate-datatable="datatable"/>
-            </div>
+        <div class="userListTable">
+            <div ultimate-datatable="datatable"/>
+        </div>
+        <div class="userListPageNumberContainer">
+            <label class="userListLabelPageNumber">page </label>
+            <button class="userListPageNumber" ng-repeat="i in range.slice(0,repeatCount) track by $index" ng-click="displayPage($index)">
+                {{$index+1}}
+            </button>
+        </div>
     </div>
 </div>
