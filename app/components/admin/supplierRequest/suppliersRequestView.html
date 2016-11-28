@@ -1,0 +1,11 @@
+<div ng-controller="suppliersRequestCtrl" ng-init="getSupplierRequest()">
+    <h1>Gérer les demandes fournisseurs</h1>
+    <div ng-if="suppliersRequest.length == 0"><p> Aucune demande en attente</p></div>
+    <div ng-repeat="supplier in suppliersRequest">
+        <p>{{supplier.username}}{{supplier.firstName}}{{supplier.lastName}}{{supplier.mail}}</p>
+        <p>{{supplier.companyName}}{{supplier.companyAddress}}{{supplier.siretNumber}}</p>
+        <button ng-click="accept(supplier.id)">Accepter</button>
+        <button ng-click="refuse(supplier.id)">Refuser</button>
+    </div>
+
+</div>

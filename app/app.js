@@ -66,5 +66,9 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             templateUrl: 'components/admin/themes/editSubTheme/editSubThemeView.html',
             controller: 'EditSubThemeCtrl'
         })
+        .when('/admin/getSupplierRequest', {
+            templateUrl: 'components/admin/supplierRequest/suppliersRequestView.html',
+            controller: 'suppliersRequestCtrl'
+        })
         .otherwise({redirectTo: '/login'});
 }]);
