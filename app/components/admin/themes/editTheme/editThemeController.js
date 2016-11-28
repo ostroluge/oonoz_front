@@ -22,9 +22,9 @@ controllers.controller('EditThemeCtrl', ['$scope', 'EditThemeService', '$locatio
 
             if ($scope.themeImage != null) {
                 theme.iconUrl = $scope.themeImage;
-            }
-            if ($scope.themeImage.base64 != null) {
-                theme.iconUrl = $scope.themeImage.base64;
+                if ($scope.themeImage.base64 != null) {
+                    theme.iconUrl = $scope.themeImage.base64;
+                }
             }
 
             EditThemeService.editTheme(theme.idTheme).query(theme)

@@ -19,8 +19,10 @@ controllers.controller('AddSubThemeCtrl', ['$scope','AddSubThemeService','$locat
             subtheme.idTheme = $routeParams.id;
             subtheme.validated = false;
 
-            if ($scope.subThemeImage.base64 != null) {
-                subtheme.iconUrl = $scope.subThemeImage.base64;
+            if ($scope.subThemeImage != null) {
+                if ($scope.subThemeImage.base64 != null) {
+                    subtheme.iconUrl = $scope.subThemeImage.base64;
+                }
             }
 
             AddSubThemeService.postSubTheme(subtheme.idTheme).query(subtheme)

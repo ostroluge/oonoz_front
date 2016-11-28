@@ -18,8 +18,10 @@ controllers.controller('AddThemeCtrl', ['$scope','AddThemeService','$location',
             theme.description = $scope.description;
             theme.validated = false;
 
-            if ($scope.themeImage.base64 != null) {
-                theme.iconUrl = $scope.themeImage.base64;
+            if ($scope.themeImage != null) {
+                if ($scope.themeImage.base64 != null) {
+                    theme.iconUrl = $scope.themeImage.base64;
+                }
             }
 
             AddThemeService.postTheme().query(theme)

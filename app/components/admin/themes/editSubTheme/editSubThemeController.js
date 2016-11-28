@@ -23,9 +23,9 @@ controllers.controller('EditSubThemeCtrl', ['$scope', 'EditSubThemeService', '$l
 
             if ($scope.subThemeImage != null) {
                 subtheme.iconUrl = $scope.subThemeImage;
-            }
-            if ($scope.subThemeImage.base64 != null) {
-                subtheme.iconUrl = $scope.subThemeImage.base64;
+                if ($scope.subThemeImage.base64 != null) {
+                    subtheme.iconUrl = $scope.subThemeImage.base64;
+                }
             }
 
             EditSubThemeService.editSubTheme(subtheme.idTheme, subtheme.idSubTheme).query(subtheme)
