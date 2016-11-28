@@ -1,4 +1,27 @@
-<div>
-    <p id="tempText">Bienvenue sur la page principale</p>
-    <a href="#/admin/userList">Admin</a>
+<label for="show-menu" class="show-menu">
+    <img src="images/eclair vert clair - 48E590.png" />
+    Menu
+</label>
+<input type="checkbox" id="show-menu" role="button">
+
+    <nav class="headerInline">
+        <a href="#/home"><img class="imageHeaderInline" src="images/eclair vert clair - 48E590.png"/></a>
+
+        <ul  class="menuHeaderInline">
+            <li class="lienJoueur"><a href="">Thèmes</a></li> <!-- Liste des thèmes, représentés par leur image, accès au sous themes quand on clique sur un theme, puis au qcm.. -->
+            <li class="lienJoueur"><a href="">QCM</a></li> <!-- Simple recherche de QCM avec possiblité d'y jouer-->
+            <li class="lienJoueur"><a href="">Profil</a></li> <!--comprends les stats, le porte feuille, l'accès à l'édition du profil, à une demande pour devenir fournisseur etc-->
+            <li class="lienJoueur"><a href="">Communautés</a></li> <!-- -->
+            <li class="lienFournisseur lienAdministrateur"><a href="">Gérer les QCM</a></li> <!--Pour les fournisseurs, ajouter, supprimer modifier les QCM, + acceder au stat par qcm?
+                                                    Pour les adminitrateurs : la gestion en general avec ceux en attente, plus vue de tous les qcm-->
+            <li class="lienAdministrateur"><a href="">Editer les règlements</a></li><!-- Uniquement pour les administrateurs -->
+            <li class="lienAdministrateur"><a href="#/admin/userList">Gèrer les comptes</a></li><!-- Uniquement pour les administrateurs -->
+            <li class="lienAdministrateur"><a href="">Demandes fournisseurs</a></li><!-- Uniquement pour les administrateurs -->
+            <li class="lienAdministrateur"><a href="">Gérer les thèmes</a></li><!-- Uniquement pour les administrateurs -->
+        </ul>
+
+    </nav>
+
+<div class="contenuInline">
+    <div class="HomeTitle">Bienvenue sur l'application Oonoz</div>
 </div>

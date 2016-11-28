@@ -1,63 +1,171 @@
-.filterContainer{
-    display: inline-block;
-    min-height: 100vh;
-    width: 25%;
-    border-right: solid;
-    position: relative;
+
+/*Bouton rechercher de la zone de filtres*/
+.userListFilters button{
+    color: white;
+    background-color: #48E590;
+    height:35px;
+    width: 90px;
+    border: none;
+   /* display:block;
+    margin-left:auto;
+    margin-right:auto;*/
+    margin-top:10px;
+    margin-left:5px;
 }
 
-.filterContainer label{
-    width: 24%;
+.userListFilters button:hover {
+    background-color: #287F50;
 }
 
-.filterContainer .filterLoginDiv{
-    margin-top:4%;
-}
-.modifyContainer label{
-    width:23%;
-    margin-left:5%;
-
+/*Pour aligner les filtres*/
+.userListFilters label{
+    width:55px;
 }
 
-.modifyContainer .modificationRadioLabel{
-    width:13%;
-    margin-left:0%;
+.userListFilters .userListFiltersLabelRight{
+    margin-left:10px;
+    margin-right:5px;
+    width:70px;
 }
 
-.modifyContainer .modificationRadioButton {
-    margin-top: 2% !important;
-    margin-right: 3% !important;
+/*Partie modifications*/
+.userListModify{
+    width:350px;
+    display:block;
+    margin-bottom:50px;
+    margin-top:25px;
 }
 
-.modifyContainer .modifyIdDiv{
-    margin-top:4%;
+/*Pour aligner les labels principaux*/
+.userListModifyLabel{
+    width:125px;
+}
+/*Pour aligner les labels secondaires*/
+.modificationRadioLabel{
+    width:80px;
+    text-align:right;
+}
+/*Pour que les input aient la même taille*/
+.modificationRadioButton{
+    width:20px;
+}
+/*Pour que les input aient la même taille*/
+.userListModify input[type="text"],input[type="date"]{
+    left-margin:15px;
+    width:200px;
 }
 
-.tableContainer tbody{
-    height: 35em;
-    overflow-y: auto;
-    overflow-x: hidden;
+/*Bouton enregistrer les modifications*/
+.userListModify button{
+    color:white;
+    background-color: #6b727c;
+    height:35px;
+    width: 200px;
+    border: none;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:5px;
 }
 
-
-.searchContainer{
-    display: inline-block;
-    /*min-height: 100%;*/
-    width:75%;
-    position: absolute;
+.userListModify button:hover {
+    color: #6b727c;
+    background-color: #ceced2;
 }
 
-.userListContainer{
-    min-height: 100vh;
-    position:relative;
+.userListLabelUsers{
+    margin-left:10px;
+    margin-right:10px;
 }
 
-.pageNumberContainer{
-    margin-left: 3%;
+.userListSelect {
+    overflow-x:hidden;
+    border:1px solid #ccc;
+    border-radius:3px;
+    padding:5px;
+    cursor:pointer;
+    outline:none;
 }
 
+.userListTable{
+    margin-top:10px;
+}
 
-.resultContainer{
-    /*display: inline-block;*/
-    border-top: solid;
+.userListPageNumberContainer{
+    text-align:center;
+    margin-top:10px;
+}
+
+.userListPageNumber{
+    border:none;
+    border-bottom:1px solid #287F50;
+    color:#287F50;
+    margin-left:2px;
+    background-color:transparent;
+}
+
+button:focus {
+    outline:0;
+}
+
+.userListLabelPageNumber{
+    color: #287F50;
+}
+
+.userListPageNumberContainer label:only-child {
+    visibility:hidden;
+}
+
+@media screen and (min-width : 600px) {
+    .userListFilters{
+        float:left;
+        width:210px;
+        margin-top:25px;
+        margin-left:5px;
+        margin-right:5px;
+        padding-left:5px;
+        padding-top:25px;
+        padding-bottom:25px;
+        background-color: #ceced2;
+    }
+
+    .userListModifyContainer{
+        margin-left:210px;
+    }
+
+    .userListModify{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .userListTitleTable {
+        display:block;
+        text-align:center;
+        font-size:x-large;
+    }
+}
+
+@media screen and (max-width : 599px) {
+    .userListFilters{
+        margin-left:auto;
+        margin-right:auto;
+        width:210px;
+        margin-top:25px;
+        padding-left:5px;
+        padding-top:25px;
+        padding-bottom:25px;
+        background-color: #ceced2;
+    }
+
+    .userListModify{
+        margin-left:3px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .userListTitleTable {
+        display:block;
+        text-align:center;
+        font-size:x-large;
+    }
 }
