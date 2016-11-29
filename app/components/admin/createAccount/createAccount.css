@@ -1,0 +1,40 @@
+.createAccountconteneur{
+    width:450px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.titreFormAdminCreateAccount{
+    font-size : 25px;
+    font-weight: bold;
+    text-align:center;
+    margin-top:25px;
+    margin-bottom: 15px;
+    color:#287F50;
+}
+
+.ligneFormAdminCreateAccount{
+    padding:10px;
+}
+
+.ligneFormAdminCreateAccount label{
+    width:200px;
+}
+
+.ligneFormAdminCreateAccount input{
+    width:200px;
+}
+
+.createAccountconteneur .checkBoxVerte{
+    margin-left:100px;
+    margin-bottom:25px;
+}
+
+.createAccountconteneur .radioForm{
+    margin-left:200px;
+}
+
+.createAccountconteneur .finForm a,a:hover,a:visited,a:active{
+    text-align:center;
+    text-decoration:none;
+}

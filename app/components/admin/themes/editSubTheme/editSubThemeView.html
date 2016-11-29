@@ -1,4 +1,6 @@
-<div ng-controller="EditSubThemeCtrl" ng-init="getSubTheme()">
+<div ng-include="'views/menu.html'"></div>
+
+<div class="contenuInline" ng-controller="EditSubThemeCtrl" ng-init="getSubTheme()">
     <form>
         <div ng-if="subThemeImage != null && subThemeImage.base64 == null">
             <img ng-src="{{'data:image/*;base64,'+subThemeImage}}" />

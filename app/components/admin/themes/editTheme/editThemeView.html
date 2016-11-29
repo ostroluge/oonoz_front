@@ -1,4 +1,6 @@
-<div ng-controller="EditThemeCtrl" ng-init="getTheme()">
+<div ng-include="'views/menu.html'"></div>
+
+<div class="contenuInline" ng-controller="EditThemeCtrl" ng-init="getTheme()">
     <form>
         <div ng-if="themeImage != null && themeImage.base64 == null">
             <img ng-src="{{'data:image/*;base64,'+themeImage}}" />

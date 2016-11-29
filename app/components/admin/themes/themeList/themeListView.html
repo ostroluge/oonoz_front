@@ -1,4 +1,6 @@
-<div ng-controller="ThemeListCtrl" ng-init="getThemes()">
+<div ng-include="'views/menu.html'"></div>
+
+<div class="contenuInline" ng-controller="ThemeListCtrl" ng-init="getThemes()">
     <h1>Gérer les thèmes</h1>
     <h2>Thèmes et sous-thèmes en attente de validation</h2>
     <div ng-repeat="theme in themes">

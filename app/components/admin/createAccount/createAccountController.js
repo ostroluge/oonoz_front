@@ -18,7 +18,7 @@ controllers.controller('createAccountCtrl', ['$scope', '$location', 'createAccou
                     .then(
                         function success(response) {
                             notifySucces();
-                            $location.path('/admin/createAccount');
+                            $location.path('admin/userList');
                         },
                         function error(response) {
                             if (response.status == 409) {
@@ -39,7 +39,7 @@ controllers.controller('createAccountCtrl', ['$scope', '$location', 'createAccou
                     .then(
                         function success(response) {
                             notifySucces();
-                            $location.path('/admin/createAccount');
+                            $location.path('admin/userList');
                         },
                         function error(response) {
                             if (response.status == 409) {
@@ -54,8 +54,7 @@ controllers.controller('createAccountCtrl', ['$scope', '$location', 'createAccou
         }
 
         function notifySucces () {
-            dialogs.notify("Succès Inscription", "Vous allez recevoir un e-mail de confirmation" +
-                " d'inscription afin d'activer votre compte.")
+            dialogs.notify("Succès Inscription", "Le compte a bien été créé.")
         }
 
         function notifyUsernameMailUnavailable () {

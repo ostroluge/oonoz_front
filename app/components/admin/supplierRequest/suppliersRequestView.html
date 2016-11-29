@@ -1,4 +1,6 @@
-<div ng-controller="suppliersRequestCtrl" ng-init="getSupplierRequest()">
+<div ng-include="'views/menu.html'"></div>
+
+<div class="contenuInline" ng-controller="suppliersRequestCtrl" ng-init="getSupplierRequest()">
     <h1>Gérer les demandes fournisseurs</h1>
     <div ng-if="suppliersRequest.length == 0"><p> Aucune demande en attente</p></div>
     <div ng-repeat="supplier in suppliersRequest">
