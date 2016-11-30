@@ -86,17 +86,17 @@
                     <label class="userListModifyLabel" for="birthDate">Date de naissance :</label>
                     <input type="date"  name="birthDate" id="birthDate" ng-model="birthDateModification" placeholder="Date de naissance" required/>
                 </div>
-                <div class="radioForm">
+               <!-- <div class="radioForm">
                     <label class="userListModifyLabel">Type d'utilisateur :</label>
                     <label class="modificationRadioLabel">Joueur</label>
-                    <input class="modificationRadioButton" type="radio" name="userType" ng-model="userType"
-                           ng-checked="userType==false" value="false"  ng-click="userType=false; professionalState=true"/>
+                    <input class="modificationRadioButton" type="radio" name="userType" ng-model="wannaBeSupplier"
+                           ng-checked="wannaBeSupplier==false" value="false"  ng-click="wannaBeSupplier=false; professionalState=true"/>
 
 
                     <label class="modificationRadioLabel">Fournisseur</label>
                     <input class="modificationRadioButton" type="radio"  name="userType" ng-model="userType"
                            ng-checked="userType==true" value="true" ng-click="userType=true"/>
-                </div>
+                </div>-->
 
                 <div class="radioForm">
                     <label class="userListModifyLabel">Statut compte :</label>
@@ -109,7 +109,7 @@
                     <input class="modificationRadioButton" type="radio"  name="accountState" ng-model="accountState"
                            ng-checked="accountState==false" value="false" />
                 </div>
-                <div ng-show="userType">
+                <div ng-show="wannaBeSupplier">
                     <div>
                     <label class="userListModifyLabel">Professionel :</label>
                     <label class="modificationRadioLabel">Oui</label>
@@ -147,6 +147,12 @@
                 <button ng-click="update()">Enregistrer les modifications</button>
                 <button ng-click="delete()">Supprimer un utilisateur</button>
             </div>
+
+        <div class="finForm checkBoxVerte">
+            <input type="checkbox" name="wannaBeSupplier" id="wannaBeSupplier" ng-model="wannaBeSupplier"
+                   ng-click="changeStatus()">
+            <label for="wannaBeSupplier"><span class="ui"></span>Statut fournisseur</label>
+        </div>
     </div>
 
     <div class="userListResults">

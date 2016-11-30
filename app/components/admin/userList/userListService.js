@@ -41,6 +41,19 @@ services.factory('UserListService', ['$resource','$location',
 
                     }
                 });
+            },
+            changeStatusUser: function(idPlayer){
+                return $resource("http://localhost:8080/admin/changeStatusUser", {}, {
+                    query: {
+                        method: 'GET',
+                        cache: false,
+                        isArray: false,
+                        params:{
+                            "idPlayer":idPlayer
+                        }
+
+                    }
+                });
             }
         };
     }]);
