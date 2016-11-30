@@ -4,7 +4,8 @@ services.factory('SignUpService', ['$resource','$location',
     function($resource){
         return {
             signUpPlayer: function () {
-                return $resource("http://localhost:8080/user/signUpPlayer", {}, {
+              //  return $resource("http://localhost:8080/user/signUpPlayer", {}, {
+                    return $resource("http://localhost:8092/user/signUpPlayer", {}, {
 
                     save: {
                         method: 'POST',
@@ -14,7 +15,8 @@ services.factory('SignUpService', ['$resource','$location',
                 });
             },
             signUpSupplier: function () {
-                return $resource("http://localhost:8080/user/signUpSupplier",{}, {
+               // return $resource("http://localhost:8080/user/signUpSupplier",{},
+                return $resource("http://localhost:8092/user/signUpSupplier",{}, {
 
                     save: {
                         method: 'POST',
@@ -23,7 +25,8 @@ services.factory('SignUpService', ['$resource','$location',
                 });
             },
             validationSignUp: function (mail,key) {
-                return $resource("http://localhost:8080/user/validationMail?mail="+mail+"&key="+key, {}, {
+               // return $resource("http://localhost:8080/user/validationMail?mail="+mail+"&key="+key, {}, {
+                    return $resource("http://localhost:8092/user/validationMail?mail="+mail+"&key="+key, {}, {
 
                     query: {
                         method: 'GET',

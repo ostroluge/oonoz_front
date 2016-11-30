@@ -1,0 +1,80 @@
+.supplierRequest .title{
+    font-size : 25px;
+    font-weight: bold;
+    text-align:center;
+    margin-top:25px;
+    margin-bottom: 15px;
+    color:#287F50;
+}
+
+
+.supplierRequestContenu{
+    margin-left:auto;
+    margin-right:auto;
+    width:750px;
+    max-width:100%;
+}
+
+.supplierRequestOneSupplier{
+    padding-top:15px;
+    padding-bottom:15px;
+}
+
+.supplierRequestOneSupplier+.supplierRequestOneSupplier{
+    border-top:2px double #287F50;
+}
+
+.supplierRequest img{
+    height:30px;
+}
+
+.supplierRequest span{
+    display:inline-block;
+}
+
+.supplierRequest .supplierRequestSpanLittle{
+    width:220px;
+}
+
+
+.supplierRequest .supplierRequestSpanLarge{
+    width:280px;
+}
+
+/*Buttons*/
+.supplierRequest .buttons{
+    text-align:right;
+}
+
+.supplierRequest button{
+    color: white;
+    background-color: #48E590;
+    height:35px;
+    width: 90px;
+    border: none;
+    text-align:center;
+    margin-left:5px;
+}
+
+.supplierRequest button:hover {
+    background-color: #287F50;
+}
+
+.supplierRequestInfosPrivateIndividual{
+    margin-top:15px;
+}
+
+.supplierRequestNoRequestMessage{
+    font-size : 17px;
+    text-align:center;
+    color:#287F50;
+}
+
+.supplierRequest img.supplierRequestNoRequestImage{
+    margin-top:35px;
+    margin-bottom:20px;
+    display:block;
+    height:100px;
+    margin-left:auto;
+    margin-right:auto;
+}

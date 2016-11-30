@@ -4,6 +4,7 @@
 models.factory('SupplierModel', function() {
 
     return function SupplierModel (data) {
+        this.id=data.id;
         this.firstName=data.firstName;
         this.lastName=data.lastName;
         this.mail=data.mail;

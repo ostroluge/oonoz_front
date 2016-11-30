@@ -108,12 +108,32 @@ button:focus {
     outline:0;
 }
 
+.userListLabelNumberUsers{
+    margin-left:10px;
+}
+
 .userListLabelPageNumber{
     color: #287F50;
 }
 
 .userListPageNumberContainer label:only-child {
     visibility:hidden;
+}
+
+.userListLinkNew{
+    float:right;
+    font-weight: 600;
+    margin-right:10px;
+}
+
+.userListLinkNew, .userListLinkNew:visited{
+    color: #333;
+    text-decoration: none;
+}
+
+.userListLinkNew:hover, .userListLinkNew:active{
+    color: #287F50;
+    text-decoration: none;
 }
 
 @media screen and (min-width : 600px) {
@@ -145,6 +165,7 @@ button:focus {
     }
 }
 
+
 @media screen and (max-width : 599px) {
     .userListFilters{
         margin-left:auto;
@@ -168,4 +189,5 @@ button:focus {
         text-align:center;
         font-size:x-large;
     }
+
 }

@@ -1,0 +1,17 @@
+.account .button {
+    color: white;
+    background-color: #48E590;
+    height:35px;
+    width: 150px;
+    border: none;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:50px;
+    text-align:center;
+    padding-top:7px;
+}
+
+.account .button:hover {
+    background-color: #287F50;
+}

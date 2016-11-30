@@ -50,6 +50,7 @@ input:-webkit-autofill:active {
     float:left;
 }
 
+
 /*En deça de 1250px, l'icone fera 13% de la largeur*/
 @media screen and (max-width:1249px) {
     .inputForm{
@@ -100,6 +101,7 @@ input:focus
   display:block;
   margin-left:auto;
   margin-right:auto;
+  margin-bottom:5px;
 }
 
 .finForm .button:hover {
