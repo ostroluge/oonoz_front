@@ -6,7 +6,8 @@ services.factory('suppliersRequestService', ['$resource', '$location',
     function ($resource) {
         return {
             getSupplierRequest: function () {
-                return $resource("http://localhost:8080/admin/getSupplierRequest", {}, {
+           //     return $resource("http://localhost:8080/admin/getSupplierRequest", {}, {
+                    return $resource("http://localhost:8092/admin/getSupplierRequest", {}, {
                     generate: {
                         method: 'GET',
                         cache: false,
@@ -15,7 +16,8 @@ services.factory('suppliersRequestService', ['$resource', '$location',
                 });
             },
             refuse: function(id){
-                return $resource("http://localhost:8080/admin/refuseSupplierRequest",{},{
+               // return $resource("http://localhost:8080/admin/refuseSupplierRequest",{},{
+                        return $resource("http://localhost:8092/admin/refuseSupplierRequest",{},{
                     query: {
                         method: 'DELETE',
                         cache: false,
@@ -27,7 +29,8 @@ services.factory('suppliersRequestService', ['$resource', '$location',
                 })
             },
             accept: function(id){
-                return $resource("http://localhost:8080/admin/acceptSupplierRequest",{},{
+               // return $resource("http://localhost:8080/admin/acceptSupplierRequest",{},{
+                    return $resource("http://localhost:8092/admin/acceptSupplierRequest",{},{
                     query: {
                         method: 'POST',
                         cache: false,

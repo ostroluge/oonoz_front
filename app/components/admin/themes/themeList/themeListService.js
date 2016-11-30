@@ -5,7 +5,8 @@ services.factory('ThemeListService', ['$resource', '$location',
     function ($resource) {
         return {
             getAllThemes: function () {
-                return $resource("http://localhost:8080/themes", {}, {
+               // return $resource("http://localhost:8080/themes", {}, {
+                    return $resource("http://localhost:8092/themes", {}, {
                     query: {
                         method: 'GET',
                         cache: false,
@@ -15,7 +16,8 @@ services.factory('ThemeListService', ['$resource', '$location',
             },
 
             deleteTheme: function (id) {
-                return $resource("http://localhost:8080/themes/" + id, {}, {
+               // return $resource("http://localhost:8080/themes/" + id, {}, {
+                    return $resource("http://localhost:8092/themes/" + id, {}, {
                     query: {
                         method: 'DELETE',
                         cache: false,
@@ -25,7 +27,8 @@ services.factory('ThemeListService', ['$resource', '$location',
             },
 
             deleteSubTheme: function (idTheme, idSubTheme) {
-                return $resource("http://localhost:8080/themes/" + idTheme + "/subthemes/" + idSubTheme, {}, {
+//                return $resource("http://localhost:8080/themes/" + idTheme + "/subthemes/" + idSubTheme, {}, {
+                    return $resource("http://localhost:8092/themes/" + idTheme + "/subthemes/" + idSubTheme, {}, {
                     query: {
                         method: 'DELETE',
                         cache: false,
@@ -35,8 +38,9 @@ services.factory('ThemeListService', ['$resource', '$location',
             },
 
             validateTheme: function (idTheme) {
-                return $resource("http://localhost:8080/themes/" + idTheme + "/validation", {}, {
-                    query: {
+          //      return $resource("http://localhost:8080/themes/" + idTheme + "/validation", {}, {
+                    return $resource("http://localhost:8092/themes/" + idTheme + "/validation", {}, {
+                        query: {
                         method: 'PUT',
                         cache: false,
                         isArray: false
@@ -45,8 +49,9 @@ services.factory('ThemeListService', ['$resource', '$location',
             },
 
             validateSubTheme: function (idTheme, idSubTheme) {
-                return $resource("http://localhost:8080/themes/"+idTheme+"/subthemes/"+idSubTheme+"/validation", {}, {
-                    query: {
+      //          return $resource("http://localhost:8080/themes/"+idTheme+"/subthemes/"+idSubTheme+"/validation", {}, {
+                    return $resource("http://localhost:8092/themes/"+idTheme+"/subthemes/"+idSubTheme+"/validation", {}, {
+                        query: {
                         method: 'PUT',
                         cache: false,
                         isArray: false
