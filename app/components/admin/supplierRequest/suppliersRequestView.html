@@ -1,13 +1,47 @@
 <div ng-include="'views/menu.html'"></div>
 
-<div class="contenuInline" ng-controller="suppliersRequestCtrl" ng-init="getSupplierRequest()">
-    <h1>Gérer les demandes fournisseurs</h1>
-    <div ng-if="suppliersRequest.length == 0"><p> Aucune demande en attente</p></div>
-    <div ng-repeat="supplier in suppliersRequest">
-        <p>{{supplier.username}}{{supplier.firstName}}{{supplier.lastName}}{{supplier.mail}}</p>
-        <p>{{supplier.companyName}}{{supplier.companyAddress}}{{supplier.siretNumber}}</p>
-        <button ng-click="accept(supplier.id)">Accepter</button>
-        <button ng-click="refuse(supplier.id)">Refuser</button>
-    </div>
+<div class="contenuInline supplierRequest" ng-controller="suppliersRequestCtrl" ng-init="getSupplierRequest()">
+    <div class="title">Demandes fournisseurs en cours</div>
 
+    <div class="supplierRequestContenu">
+
+        <img class="supplierRequestNoRequestImage" ng-if="suppliersRequest.length == 0" src="images/empty-mailbox-vertclair.png">
+        <div class="supplierRequestNoRequestMessage" ng-if="suppliersRequest.length == 0"><p> Aucune demande en attente</p></div>
+        <div class="supplierRequestOneSupplier" ng-repeat="supplier in suppliersRequest">
+            <div class="supplierRequestInfos">
+                <span class="supplierRequestSpanLittle">
+                    <img src="images/user-darkGreen.png">
+                    {{supplier.username}}
+                </span>
+                <span class="supplierRequestSpanLittle">
+                    <img src="images/id-card-darkGreen.png">
+                    {{supplier.firstName}} {{supplier.lastName}}
+                </span>
+                <span class="supplierRequestSpanLarge">
+                    <img src="images/mail_darkGreen.png">
+                    {{supplier.mail}}
+                </span>
+            </div>
+            <div class="supplierRequestInfosPrivateIndividual">
+                <span class="supplierRequestSpanLittle" ng-if="supplier.isPrivateIndividual">
+                    Fournisseur Particulier
+                </span>
+                <span class="supplierRequestSpanLittle" ng-if="!supplier.isPrivateIndividual">
+                    <img src="images/company-darkGreen.png">
+                    {{supplier.companyName}}
+                </span>
+                <span class="supplierRequestSpanLittle" ng-if="!supplier.isPrivateIndividual">
+                    SIRET : {{supplier.siretNumber}}
+                </span>
+                <span class="supplierRequestSpanLarge" ng-if="!supplier.isPrivateIndividual">
+                    <img src="images/placeholder-darkGreen.png">
+                    {{supplier.companyAddress}}
+                </span>
+            </div>
+            <div class="buttons">
+                <button ng-click="accept(supplier.id)">Accepter</button>
+                <button ng-click="refuse(supplier.id)">Refuser</button>
+            </div>
+        </div>
+    </div>
 </div>
