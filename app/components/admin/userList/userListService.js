@@ -32,7 +32,7 @@ services.factory('UserListService', ['$resource','$location',
                 });
             },
             deleteUser: function(idPlayer){
-            //    return $resource("http://localhost:8080/admin/deleteUser", {}, {
+            //return $resource("http://localhost:8080/admin/deleteUser", {}, {
                     return $resource("http://localhost:8092/admin/deleteUser", {}, {
                     query: {
                         method: 'DELETE',
@@ -46,7 +46,8 @@ services.factory('UserListService', ['$resource','$location',
                 });
             },
             changeStatusUser: function(idPlayer){
-                return $resource("http://localhost:8080/admin/changeStatusUser", {}, {
+                //return $resource("http://localhost:8080/admin/changeStatusUser", {}, {
+                return $resource("http://localhost:8092/admin/changeStatusUser", {}, {
                     query: {
                         method: 'GET',
                         cache: false,
