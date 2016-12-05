@@ -1,78 +1,97 @@
 <div ng-include="'views/menu.html'"></div>
 
 <div class="contenuInline" ng-controller="ThemeListCtrl" ng-init="getThemes()">
-    <h1>Gérer les thèmes</h1>
-    <h2>Thèmes et sous-thèmes en attente de validation</h2>
-    <div ng-repeat="theme in themes">
-        <div ng-repeat="subtheme in theme.subThemes">
-            <div ng-if="(!theme.validated && !subtheme.validated)">
-                <div ng-if="theme.iconUrl != null">
-                    <img ng-src="{{'data:image/*;base64,'+theme.iconUrl}}"/>
-                </div>
-                <p>{{theme.label}}
-                    <button ng-click="validateTheme(theme.idTheme)">Valider le thème</button>
-                    <button ng-click="refuseTheme(theme.idTheme)">Refuser le thème</button>
-                </p>
-                <p ng-if="!subtheme.validated">
-                <div ng-if="subtheme.iconUrl != null">
-                    <img ng-src="{{'data:image/*;base64,'+subtheme.iconUrl}}"/>
-                </div>
-                {{subtheme.label}}
-                <span ng-show="theme.validated">
-                        <button ng-click="validateSubTheme(theme.idTheme, subtheme.id)">Valider le sous-thème</button>
-                        <button ng-click="refuseSubTheme(theme.idTheme, subtheme.id)">Refuser le sous-thème</button>
+    <div class="ThemeListTitre">Thèmes et sous-thèmes en attente de validation</div>
+    <div class="ThemeListAttenteValidation">
+    <div class="ThemeListTheme" ng-repeat="theme in themes">
+            <div class="ThemeListUnTheme ThemeListThemeValide" ng-if="theme.validated">
+                <span class="ThemeListNom">Thème {{theme.label}}</span>
+                <span ng-if="theme.iconUrl != null">
+                    <img class="ThemeListImg" ng-src="{{'data:image/*;base64,'+theme.iconUrl}}"/>
+                </span>
+            </div>
+            <div class="ThemeListUnTheme" ng-if="!theme.validated">
+                <span class="ThemeListNom">Thème {{theme.label}}</span>
+                <span ng-if="theme.iconUrl != null">
+                    <img class="ThemeListImg" ng-src="{{'data:image/*;base64,'+theme.iconUrl}}"/>
+                </span>
+                <button class="ThemeListBouton" ng-click="validateTheme(theme.idTheme)">
+                    <img class="ThemeListIcon" src="images/checked-blanc.png">
+                    Valider le thème
+                </button>
+                <button class="ThemeListBouton" ng-click="refuseTheme(theme.idTheme)">
+                    <img class="ThemeListIcon" src="images/cross-blanc.png">
+                    Refuser le thème
+                </button>
+            </div>
+            <div class="ThemeListSousTheme" ng-repeat="subtheme in theme.subThemes">
+                <div ng-if="!subtheme.validated">
+                    <span class="ThemeListNom">Sous-thème {{subtheme.label}}</span>
+                    <span ng-if="subtheme.iconUrl != null">
+                        <img class="ThemeListImg" ng-src="{{'data:image/*;base64,'+subtheme.iconUrl}}"/>
                     </span>
-                <span ng-show="!theme.validated">Le thème doit d'abord être validé</span>
-                </p>
-            </div>
-            <div ng-if="(theme.validated && !subtheme.validated)">
-                <div ng-if="theme.iconUrl != null">
-                    <img ng-src="{{'data:image/*;base64,'+theme.iconUrl}}"/>
+                    <span ng-show="theme.validated">
+                    <button class="ThemeListBouton" ng-click="validateSubTheme(theme.idTheme, subtheme.id)">
+                        <img class="ThemeListIcon" src="images/checked-blanc.png">
+                        Valider le sous-thème
+                    </button>
+                    <button class="ThemeListBouton" ng-click="refuseSubTheme(theme.idTheme, subtheme.id)">
+                        <img class="ThemeListIcon" src="images/cross-blanc.png">
+                        Refuser le sous-thème
+                    </button>
+                    </span>
+                    <span ng-show="!theme.validated">Le thème doit d'abord être validé</span>
                 </div>
-                <p>{{theme.label}}</p>
-                <div ng-if="subtheme.iconUrl != null">
-                    <img ng-src="{{'data:image/*;base64,'+subtheme.iconUrl}}"/>
-                </div>
-                <p>{{subtheme.label}}
-                    <button ng-click="validateSubTheme(theme.idTheme, subtheme.id)">Valider le sous-thème</button>
-                    <button ng-click="refuseSubTheme(theme.idTheme, subtheme.id)">Refuser le sous-thème</button>
-                </p>
             </div>
-        </div>
-        <div ng-if="!theme.validated && theme.subThemes.length == 0">
-            <div ng-if="theme.iconUrl != null">
-                <img ng-src="{{'data:image/*;base64,'+theme.iconUrl}}"/>
-            </div>
-            <p>{{theme.label}}
-                <button ng-click="validateTheme(theme.idTheme)">Valider le thème</button>
-                <button ng-click="refuseTheme(theme.idTheme)">Refuser le thème</button>
-            </p>
         </div>
     </div>
-    <h2>Thèmes et sous-thèmes validés</h2>
-    <a href="#/themes/new">Ajouter un thème</a>
-    <div ng-repeat="theme in themes">
-        <div ng-if="theme.validated && theme.iconUrl != null">
-            <img ng-src="{{'data:image/*;base64,'+theme.iconUrl}}"/>
+    <div class="ThemeListTitre">Thèmes et sous-thèmes validés</div>
+    <div class="ThemeListValides">
+        <div class="ThemeListUnTheme ThemeListLienAjout">
+            <a class="ThemeListUnThemeLink" href="#/themes/new">
+                <img class="ThemeListIcon" src="images/add-vert.png">
+                Ajouter un thème
+            </a>
         </div>
-        <div ng-if="theme.validated">
-            {{theme.label}}
-            <a href="#/themes/{{theme.idTheme}}/edit">Éditer le thème</a>
-            <a ng-href="" ng-click="deleteTheme(theme.idTheme)">Supprimer le thème</a>
+    <div class="ThemeListTheme" ng-repeat="theme in themes">
+        <div class="ThemeListUnTheme" ng-if="theme.validated">
+            <span class="ThemeListNom">Thème {{theme.label}}</span>
+            <span ng-if="theme.iconUrl != null">
+                <img class="ThemeListImg" ng-src="{{'data:image/*;base64,'+theme.iconUrl}}"/>
+            </span>
+            <a class="ThemeListBouton" href="#/themes/{{theme.idTheme}}/edit">
+                <img class="ThemeListIcon" src="images/edit-blanc.png">
+                Éditer le thème
+            </a>
+            <a class="ThemeListBouton" ng-href="" ng-click="deleteTheme(theme.idTheme)">
+                <img class="ThemeListIcon" src="images/delete-blanc.png">
+                Supprimer le thème
+            </a>
         </div>
-        <div ng-repeat="subtheme in theme.subThemes">
-            <div ng-if="theme.validated && subtheme.validated">
-                <div ng-if="subtheme.iconUrl != null">
-                    <img ng-src="{{'data:image/*;base64,'+subtheme.iconUrl}}"/>
-                </div>
-                <p>{{subtheme.label}}
-                    <a href="#/themes/{{theme.idTheme}}/subthemes/{{subtheme.id}}/edit">Éditer le sous-thème</a>
-                    <a ng-href="" ng-click="deleteSubTheme(theme.idTheme, subtheme.id)">Supprimer le sous-thème</a>
-                </p>
+        <div class="ThemeListSousTheme" ng-repeat="subtheme in theme.subThemes">
+            <div ng-if="subtheme.validated">
+                <span class="ThemeListNom">Sous-thème {{subtheme.label}}</span>
+                <span ng-if="subtheme.iconUrl != null">
+                    <img class="ThemeListImg" ng-src="{{'data:image/*;base64,'+subtheme.iconUrl}}"/>
+                </span>
+                <a class="ThemeListBouton" href="#/themes/{{theme.idTheme}}/subthemes/{{subtheme.id}}/edit">
+                    <img class="ThemeListIcon" src="images/edit-blanc.png">
+                    Éditer le sous-thème
+                </a>
+                <a class="ThemeListBouton" ng-href="" ng-click="deleteSubTheme(theme.idTheme, subtheme.id)">
+                    <img class="ThemeListIcon" src="images/delete-blanc.png">
+                    Supprimer le sous-thème
+                </a>
             </div>
         </div>
-        <span ng-show="theme.validated">
-            <a href="#/themes/{{theme.idTheme}}/subthemes/new">Ajouter un sous-thème</a>
-        </span>
+        <div ng-show="theme.validated">
+            <div class="ThemeListSousTheme ThemeListLienAjout">
+                <a class="ThemeListSousThemeLink" href="#/themes/{{theme.idTheme}}/subthemes/new">
+                    <img class="ThemeListIcon" src="images/add-gris.png">
+                    Ajouter un sous-thème
+                </a>
+            </div>
+        </div>
+    </div>
     </div>
 </div>

@@ -1,19 +1,30 @@
 <div ng-include="'views/menu.html'"></div>
 
 <div class="contenuInline" ng-controller="AddThemeCtrl">
-    <form>
+    <form class="addTform">
+        <div class="addTtitle">Ajouter un nouveau thème</div>
+
         <div>
-            <label>Nom<input type="text" name="label" id="label" ng-model="label"
+            <label class="addTlabel">Nom</label>
+            <input class="addTinput" type="text" name="label" id="label" ng-model="label"
                              placeholder="Nom du thème"
-                             ng-minlength="4" ng-maxlength="20" required></label>
+                             ng-minlength="4" ng-maxlength="20" required>
         </div>
         <div>
-            <label>Description<textarea type="text" name="description" id="description" ng-model="description"
+            <label class="addTlabel">Description</label>
+            <textarea class="addTinput" type="text" name="description" id="description" ng-model="description"
                                         placeholder="Description"
-                                        ng-minlength="4" ng-maxlength="20" required></textarea></label>
+                                        ng-minlength="4" ng-maxlength="20" required></textarea>
         </div>
         <div>
-            <input type="file" ng-model="themeImage" accept="image/*" base-sixty-four-input>
+            <label class="addTlabel">Image</label>
+            {{themeImage.filename}}
+            <label class="addTimg">
+                <img src="images/upload.png">
+                <span ng-if="!themeImage">Choisissez un fichier</span>
+                <span ng-if="themeImage">Modifier le fichier</span>
+                <input type="file" ng-model="themeImage" accept="image/*" base-sixty-four-input>
+            </label>
         </div>
         <div>
             <button class="button" ng-click="postTheme()">Ajouter le thème</button>

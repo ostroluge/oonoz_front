@@ -1,0 +1,104 @@
+.ThemeListTitre{
+    font-size : 25px;
+    font-weight: bolder;
+    text-align:center;
+    margin-top:25px;
+    margin-bottom: 15px;
+    color:#287F50;
+}
+
+.ThemeListAttenteValidation, .ThemeListValides{
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.ThemeListThemeValide:only-child, .ThemeListTheme:empty{
+    display:none;
+}
+
+.ThemeListUnTheme, .ThemeListUnThemeLink, a.ThemeListUnThemeLink:hover, a.ThemeListUnThemeLink:visited{
+    font-size:17px;
+    color:#287F50;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.ThemeListSousTheme, .ThemeListSousThemeLink, a.ThemeListSousThemeLink:hover, a.ThemeListSousThemeLink:visited{
+    font-size:14px;
+    margin-left:50px;
+    color:#707070;
+    margin-bottom:20px;
+}
+
+.ThemeListImg{
+    max-width:100px;
+    max-height:100px;
+    margin-right:20px;
+}
+
+.ThemeListNom{
+    display:inline-block;
+    margin-right:20px;
+}
+
+.ThemeListUnTheme .ThemeListBouton{
+    display:inline-block;
+    color: white;
+    background-color: #48E590;
+    height:32px;
+    padding-left:15px;
+    padding-right:15px;
+    margin-left:20px;
+    border: none;
+    text-align:center;
+    font-weight: normal;
+}
+
+.ThemeListUnTheme .ThemeListBouton:hover {
+    background-color: #287F50;
+}
+
+.ThemeListSousTheme .ThemeListBouton{
+    display:inline-block;
+    color: white;
+    background-color: darkgrey;
+    height:30px;
+    padding-left:15px;
+    padding-right:15px;
+    margin-left:20px;
+    border: none;
+    text-align:center;
+}
+
+.ThemeListValides .ThemeListUnTheme .ThemeListBouton{
+    padding-top:5px;
+}
+
+.ThemeListValides .ThemeListSousTheme .ThemeListBouton{
+    padding-top:5px;
+}
+
+.ThemeListSousTheme .ThemeListBouton:hover {
+    background-color: grey;
+}
+
+.ThemeListValides .ThemeListTheme{
+    margin-bottom:50px;
+}
+
+.ThemeListLienAjout:hover{
+    text-decoration:underline;
+}
+
+.ThemeListIcon{
+    margin-right:7px;
+}
+
+.ThemeListUnTheme .ThemeListIcon{
+    height:17px;
+}
+
+.ThemeListSousTheme .ThemeListIcon{
+    height:14px;
+}
