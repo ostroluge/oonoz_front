@@ -78,5 +78,9 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             templateUrl: 'components/account/accountView.html'
             //controller: 'accountCtrl'
         })
+        .when ('/qcm/qcmDetail/:id',{
+            templateUrl: 'components/qcm/qcmDetail/qcmDetailView.html',
+            controller: 'QcmDetailCtrl'
+        })
         .otherwise({redirectTo: '/login'});
 }]);

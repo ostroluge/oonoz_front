@@ -1,0 +1,51 @@
+
+.listQuestionsContainer{
+    border:solid;
+    width:90%;
+    margin-left:5%;
+}
+
+.qcmDetailContainer{
+
+    display: inline-flex;
+    width:90%;
+    margin-left:5%;
+}
+
+.questionContainer{
+    display: inline-flex;
+    width:100%;
+}
+.questionDetail{
+    width:100%;
+}
+
+.questionDetail table{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.questionDetail table td{
+    margin-left:5%;
+}
+
+.qcmImg{
+    max-width: 300px;
+    max-height: 200px;
+    min-width: 300px;
+    min-height: 200px;
+}
+
+.qcmDetailBtn{
+    margin-left:auto;
+    margin-right:auto;
+    width:20%;
+}
+
+.mediaTypeImg{
+    max-width: 50px;
+    max-height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    margin-left:8%;
+}

@@ -1,0 +1,43 @@
+<div ng-include="'views/menu.html'"></div>
+<div class="qcmDetailContainer">
+    <img class="qcmImg" ng-src="{{'data:image/*;base64,'+qcm.icon}}"/>
+    <div class="qcmDescriptionContainer">
+        <h3 class="qcmDescription-title">{{qcm.name}}</h3>
+        <div class="qcmDescription-theme">Theme : {{qcm.themeName}}</div>
+        <div class="qcmDescription-supplier">Fournisseur : {{qcm.supplierName}}</div>
+        <div class="qcmDescription-description">Description : {{qcm.description}}</div>
+        <div class="qcmDescription-type">Type : {{qcm.category}}</div>
+    </div>
+</div>
+<div class="listQuestionsContainer" ng-repeat="question in qcm.questions">
+    <div class="line">
+        <div class="questionContainer">
+            <button ng-hide="detail" ng-click="detailQuestion[$index] =!detailQuestion[$index]; reduce=true ; detail=!detail">Détail</button>
+            <button ng-show="reduce" ng-click="detailQuestion[$index] =!detailQuestion[$index]; detail=false; reduce=false">Réduire</button>
+            <div>{{question.title}}</div>
+            <img class="mediaTypeImg" ng-src="images/{{question.mediaType}}.png"/>
+        </div>
+    </div>
+    <div  class="questionDetail" ng-show="detailQuestion[$index]">
+        <table>
+            <tr>
+                <td rowspan="2">
+                    <img class="questionImg" ng-src="{{'data:image/*;base64,'+question.icon}}"/>
+                </td>
+                <td>{{question.answer}}</td>
+                <td>{{question.proposition1}}</td>
+                <td>Délais : {{question.time}} secondes</td>
+            </tr>
+            <tr>
+                <td>{{question.proposition2}}</td>
+                <td>{{question.proposition3}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="qcmDetailBtn">
+    <button>Modifier</button>
+    <button>Supprimer</button>
+</div>
+
+
