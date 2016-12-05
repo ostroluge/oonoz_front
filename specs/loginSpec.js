@@ -10,8 +10,8 @@ describe('Test the login component', function() {
 
     it('a fail sign-in', function() {
         browser.get("http://localhost:63342/oonoz_front/app/index.html?#/login");
-        element(by.model('username')).sendKeys('Jilief');
-        element(by.model('userPassword')).sendKeys('password');
+        element(by.model('username')).sendKeys('wrong');
+        element(by.model('userPassword')).sendKeys('wrong');
 
         element(by.buttonText('Connexion')).click();
 
@@ -22,6 +22,7 @@ describe('Test the login component', function() {
     it('click on link subscription and check the page changing', function() {
         browser.get("http://localhost:63342/oonoz_front/app/index.html?#/login");
         element(by.linkText("Pas de compte? Je m'inscris")).click();
+        pause();
         expect(element(by.className('titre')).getText()).toMatch("Je m'inscris");
     });
 

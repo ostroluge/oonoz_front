@@ -22,7 +22,8 @@ controllers.controller('suppliersRequestCtrl', ['$scope', 'suppliersRequestServi
         }
 
 
-        $scope.refuse = function (id) {
+        $scope.refuse = function(id) {
+            console.log(id);
             var dialog = dialogs.confirm("Refus d'une demande fournisseur", "Etes-vous sûr de refuser la demande" +
                 " fournisseur de cet utilisateur ?");
             dialog.result.then(
@@ -44,6 +45,7 @@ controllers.controller('suppliersRequestCtrl', ['$scope', 'suppliersRequestServi
         };
 
         $scope.accept = function (id) {
+            console.log(id);
             var dialog = dialogs.confirm("Accepter d'une demande fournisseur", "Etes-vous sûr de vouloir accepter " +
                 "la demande fournisseur de cet utilisateur ?");
             dialog.result.then(
