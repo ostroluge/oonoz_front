@@ -111,19 +111,19 @@
                         <input class="modificationRadioButton" type="radio" name="professionalState" ng-model="professionalState"
                                ng-checked="professionalState==true" value="true" ng-click="professionalState=true" />
                     </div>
-                </div>
-                <div class="professionalContainer" ng-show="!professionalState">
-                    <div>
-                        <label class="userListModifyLabel" for="companyNameModification">Nom de l'entreprise :</label>
-                        <input  type="text" name="companyNameModification"  ng-model="companyNameModification" id="companyNameModification"/>
-                    </div>
-                    <div>
-                        <label class="userListModifyLabel" for="companyAddressModification">Adresse de l'entreprise :</label>
-                        <input  type="text" name="companyAddressModification"  ng-model="companyAddressModification" id="companyAddressModification"/>
-                    </div>
-                    <div>
-                        <label class="userListModifyLabel" for="siretNumberModification">Numéro de siret :</label>
-                        <input  type="text" name="siretNumberModification"  ng-model="siretNumberModification" id="siretNumberModification"/>
+                    <div class="professionalContainer" ng-show="!professionalState">
+                        <div>
+                            <label class="userListModifyLabel" for="companyNameModification">Nom de l'entreprise :</label>
+                            <input  type="text" name="companyNameModification"  ng-model="companyNameModification" id="companyNameModification"/>
+                        </div>
+                        <div>
+                            <label class="userListModifyLabel" for="companyAddressModification">Adresse de l'entreprise :</label>
+                            <input  type="text" name="companyAddressModification"  ng-model="companyAddressModification" id="companyAddressModification"/>
+                        </div>
+                        <div>
+                            <label class="userListModifyLabel" for="siretNumberModification">Numéro de siret :</label>
+                            <input  type="text" name="siretNumberModification"  ng-model="siretNumberModification" id="siretNumberModification"/>
+                        </div>
                     </div>
                 </div>
                 <button ng-click="update()">Enregistrer les modifications</button>

@@ -98,9 +98,9 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
                     $scope.mailModification = data.email;
                     $scope.birthDateModification = new Date(data.birthdate + 'T00:00:00');
                     //$scope.userType = data.supplier;
+                    $scope.wannaBeSupplier=data.supplier;
                     $scope.accountState = data.active;
                     if (data.supplier == true) {
-                        $scope.wannaBeSupplier=data.supplier;
                         $scope.supplierAccountState = data.supplierAccountState;
                         $scope.professionalState = data.professionalState;
                         $scope.companyNameModification = data.companyName;
