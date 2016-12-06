@@ -7,6 +7,7 @@
         <div class="qcmDescription-supplier">Fournisseur : {{qcm.supplierName}}</div>
         <div class="qcmDescription-description">Description : {{qcm.description}}</div>
         <div class="qcmDescription-type">Type : {{qcm.category}}</div>
+        <div class="qcmDescription-price">Prix : {{qcm.free===true?"Gratuit":"Payant"}}</div>
     </div>
 </div>
 <div class="listQuestionsContainer" ng-repeat="question in qcm.questions">
@@ -36,8 +37,8 @@
     </div>
 </div>
 <div class="qcmDetailBtn">
-    <button>Modifier</button>
-    <button>Supprimer</button>
+    <button ng-click="updateQCM()">Modifier</button>
+    <button ng-click="deleteQCM()">Supprimer</button>
 </div>
 
 

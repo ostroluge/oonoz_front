@@ -9,4 +9,14 @@ services.factory('QcmDetailService', ['$resource',function ($resource) {
                     isArray: false
                 }
             });
-        }}}]);
+        },
+        deleteQCM:function(id){
+            return $resource("http://localhost:8092/qcms/"+id, {}, {
+                query: {
+                    method: 'DELETE',
+                    cache: false,
+                    isArray: false
+                }
+            });
+        }
+    }}]);
