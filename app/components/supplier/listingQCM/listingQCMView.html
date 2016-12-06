@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div ng-controller="listingQCMCtrl" ng-init="getSupplierQCM()">
+    <form>
+        <div>
+            <label for="theme">Theme :</label>
+            <input type="text" name="theme" id="theme" ng-model="theme" >
+        </div>
+        <div >
+            <label for="subTheme">Sous-thème :</label>
+            <input type="text" name="subTheme" id="subTheme" ng-model="subTheme">
+        </div>
+        <button ng-click="search()">Rechercher</button>
+        <button ng-click="erase()">Effacer</button>
+    </form>
+
+    <div>Mes QCM</div>
+    <div ng-repeat="qcm in supplierQCM">
+        <span >
+            {{qcm.name}}
+        </span>
+        <span >
+            {{qcm.validated}}
+        </span>
+    </div>
+</div>

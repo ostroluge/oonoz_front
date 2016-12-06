@@ -74,6 +74,10 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             templateUrl: 'components/admin/createAccount/createAccountView.html',
             controller: 'createAccountCtrl'
         })
+        .when ('/user/getSupplierQCM',{
+            templateUrl: 'components/supplier/listingQCM/listingQCMView.html',
+            controller: 'listingQCMCtrl'
+        })
         .when ('/account',{
             templateUrl: 'components/account/accountView.html'
             //controller: 'accountCtrl'
