@@ -9,5 +9,23 @@ services.factory('AddQCMService', ['$resource',function ($resource) {
                     isArray: false
                 }
             });
+        },
+        getThemes: function () {
+            return $resource("http://localhost:8092/themes", {}, {
+                query: {
+                    method: 'GET',
+                    cache: false,
+                    isArray: true
+                }
+            });
+        },
+        getSubThemes: function (idTheme) {
+            return $resource("http://localhost:8092/themes/"+idTheme+"/subthemes", {}, {
+                query: {
+                    method: 'GET',
+                    cache: false,
+                    isArray: true
+                }
+            });
         }
     }}]);

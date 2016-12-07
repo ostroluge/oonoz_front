@@ -1,3 +1,37 @@
-<div>
-    <h1>Coucou la page d'ajout de QCM</h1>
+<div ng-include="'views/menu.html'"></div>
+<div class="newQCMContainer">
+    <div class="questionsBar">
+        <button class="generalButton">Général</button>
+        <button ng-repeat="n  in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" class="questionButton">Question
+            n°{{n}}
+        </button>
+    </div>
+    <form class="generalForm">
+        <div>
+            <label for="name">Nom :</label>
+            <input type="text" name="name" id="name" ng-model="name" placeholder="Nom">
+        </div>
+        <div>
+            <label for="supplier">Fournisseur :</label>
+            <input type="text" name="supplier" id="supplier" ng-model="supplier" placeholder="Fournisseur">
+        </div>
+        <div>
+            <label for="theme">Thème :</label>
+            <select id="theme" ng-change="getSubThemes(theme.idTheme)" ng-model="theme"
+                    ng-options="theme.label for theme in themes">
+            </select>
+        </div>
+        <div>
+            <label for="subThemes">Sous-thèmes :</label>
+            <select id="subThemes" ng-change="onSubThemeSelect(subTheme)" ng-model="subTheme"
+                    ng-options="subTheme.label for subTheme in subThemes">
+            </select>
+        </div>
+        <label>Sous-thèmes sélectionnés</label>
+        <div ng-repeat="subTheme in subThemesSelected">
+            {{subTheme.label}}
+        </div>
+
+
+    </form>
 </div>
