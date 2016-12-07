@@ -1,0 +1,12 @@
+.questionsBar{
+    border-right:solid;
+    width:20%;
+}
+
+.generalButton,.questionButton{
+    width:100%;
+}
+
+.newQCMContainer{
+    display:inline-flex;
+}
