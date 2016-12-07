@@ -16,7 +16,8 @@ var oonozApp = angular.module('oonozApp', [
     'naif.base64'
 ]);
 
-oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider) {
+oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider,$httpProvider) {
+    $httpProvider.defaults.withCredentials = true;
     $routeProvider
         .when('/login', {
             templateUrl: 'components/login/loginView.html',
@@ -74,7 +75,11 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             templateUrl: 'components/admin/createAccount/createAccountView.html',
             controller: 'createAccountCtrl'
         })
-        .when('/account', {
+        .when ('/user/getSupplierQCM',{
+            templateUrl: 'components/supplier/listingQCM/listingQCMView.html',
+            controller: 'listingQCMCtrl'
+        })
+        .when ('/account',{
             templateUrl: 'components/account/accountView.html'
             //controller: 'accountCtrl'
         })
