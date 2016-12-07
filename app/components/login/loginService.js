@@ -4,7 +4,7 @@ services.factory('LoginService', ['$resource','$location',
         return{
             login:function(username,password) {
              //   return $resource("http://localhost:8080/user/login", {}, {
-                    return $resource("http://localhost:8092/user/login", {}, {
+                    return $resource("http://localhost:8092/Oonoz/user/login", {}, {
                     query: {
                         method: 'GET', headers: {Authorization: "Basic " + btoa(username + ":" + password)},
                         cache: false, isArray: false
