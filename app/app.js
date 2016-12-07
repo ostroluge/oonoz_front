@@ -70,17 +70,21 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             templateUrl: 'components/admin/supplierRequest/suppliersRequestView.html',
             controller: 'suppliersRequestCtrl'
         })
-        .when ('/admin/createAccount',{
+        .when('/admin/createAccount', {
             templateUrl: 'components/admin/createAccount/createAccountView.html',
             controller: 'createAccountCtrl'
         })
-        .when ('/account',{
+        .when('/account', {
             templateUrl: 'components/account/accountView.html'
             //controller: 'accountCtrl'
         })
-        .when ('/qcm/qcmDetail/:id',{
+        .when('/qcm/qcmDetail/:id', {
             templateUrl: 'components/qcm/qcmDetail/qcmDetailView.html',
             controller: 'QcmDetailCtrl'
+        })
+        .when('/qcms/new', {
+            templateUrl: 'components/qcm/addQCM/addQCM.html',
+            controller: 'AddQCMCtrl'
         })
         .otherwise({redirectTo: '/login'});
 }]);
