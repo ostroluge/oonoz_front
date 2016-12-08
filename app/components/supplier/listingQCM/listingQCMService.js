@@ -6,7 +6,7 @@ services.factory('listingQCMService', ['$resource', '$location',
         return {
             getSupplierQCM: function () {
                 return $resource("http://localhost:8092/user/getSupplierQCM", {}, {
-                    generate: {
+                    query: {
                         method: 'GET',
                         cache: false,
                         isArray: true
@@ -15,11 +15,11 @@ services.factory('listingQCMService', ['$resource', '$location',
             },
             filteredSearch: function(mTheme,mSubTheme){
                 // return $resource("http://localhost:8080/admin/acceptSupplierRequest",{},{
-                return $resource("http://localhost:8092/user/searchSupplierQCM",{},{
+                return $resource("http://localhost:8092/searchSupplierQCM",{},{
                     query: {
-                        method: 'POST',
+                        method: 'GET',
                         cache: false,
-                        isArray:false,
+                        isArray:true,
                         params:{
                             theme: mTheme,
                             subTheme : mSubTheme
