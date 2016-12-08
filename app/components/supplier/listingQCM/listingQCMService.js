@@ -12,6 +12,21 @@ services.factory('listingQCMService', ['$resource', '$location',
                         isArray: true
                     }
                 });
+            },
+            filteredSearch: function(mTheme,mSubTheme){
+                // return $resource("http://localhost:8080/admin/acceptSupplierRequest",{},{
+                return $resource("http://localhost:8092/user/searchSupplierQCM",{},{
+                    query: {
+                        method: 'POST',
+                        cache: false,
+                        isArray:false,
+                        params:{
+                            theme: mTheme,
+                            subTheme : mSubTheme
+                        }
+                    }
+                })
             }
+
         }
 }]);
