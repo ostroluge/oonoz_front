@@ -9,16 +9,24 @@
     <form class="generalForm">
         <div>
             <label for="name">Nom :</label>
-            <input type="text" name="name" id="name" ng-model="name" placeholder="Nom">
+            <input type="text" name="name" id="name" ng-model="name" placeholder="Nom"
+                   ng-required="true">
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" ng-model="description"
+                   placeholder="Description" ng-required="true">
         </div>
         <div>
             <label for="supplier">Fournisseur :</label>
-            <input type="text" name="supplier" id="supplier" ng-model="supplier" placeholder="Fournisseur">
+            <select id="supplier" ng-model="supplier"
+                    ng-options="supplier.lastName for supplier in suppliers" ng-required="true">
+            </select>
         </div>
         <div>
             <label for="theme">Thème :</label>
             <select id="theme" ng-change="getSubThemes(theme.idTheme)" ng-model="theme"
-                    ng-options="theme.label for theme in themes">
+                    ng-options="theme.label for theme in themes" ng-required="true">
             </select>
         </div>
         <div>
@@ -31,7 +39,39 @@
         <div ng-repeat="subTheme in subThemesSelected">
             {{subTheme.label}}
         </div>
-
-
+        <div>
+            <label for="isFree">Est gratuit :</label>
+            <input type="checkbox" name="isFree" id="isFree" ng-model="isFree">
+        </div>
+        <div>
+            <label for="price">Prix :</label>
+            <input type="number" name="price" id="price" ng-model="price"
+                   ng-disabled="isFree">
+        </div>
+        <div>
+            <label for="category">Catégorie :</label>
+            <select id="category" ng-model="category"
+                    ng-options="category.label for category in categories" ng-required="true">
+            </select>
+        </div>
+        <div>
+            <label for="minimalScore">Score minimal :</label>
+            <input type="number" id="minimalScore" name="minimalScore" ng-model="minimalScore">
+        </div>
+        <div>
+            <label for="icon">Icone :</label>
+            <input type="file" id="icon" name="icon" ng-model="icon">
+        </div>
+        <div>
+            <label for="prizeName">Nom du prix :</label>
+            <input type="text" id="prizeName" name="prizeName" ng-model="prizeName">
+        </div>
+        <div>
+            <label for="prizeDescription">Description du prix :</label>
+            <input type="text" id="prizeDescription" name="prizeDescription" ng-model="prizeDescription">
+        </div>
+        <div>
+            <button class="button" ng-click="postQCM()">Valider le QCM</button>
+        </div>
     </form>
 </div>
