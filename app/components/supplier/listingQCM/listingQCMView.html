@@ -1,4 +1,4 @@
-<div ng-controller="listingQCMCtrl" ng-init="getSupplierQCM()">
+<div ng-controller="listingQCMCtrl" ng-init="">
     <form>
         <div>
             <label for="theme">Theme :</label>
@@ -8,17 +8,26 @@
             <label for="subTheme">Sous-thème :</label>
             <input type="text" name="subTheme" id="subTheme" ng-model="subTheme">
         </div>
-        <button ng-click="search()">Rechercher</button>
+        <button ng-click="filteredSearch(theme,subTheme)">Rechercher</button>
         <button ng-click="erase()">Effacer</button>
     </form>
-
+    <div>
+        <a href="">Créer un QCM</a>
+        <a href="">Uploader un (ou des) QCM(s)</a>
+    </div>
     <div>Mes QCM</div>
     <div ng-repeat="qcm in supplierQCM">
         <span >
             {{qcm.name}}
         </span>
         <span >
-            {{qcm.validated}}
+            {{qcm.description}}
+        </span>
+        <span ng-if="qcm.validated">
+                Validé
+        </span>
+        <span ng-if="!qcm.validated">
+                En attente de validation
         </span>
     </div>
 </div>
