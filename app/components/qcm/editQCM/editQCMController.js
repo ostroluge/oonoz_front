@@ -62,7 +62,13 @@ controllers.controller('EditQCMCtrl', ['$scope', 'dialogs', 'EditQCMService', 'A
                 function success(response) {
                     $scope.qcm=response;
 
-                    $scope.supplier = $scope.qcm.supplierName;
+                    /**Set the default supplier of QCM in list*/
+                    $scope.suppliers.forEach(function(supplier){
+                        if(supplier.idPlayer==$scope.qcm.idSupplier){
+                            $scope.supplier=supplier;
+                        }
+                    });
+
                 },
                 function error(response) {
 
