@@ -57,10 +57,15 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
             }
         };
 
+        $scope.deleteSubTheme=function(index){
+            console.log(index);
+            $scope.subThemesSelected.splice(index,1);
+        }
+
         $scope.postQCM = function () {
             var qcm = {};
-            qcm.validated = false;
-            qcm.isComplete = false;
+            /*qcm.validated = false;
+            qcm.isComplete = false;*/
             qcm.name = $scope.name;
             qcm.description = $scope.description;
             qcm.idTheme = $scope.theme.idTheme;
@@ -72,7 +77,12 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
             qcm.category = $scope.getCategory($scope.category);
             qcm.minimalScore = $scope.minimalScore;
 
-            qcm.icon = $scope.icon;
+            if ($scope.icon != null) {
+                if ($scope.icon.base64 != null) {
+                    qcm.icon = $scope.icon.base64;
+                }
+            }
+
             qcm.prizeName = $scope.prizeName;
             qcm.prizeDescription = $scope.prizeDescription;
 
@@ -80,7 +90,7 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
                 .$promise
                 .then(
                     function success(response) {
-                        dialogs.confirm("Création succès", "La création du QCM s'est déroulée avec succès !");
+                        dialogs.notify("Création succès", "La création du QCM s'est déroulée avec succès !");
                         $scope.subThemesSelected.forEach(function (value) {
                             AddQCMService.addSubTheme(response.id, value.id).query()
                                 .$promise

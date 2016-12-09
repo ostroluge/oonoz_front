@@ -1,11 +1,6 @@
 <div ng-include="'views/menu.html'"></div>
+<h2>Création d'un QCM</h2>
 <div class="newQCMContainer">
-    <div class="questionsBar">
-        <button class="generalButton">Général</button>
-        <button ng-repeat="n  in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" class="questionButton">Question
-            n°{{n}}
-        </button>
-    </div>
     <form class="generalForm">
         <div>
             <label for="name">Nom :</label>
@@ -37,7 +32,8 @@
         </div>
         <label>Sous-thèmes sélectionnés</label>
         <div ng-repeat="subTheme in subThemesSelected">
-            {{subTheme.label}}
+            <label>{{subTheme.label}}</label>
+            <button type="button" ng-click="deleteSubTheme($index)">Supprimer</button>
         </div>
         <div>
             <label for="isFree">Est gratuit :</label>
@@ -60,7 +56,7 @@
         </div>
         <div>
             <label for="icon">Icone :</label>
-            <input type="file" id="icon" name="icon" ng-model="icon">
+            <input type="file" id="icon" name="icon" ng-model="icon" accept="image/*" base-sixty-four-input>
         </div>
         <div>
             <label for="prizeName">Nom du prix :</label>
@@ -71,7 +67,7 @@
             <input type="text" id="prizeDescription" name="prizeDescription" ng-model="prizeDescription">
         </div>
         <div>
-            <button class="button" ng-click="postQCM()">Valider le QCM</button>
+            <button class="button"  ng-click="postQCM()">Valider le QCM</button>
         </div>
     </form>
 </div>
