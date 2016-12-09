@@ -1,0 +1,12 @@
+.editQuestionsBar{
+    border-right:solid;
+    width:20%;
+}
+
+.generalButton,.editQuestionButton{
+    width:100%;
+}
+
+.newQCMContainer{
+    display:inline-flex;
+}
