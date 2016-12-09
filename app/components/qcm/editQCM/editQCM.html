@@ -1,0 +1,77 @@
+<div ng-include="'views/menu.html'"></div>
+<div class="newQCMContainer">
+    <div class="editQuestionsBar">
+        <button class="generalButton">Général</button>
+        <button ng-repeat="n  in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" class="editQuestionButton">Question
+            n°{{n}}
+        </button>
+    </div>
+    <form class="generalForm">
+        <div>
+            <label for="name">Nom :</label>
+            <input type="text" name="name" id="name" ng-model="qcm.name" placeholder="Nom"
+                   ng-required="true">
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" ng-model="qcm.description"
+                   placeholder="Description" ng-required="true">
+        </div>
+        <div>
+            <label for="supplier">Fournisseur :</label>
+            <select id="supplier" ng-model="supplier"
+                    ng-options="supplier.lastName for supplier in suppliers" ng-required="true">
+            </select>
+        </div>
+        <div>
+            <label for="theme">Thème :</label>
+            <select id="theme" ng-change="getSubThemes(theme.idTheme)" ng-model="theme"
+                    ng-options="theme.label for theme in themes" ng-required="true">
+            </select>
+        </div>
+        <div>
+            <label for="subThemes">Sous-thèmes :</label>
+            <select id="subThemes" ng-change="onSubThemeSelect(subTheme)" ng-model="subTheme"
+                    ng-options="subTheme.label for subTheme in subThemes">
+            </select>
+        </div>
+        <label>Sous-thèmes sélectionnés</label>
+        <div ng-repeat="subTheme in subThemesSelected">
+            {{subTheme.label}}
+        </div>
+        <div>
+            <label for="isFree">Est gratuit :</label>
+            <input type="checkbox" name="isFree" id="isFree" ng-model="qcm.free">
+        </div>
+        <div>
+            <label for="price">Prix :</label>
+            <input type="number" name="price" id="price" ng-model="qcm.price"
+                   ng-disabled="isFree">
+        </div>
+        <div>
+            <label for="category">Catégorie :</label>
+            <select id="category" ng-model="category"
+                    ng-options="category.label for category in categories" ng-required="true">
+            </select>
+        </div>
+        <div>
+            <label for="minimalScore">Score minimal :</label>
+            <input type="number" id="minimalScore" name="minimalScore" ng-model="qcm.minimalScore">
+        </div>
+        <div>
+            <label for="icon">Icone :</label>
+            <input type="file" id="icon" name="icon" ng-model="qcm.icon">
+        </div>
+        <div>
+            <label for="prizeName">Nom du prix :</label>
+            <input type="text" id="prizeName" name="prizeName" ng-model="qcm.prizeName">
+        </div>
+        <div>
+            <label for="prizeDescription">Description du prix :</label>
+            <input type="text" id="prizeDescription" name="prizeDescription" ng-model="qcm.prizeDescription">
+        </div>
+        <div>
+            <button class="button" ng-click="editQCM()">Modifier le QCM</button>
+        </div>
+    </form>
+</div>

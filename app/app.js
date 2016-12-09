@@ -91,5 +91,9 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             templateUrl: 'components/qcm/addQCM/addQCM.html',
             controller: 'AddQCMCtrl'
         })
+        .when('/qcms/:id/edit', {
+            templateUrl: 'components/qcm/editQCM/editQCM.html',
+            controller: 'EditQCMCtrl'
+        })
         .otherwise({redirectTo: '/login'});
 }]);

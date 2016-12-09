@@ -10,7 +10,7 @@ controllers.controller('QcmDetailCtrl', ['$scope','dialogs','QcmDetailService','
                 function success(response) {
 
                     $scope.qcm=response;
-                   
+
                     console.log(response);
                 },
                 function error(response) {
