@@ -60,7 +60,7 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
         $scope.deleteSubTheme=function(index){
             console.log(index);
             $scope.subThemesSelected.splice(index,1);
-        }
+        };
 
         $scope.postQCM = function () {
             var qcm = {};
@@ -74,7 +74,7 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
             if (!$scope.isFree) {
                 qcm.price = $scope.price;
             }
-            qcm.category = $scope.getCategory($scope.category);
+            qcm.category = $scope.getCategory($scope.category.label);
             qcm.minimalScore = $scope.minimalScore;
 
             if ($scope.icon != null) {
@@ -103,6 +103,7 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
                                     }
                                 );
                         });
+                        $location.path('qcms/'+response.id+'/edit');
                     },
                     function error(response) {
                         dialogs.error("Échec création QCM", "La création a échoué veuillez réessayer ultérieurement.");

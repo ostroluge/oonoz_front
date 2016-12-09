@@ -9,6 +9,15 @@ services.factory('EditQCMService', ['$resource',function ($resource) {
                     isArray: false
                 }
             });
+        },
+        editQCM: function (id) {
+            return $resource("http://localhost:8092/qcms/"+id, {}, {
+                query: {
+                    method: 'PUT',
+                    cache: false,
+                    isArray: false
+                }
+            })
         }
 
     }}]);

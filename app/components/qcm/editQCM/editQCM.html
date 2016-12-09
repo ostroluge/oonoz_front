@@ -37,7 +37,8 @@
         </div>
         <label>Sous-thèmes sélectionnés</label>
         <div ng-repeat="subTheme in subThemesSelected">
-            {{subTheme.label}}
+            <label>{{subTheme.label}}</label>
+            <button type="button" ng-click="deleteSubTheme($index)">Supprimer</button>
         </div>
         <div>
             <label for="isFree">Est gratuit :</label>
