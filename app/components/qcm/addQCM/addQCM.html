@@ -74,11 +74,11 @@
         </div>
         <div ng-if="hasGift">
             <label class="generalQCMLabel" for="prizeName">Nom du cadeau :</label>
-            <input class="generalQCMInput" type="text" id="prizeName" name="prizeName" ng-model="prizeName" ng-disabled="hasGift">
+            <input class="generalQCMInput" type="text" id="prizeName" name="prizeName" ng-model="prizeName" ng-disabled="!hasGift">
         </div>
         <div ng-if="hasGift">
             <label class="generalQCMLabel" for="prizeDescription">Description du cadeau :</label>
-            <input class="generalQCMInput" type="text" id="prizeDescription" name="prizeDescription" ng-model="prizeDescription" ng-disabled="hasGift">
+            <input class="generalQCMInput" type="text" id="prizeDescription" name="prizeDescription" ng-model="prizeDescription" ng-disabled="!hasGift">
         </div>
         <div>
             <button class="button"  ng-click="postQCM()">Valider le QCM</button>
