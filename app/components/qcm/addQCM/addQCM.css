@@ -13,90 +13,20 @@
     color: #287F50;
 }
 
-.newQCMForm{
+.newQCM .generalQCMForm{
     margin-left:auto;
     margin-right:auto;
     max-width:100%;
 }
 
 @media screen and (min-width:340px) {
-    .newQCMForm {
+    .newQCM .generalQCMForm {
         width: 323px;
     }
 }
 
 @media screen and (max-width:339px) {
-    .newQCMForm {
+    .newQCM .generalQCMForm {
         width: 170px;
     }
-}
-
-
-.newQCMLabel{
-    width:150px;
-}
-
-.newQCMInput{
-    width:170px;
-}
-
-.newQCMSubTheme{
-    text-align:right;
-    height:17px;
-}
-
-.newQCMSubThemeDeleteButton{
-    background-color:transparent;
-    border:none;
-}
-
-.newQCMForm .newQCMSubThemeDeleteButton img{
-    width:17px;
-    height:17px;
-}
-
-.newQCMForm .button{
-    display:block;
-    color: white;
-    background-color: #48E590;
-    height:35px;
-    width: 150px;
-    border: none;
-    margin-top:20px;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.newQCMForm .button:hover {
-    background-color: #287F50;
-}
-
-.newQCMAddImg {
-    color: white;
-    background-color: lightgrey;
-    padding:3px 10px 3px 10px;
-    font-weight:400;
-    width:170px;
-}
-
-.newQCMAddImg:hover{
-    background-color:grey;
-}
-
-.newQCMAddImg img{
-    width:20px;
-    margin-bottom:3px;
-}
-
-.newQCMAddImg [type=file] {
-    display: block;
-    height: 0;
-    width: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-}
-
-.newQCMIconFileName{
-    text-align:right;
 }

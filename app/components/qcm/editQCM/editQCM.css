@@ -1,10 +1,55 @@
-.editQuestionsBar{
-    border-right:solid;
+.editQCMTitle {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #287F50;
+}
+
+.editQCMGeneral, .editQCMQuestion{
+    width:95%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.editQCMGeneral .generalQCMForm, .editQCMQuestion .questionQCMForm{
+    margin-left:auto;
+    margin-right:auto;
+    max-width:100%;
+}
+
+@media screen and (min-width:390px) {
+    .editQCMGeneral .generalQCMForm, .editQCMQuestion .questionQCMForm {
+        width: 323px;
+    }
+}
+
+@media screen and (max-width:389px) {
+    .editQCMGeneral .generalQCMForm, .editQCMQuestion .questionQCMForm {
+        width: 170px;
+    }
+}
+
+
+.editQCMBar{
     width:20%;
+    min-width:150px;
 }
 
 .generalButton,.editQuestionButton{
     width:100%;
+    background-color:white;
+    color:#555555;
+    border-style: solid;
+    border-width:1px;
+    border-color:#555555;
+    height:30px;
+}
+
+.generalButton:hover,.editQuestionButton:hover{
+    color:white;
+    background-color:#555555;
 }
 
 .editQCMContainer{
