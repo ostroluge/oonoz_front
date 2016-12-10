@@ -38,6 +38,6 @@ controllers.controller('QcmDetailCtrl', ['$scope','dialogs','QcmDetailService','
         };
 
         $scope.updateQCM=function(){
-
+            $location.path("/qcms/"+$scope.qcm.id+"/edit");
         };
     }]);

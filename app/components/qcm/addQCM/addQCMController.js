@@ -97,6 +97,7 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
                                 .then(
                                     function success(response) {
                                         console.log('Add SubTheme success');
+                                       
                                     },
                                     function error(response) {
                                         console.log('Add SubTheme error');
