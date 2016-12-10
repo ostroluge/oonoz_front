@@ -173,22 +173,22 @@
     border:solid 1px #287F50;
 }
 
-.QcmDetailQuestionBottom{
-    width:165px;
+.QcmDetailGeneralButtons{
+    width:185px;
     margin-left:auto;
     margin-right:auto;
     margin-top:10px;
     margin-bottom:10px;
 }
 
-.QcmDetailQuestionBottomBouton {
+.QcmDetailGeneralButton {
     color: white;
     background-color: #287F50;
     height:35px;
-    width: 80px;
+    width: 90px;
     border: none;
 }
 
-.QcmDetailQuestionBottomBouton:hover {
+.QcmDetailGeneralButton:hover {
     background-color: #48E590;
 }

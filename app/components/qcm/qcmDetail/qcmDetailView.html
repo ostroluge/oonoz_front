@@ -41,6 +41,10 @@
                 <span class="QcmDetailGeneralGift" ng-if="!qcm.prizeName">
                     Pas de cadeau
                 </span>
+                <div class="QcmDetailGeneralButtons">
+                    <button class="QcmDetailGeneralButton" ng-click="updateQCM()">Modifier</button>
+                    <button class="QcmDetailGeneralButton" ng-click="deleteQCM()">Supprimer</button>
+                </div>
             </div>
         </div>
     </div>
@@ -71,10 +75,6 @@
                     <span class="QcmDetailQuestionMiddlePerturbateur">{{question.proposition2}}</span>
                     <span class="QcmDetailQuestionMiddlePerturbateur">{{question.proposition3}}</span>
                 </div>
-            </div>
-            <div class="QcmDetailQuestionBottom">
-                <button class="QcmDetailQuestionBottomBouton" ng-click="updateQCM()">Modifier</button>
-                <button class="QcmDetailQuestionBottomBouton" ng-click="deleteQCM()">Supprimer</button>
             </div>
         </div>
     </div>
