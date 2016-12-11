@@ -4,6 +4,8 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
 
         $scope.qcm = {};
         $scope.subThemesSelected = [];
+        $scope.themes = [];
+        $scope.subThemes = [];
 
         $scope.categories = [{label: 'Se tester'}, {label: 'Apprendre'}];
 
@@ -11,7 +13,11 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
             .then(
                 function success(response) {
                     //dialogs.notify("Succès changement statut", "Le statut de l'utilisateur a été modifié avec succès");
-                    $scope.themes = response;
+                    response.forEach(function (theme) {
+                        if (theme.validated) {
+                           $scope.themes.push(theme);
+                       }
+                    });
                 },
                 function error(response) {
                     /*if (response.status == 409) {
@@ -32,10 +38,15 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
 
         $scope.getSubThemes = function (idTheme) {
             $scope.subThemesSelected = [];
+            $scope.subThemes = [];
             AddQCMService.getSubThemes(idTheme).query().$promise
                 .then(
                     function success(response) {
-                        $scope.subThemes = response;
+                        response.forEach(function (subTheme) {
+                           if (subTheme.validated) {
+                               $scope.subThemes.push(subTheme);
+                           }
+                        });
                     },
                     function error(response) {
 
