@@ -3,6 +3,7 @@ controllers.controller('EditQCMCtrl', ['$scope', 'dialogs', 'EditQCMService', 'A
     function ($scope, dialogs, EditQCMService, AddQCMService, $routeParams, $location, QuestionModel) {
 
         $scope.qcm = {};
+        $scope.question={};
         $scope.subThemesSelected = [];
         $scope.themes = [];
         $scope.subThemes = [];
@@ -163,6 +164,7 @@ controllers.controller('EditQCMCtrl', ['$scope', 'dialogs', 'EditQCMService', 'A
         };
 
         $scope.editQuestion = function (index) {
+
             if ($scope.question.id != "") {
                 EditQCMService.editQuestion($routeParams.id, $scope.question.id).query($scope.question).$promise
                     .then(
@@ -183,6 +185,7 @@ controllers.controller('EditQCMCtrl', ['$scope', 'dialogs', 'EditQCMService', 'A
                 newQuestion.proposition3 = $scope.question.proposition3;
                 newQuestion.media = $scope.question.media;
                 newQuestion.mediaType = $scope.question.mediaType;
+                console.log("Question number" +$scope.question.questionNumber);
                 newQuestion.questionNumber = $scope.question.questionNumber;
                 newQuestion.time = $scope.question.time;
                 EditQCMService.createQuestion($routeParams.id).query(newQuestion).$promise
@@ -204,6 +207,7 @@ controllers.controller('EditQCMCtrl', ['$scope', 'dialogs', 'EditQCMService', 'A
         };
 
         $scope.questionView = function (index) {
+            console.log("index: "+index);
             EditQCMService.getQuestionByNumber($routeParams.id, index).query().$promise
                 .then(
                     function success(response) {
@@ -211,9 +215,10 @@ controllers.controller('EditQCMCtrl', ['$scope', 'dialogs', 'EditQCMService', 'A
                         $scope.showQuestionForm = true;
                         $scope.editQuestionButtonText = "Modifier la question";
                         if (response.id == 0) {
-                            cleanQuestionForm();
                             $scope.question.questionNumber = index;
                             $scope.editQuestionButtonText = "Créer";
+                            cleanQuestionForm();
+
                         } else {
                             $scope.question = new QuestionModel(response);
                         }
@@ -225,16 +230,15 @@ controllers.controller('EditQCMCtrl', ['$scope', 'dialogs', 'EditQCMService', 'A
         };
 
         var cleanQuestionForm = function () {
-            $scope.question.id = "";
-            $scope.question.idQCM = "";
-            $scope.question.title = "";
-            $scope.question.media = "";
-            $scope.question.mediaType = "";
+            $scope.question.id ="";
+            $scope.question.idQCM ="";
+            $scope.question.title ="";
+            $scope.question.media ="";
+            $scope.question.mediaType ="";
             $scope.question.answer = "";
-            $scope.question.proposition1 = "";
-            $scope.question.proposition2 = "";
-            $scope.question.proposition3 = "";
-            $scope.question.questionNumber = "";
-            $scope.question.time = "";
+            $scope.question.proposition1 ="";
+            $scope.question.proposition2 ="";
+            $scope.question.proposition3 ="";
+            $scope.question.time ="";
         }
     }]);
