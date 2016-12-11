@@ -40,8 +40,8 @@
                         ng-options="subTheme.label for subTheme in subThemes">
                 </select>
             </div>
-            <label ng-if="subThemesSelected.length>0">Sous-thèmes sélectionnés</label>
-            <div class="generalQCMSubTheme" ng-repeat="subTheme in subThemesSelected">
+            <label ng-if="(subThemesSelected.length>0 && subThemesSelected[0]!=null) || subThemesSelected.length>1">Sous-thèmes sélectionnés</label>
+            <div class="generalQCMSubTheme" ng-repeat="subTheme in subThemesSelected | filter:{label: ''}">
                 <label>{{subTheme.label}}</label>
                 <button class="generalQCMSubThemeDeleteButton" type="button" ng-click="deleteSubTheme($index)"><img src="images/delete-vert.png"></button>
             </div>
