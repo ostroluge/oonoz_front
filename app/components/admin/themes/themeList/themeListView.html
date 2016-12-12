@@ -7,7 +7,7 @@
             <div class="ThemeListUnTheme ThemeListThemeValide" ng-if="theme.validated">
                 <span class="ThemeListImgConteneur">
                 <span ng-if="theme.iconUrl == null">
-                    <img class="ThemeListImg" ng-src="images/picture.png"/>
+                    <img class="ThemeListImg" ng-src="images/defaultPicture.png"/>
                 </span>
                 <span ng-if="theme.iconUrl != null">
                     <img class="ThemeListImg" ng-src="{{'data:image/*;base64,'+theme.iconUrl}}"/>
@@ -18,7 +18,7 @@
             <div class="ThemeListUnTheme" ng-if="!theme.validated">
                 <span class="ThemeListImgConteneur">
                 <span ng-if="theme.iconUrl == null">
-                    <img class="ThemeListImg" ng-src="images/picture.png"/>
+                    <img class="ThemeListImg" ng-src="images/defaultPicture.png"/>
                 </span>
                 <span ng-if="theme.iconUrl != null">
                     <img class="ThemeListImg" ng-src="{{'data:image/*;base64,'+theme.iconUrl}}"/>
@@ -37,7 +37,7 @@
             <div class="ThemeListSousTheme" ng-repeat="subtheme in theme.subThemes | filter:{validated:'FALSE'}">
                     <span class="ThemeListImgConteneur">
                     <span ng-if="subtheme.iconUrl == null">
-                            <img class="ThemeListImg" ng-src="images/picture.png"/>
+                            <img class="ThemeListImg" ng-src="images/defaultPicture.png"/>
                         </span>
                     <span ng-if="subtheme.iconUrl != null">
                         <img class="ThemeListImg" ng-src="{{'data:image/*;base64,'+subtheme.iconUrl}}"/>
@@ -70,7 +70,7 @@
         <div class="ThemeListUnTheme">
             <span class="ThemeListImgConteneur">
                 <span ng-if="theme.iconUrl == null">
-                    <img class="ThemeListImg" ng-src="images/picture.png"/>
+                    <img class="ThemeListImg" ng-src="images/defaultPicture.png"/>
                 </span>
                 <span ng-if="theme.iconUrl != null">
                     <img class="ThemeListImg" ng-src="{{'data:image/*;base64,'+theme.iconUrl}}"/>
@@ -89,7 +89,7 @@
         <div class="ThemeListSousTheme" ng-repeat="subtheme in theme.subThemes | filter:{validated:'TRUE'}">
                 <span class="ThemeListImgConteneur">
                 <span ng-if="subtheme.iconUrl == null">
-                        <img class="ThemeListImg" ng-src="images/picture.png"/>
+                        <img class="ThemeListImg" ng-src="images/defaultPicture.png"/>
                     </span>
                 <span ng-if="subtheme.iconUrl != null">
                         <img class="ThemeListImg" ng-src="{{'data:image/*;base64,'+subtheme.iconUrl}}"/>
