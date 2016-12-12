@@ -1,0 +1,87 @@
+<div ng-include="'views/menu.html'"></div>
+
+<div class="contenuInline newQCM">
+    <div class="newQCMTitle">Création d'un QCM</div>
+    <form class="generalQCMForm">
+        <div>
+            <label class="generalQCMLabel" for="name">Nom :</label>
+            <input class="generalQCMInput" type="text" name="name" id="name" ng-model="name" placeholder="Nom"
+                   ng-required="true">
+        </div>
+        <div>
+            <label class="generalQCMLabel" for="description">Description :</label>
+            <textarea class="generalQCMInput" type="text" name="description" id="description" ng-model="description"
+                      placeholder="Description"
+                      ng-minlength="4" ng-maxlength="20" required></textarea>
+        </div>
+        <div>
+            <label class="generalQCMLabel" for="supplier">Fournisseur :</label>
+            <select class="generalQCMInput" id="supplier" ng-model="supplier"
+                    ng-options="supplier.lastName for supplier in suppliers" ng-required="true">
+            </select>
+        </div>
+        <div>
+            <label class="generalQCMLabel" for="theme">Thème :</label>
+            <select class="generalQCMInput" id="theme" ng-change="getSubThemes(theme.idTheme)" ng-model="theme"
+                    ng-options="theme.label for theme in themes" ng-required="true">
+            </select>
+        </div>
+        <div>
+            <label class="generalQCMLabel" for="subThemes">Sous-thèmes :</label>
+            <select class="generalQCMInput" id="subThemes" ng-change="onSubThemeSelect(subTheme)" ng-model="subTheme"
+                    ng-options="subTheme.label for subTheme in subThemes">
+            </select>
+        </div>
+        <label ng-if="(subThemesSelected.length>0 && subThemesSelected[0]!=null) || subThemesSelected.length>1">Sous-thèmes sélectionnés</label>
+        <div class="generalQCMSubTheme" ng-repeat="subTheme in subThemesSelected | filter:{label: ''}">
+            <label>{{subTheme.label}}</label>
+            <button class="generalQCMSubThemeDeleteButton" type="button" ng-click="deleteSubTheme($index)"><img src="images/delete-vert.png"></button>
+        </div>
+        <div>
+            <label class="generalQCMLabel" for="isFree">Est gratuit :</label>
+            <input type="checkbox" name="isFree" id="isFree" ng-model="isFree">
+        </div>
+        <div>
+            <label class="generalQCMLabel" for="price">Prix :</label>
+            <input class="generalQCMInput" type="number" name="price" id="price" ng-model="price"
+                   ng-disabled="isFree">
+        </div>
+        <div>
+            <label class="generalQCMLabel" for="category">Catégorie :</label>
+            <select class="generalQCMInput" id="category" ng-model="category"
+                    ng-options="category.label for category in categories" ng-required="true">
+            </select>
+        </div>
+        <div>
+            <label class="generalQCMLabel" for="minimalScore">Score minimal :</label>
+            <input class="generalQCMInput" type="number" id="minimalScore" name="minimalScore" ng-model="minimalScore">
+        </div>
+        <div>
+            <label class="generalQCMLabel" for="icon">Icone :</label>
+            <label class="generalQCMAddImg">
+                <img src="images/upload.png">
+                <span ng-if="!icon">Choisissez un fichier</span>
+                <span ng-if="icon">Modifier le fichier</span>
+                <input type="file" id="icon" name="icon" ng-model="icon" accept="image/*" base-sixty-four-input>
+            </label>
+        </div>
+        <div class="generalQCMIconFileName">
+            {{icon.filename}}
+        </div>
+        <div>
+            <label class="generalQCMLabel" for="isFree">Cadeau à gagner :</label>
+            <input type="checkbox" name="hasGift" id="hasGift" ng-model="hasGift">
+        </div>
+        <div ng-if="hasGift">
+            <label class="generalQCMLabel" for="prizeName">Nom du cadeau :</label>
+            <input class="generalQCMInput" type="text" id="prizeName" name="prizeName" ng-model="prizeName" ng-disabled="!hasGift">
+        </div>
+        <div ng-if="hasGift">
+            <label class="generalQCMLabel" for="prizeDescription">Description du cadeau :</label>
+            <input class="generalQCMInput" type="text" id="prizeDescription" name="prizeDescription" ng-model="prizeDescription" ng-disabled="!hasGift">
+        </div>
+        <div>
+            <button class="button"  ng-click="postQCM()">Valider le QCM</button>
+        </div>
+    </form>
+</div>

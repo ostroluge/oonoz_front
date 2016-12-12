@@ -1,0 +1,68 @@
+.generalQCMLabel{
+    width:150px;
+}
+
+.generalQCMInput{
+     width:170px;
+}
+
+.generalQCMSubTheme{
+    text-align:right;
+    height:20px;
+}
+
+.generalQCMSubThemeDeleteButton{
+    background-color:transparent;
+    border:none;
+}
+
+.generalQCMForm .generalQCMSubThemeDeleteButton img{
+    width:17px;
+    height:17px;
+}
+
+.generalQCMForm .button{
+    display:block;
+    color: white;
+    background-color: #48E590;
+    height:35px;
+    width: 150px;
+    border: none;
+    margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.generalQCMForm .button:hover {
+    background-color: #287F50;
+}
+
+.generalQCMAddImg {
+    color: white;
+    background-color: lightgrey;
+    padding:3px 10px 3px 10px;
+    font-weight:400;
+    width:170px;
+}
+
+.generalQCMAddImg:hover{
+    background-color:grey;
+}
+
+.generalQCMAddImg img{
+    width:20px;
+    margin-bottom:3px;
+}
+
+.generalQCMAddImg [type=file] {
+    display: block;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+}
+
+.generalQCMIconFileName{
+    text-align:right;
+}

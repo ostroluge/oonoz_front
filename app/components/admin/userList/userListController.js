@@ -144,7 +144,7 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
                                 "siretNumber": response.content[user].siretNumber
                             });
                         }
-                        console.log(response.content);
+                        
                         if (response.totalPages != 1) {
                             $scope.range = new Array(response.totalPages);
                         }
@@ -303,7 +303,6 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
             if (user.isSupplier == true) {
                 user.isPrivateIndividual = $scope.professionalState;
                 user.isValid = $scope.supplierAccountState;
-                console.log(user);
                 if (user.isPrivateIndividual == false) {
                     user.companyName = $scope.companyNameModification;
                     user.companyAddress = $scope.companyAddressModification;
@@ -313,6 +312,7 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
                     .then(
                         function success(response) {
                             dialogs.notify("Succès modification", "Les informations de l'utilisateur ont été modifiées avec succès");
+                            $scope.search();
                         },
                         function error() {
 
@@ -324,6 +324,7 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
                     .then(
                         function success(response) {
                             dialogs.notify("Succès modification", "Les informations de l'utilisateur ont été modifiées avec succès");
+                            $scope.search();
                         },
                         function error() {
 
