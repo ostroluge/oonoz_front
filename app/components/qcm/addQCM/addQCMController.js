@@ -6,27 +6,20 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
         $scope.subThemesSelected = [];
         $scope.themes = [];
         $scope.subThemes = [];
+        $scope.minimalScore=0;
 
         $scope.categories = [{label: 'Se tester'}, {label: 'Apprendre'}];
 
-        AddQCMService.getThemes().query().$promise
+        AddQCMService.getValidatedThemes().query().$promise
             .then(
                 function success(response) {
-                    //dialogs.notify("Succès changement statut", "Le statut de l'utilisateur a été modifié avec succès");
-                    response.forEach(function (theme) {
-                        if (theme.validated) {
-                           $scope.themes.push(theme);
-                       }
-                    });
+                    $scope.themes=response;
                 },
                 function error(response) {
-                    /*if (response.status == 409) {
-                     dialogs.error("Erreur", "L'utilisateur n'existe pas !")
-                     }*/
                 }
             );
 
-        AddQCMService.getSuppliers().query().$promise
+        /*AddQCMService.getSuppliers().query().$promise
             .then(
                 function success(response) {
                     $scope.suppliers = response;
@@ -34,26 +27,23 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
                 function error(response) {
 
                 }
-            );
+            );*/
 
-        $scope.getSubThemes = function (idTheme) {
+        /**
+         * Get subthemes from a theme.
+         * @param idTheme
+         */
+        $scope.getSubThemes = function (theme) {
             $scope.subThemesSelected = [];
             $scope.subThemes = [];
-            AddQCMService.getSubThemes(idTheme).query().$promise
-                .then(
-                    function success(response) {
-                        response.forEach(function (subTheme) {
-                           if (subTheme.validated) {
-                               $scope.subThemes.push(subTheme);
-                           }
-                        });
-                    },
-                    function error(response) {
-
-                    }
-                );
+            var index=$scope.themes.indexOf(theme);
+            $scope.subThemes=$scope.themes[index].subThemes;
         };
 
+        /**
+         * Add a subtheme to the list
+         * @param subTheme
+         */
         $scope.onSubThemeSelect = function (subTheme) {
 
             /**
@@ -75,12 +65,10 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
 
         $scope.postQCM = function () {
             var qcm = {};
-            /*qcm.validated = false;
-            qcm.isComplete = false;*/
             qcm.name = $scope.name;
             qcm.description = $scope.description;
             qcm.idTheme = $scope.theme.idTheme;
-            qcm.idSupplier = $scope.supplier.idPlayer;
+            //qcm.idSupplier = $scope.supplier.idPlayer;
             qcm.free = $scope.isFree;
             if (!$scope.isFree) {
                 qcm.price = $scope.price;

@@ -2,34 +2,44 @@
 
 <div class="contenuInline newQCM">
     <div class="newQCMTitle">Création d'un QCM</div>
-    <form class="generalQCMForm">
+    <form name="QCMForm" class="generalQCMForm" ng-submit="postQCM()" novalidate>
         <div>
             <label class="generalQCMLabel" for="name">Nom :</label>
-            <input class="generalQCMInput" type="text" name="name" id="name" ng-model="name" placeholder="Nom"
-                   ng-required="true">
+            <input class="generalQCMInput" type="text" name="name" id="name" ng-model="name" ng-minlength="3" ng-maxlength="40"
+                   required/>
+            <div ng-messages="QCMForm.name.$error" ng-if="QCMForm.$submitted">
+                <div ng-messages-include="views/errorMessage.html"></div>
+            </div>
+
         </div>
         <div>
             <label class="generalQCMLabel" for="description">Description :</label>
             <textarea class="generalQCMInput" type="text" name="description" id="description" ng-model="description"
                       placeholder="Description"
-                      ng-minlength="4" ng-maxlength="20" required></textarea>
+                      ng-minlength="4" ng-maxlength="150" required></textarea>
+            <div ng-messages="QCMForm.description.$error" ng-if="QCMForm.$submitted">
+                <div ng-messages-include="views/errorMessage.html"></div>
+            </div>
         </div>
-        <div>
+       <!--<div>
             <label class="generalQCMLabel" for="supplier">Fournisseur :</label>
             <select class="generalQCMInput" id="supplier" ng-model="supplier"
                     ng-options="supplier.lastName for supplier in suppliers" ng-required="true">
             </select>
-        </div>
+        </div>-->
         <div>
             <label class="generalQCMLabel" for="theme">Thème :</label>
-            <select class="generalQCMInput" id="theme" ng-change="getSubThemes(theme.idTheme)" ng-model="theme"
-                    ng-options="theme.label for theme in themes" ng-required="true">
+            <select class="generalQCMInput" id="theme" ng-change="getSubThemes(theme)" ng-model="theme"
+                    ng-options="theme.label for theme in themes" required name="theme">
             </select>
+            <div ng-messages="QCMForm.theme.$error" ng-if="QCMForm.$submitted">
+                <div ng-messages-include="views/errorMessage.html"></div>
+            </div>
         </div>
         <div>
             <label class="generalQCMLabel" for="subThemes">Sous-thèmes :</label>
             <select class="generalQCMInput" id="subThemes" ng-change="onSubThemeSelect(subTheme)" ng-model="subTheme"
-                    ng-options="subTheme.label for subTheme in subThemes">
+                    ng-options="subTheme.label for subTheme in subThemes" name="subtheme">
             </select>
         </div>
         <label ng-if="(subThemesSelected.length>0 && subThemesSelected[0]!=null) || subThemesSelected.length>1">Sous-thèmes sélectionnés</label>
@@ -44,17 +54,25 @@
         <div>
             <label class="generalQCMLabel" for="price">Prix :</label>
             <input class="generalQCMInput" type="number" name="price" id="price" ng-model="price"
-                   ng-disabled="isFree">
+                   ng-disabled="isFree" ng-required="!isFree">
+            <div ng-messages="QCMForm.price.$error" ng-if="QCMForm.$submitted">
+                <div ng-messages-include="views/errorMessage.html"></div>
+            </div>
         </div>
         <div>
             <label class="generalQCMLabel" for="category">Catégorie :</label>
             <select class="generalQCMInput" id="category" ng-model="category"
-                    ng-options="category.label for category in categories" ng-required="true">
+                    ng-options="category.label for category in categories" required name="category">
             </select>
+            <div ng-messages="QCMForm.category.$error" ng-if="QCMForm.$submitted" >
+                <div ng-messages-include="views/errorMessage.html"></div>
+            </div>
         </div>
         <div>
             <label class="generalQCMLabel" for="minimalScore">Score minimal :</label>
-            <input class="generalQCMInput" type="number" id="minimalScore" name="minimalScore" ng-model="minimalScore">
+            <label>{{minimalScore}}</label>
+            <input class="generalQCMInput" type="range" id="minimalScore" name="minimalScore" ng-model="minimalScore" min="0" max="20" />
+
         </div>
         <div>
             <label class="generalQCMLabel" for="icon">Icone :</label>
@@ -74,14 +92,23 @@
         </div>
         <div ng-if="hasGift">
             <label class="generalQCMLabel" for="prizeName">Nom du cadeau :</label>
-            <input class="generalQCMInput" type="text" id="prizeName" name="prizeName" ng-model="prizeName" ng-disabled="!hasGift">
+            <input class="generalQCMInput" type="text" id="prizeName" name="prizeName" ng-model="prizeName" ng-disabled="!hasGift"
+            ng-required="hasGift">
+            <div ng-messages="QCMForm.prizeName.$error" ng-if="QCMForm.$submitted" >
+                <div ng-messages-include="views/errorMessage.html"></div>
+            </div>
         </div>
         <div ng-if="hasGift">
             <label class="generalQCMLabel" for="prizeDescription">Description du cadeau :</label>
-            <input class="generalQCMInput" type="text" id="prizeDescription" name="prizeDescription" ng-model="prizeDescription" ng-disabled="!hasGift">
+            <input class="generalQCMInput" type="text" id="prizeDescription" name="prizeDescription" ng-model="prizeDescription"
+                   ng-disabled="!hasGift" ng-required="hasGift">
+            <div ng-messages="QCMForm.prizeDescription.$error" ng-if="QCMForm.$submitted">
+                <div ng-messages-include="views/errorMessage.html"></div>
+            </div>
         </div>
         <div>
-            <button class="button"  ng-click="postQCM()">Valider le QCM</button>
+            <!--<button class="button"  ng-click="postQCM()">Valider le QCM</button>-->
+            <input class="button" type="submit" value="Valider le QCM"/>
         </div>
     </form>
 </div>

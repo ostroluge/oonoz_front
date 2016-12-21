@@ -19,6 +19,15 @@ services.factory('AddQCMService', ['$resource',function ($resource) {
                 }
             });
         },
+        getValidatedThemes: function () {
+            return $resource("http://localhost:8092/validatedThemes", {}, {
+                query: {
+                    method: 'GET',
+                    cache: false,
+                    isArray: true
+                }
+            });
+        },
         getSubThemes: function (idTheme) {
             return $resource("http://localhost:8092/themes/"+idTheme+"/subthemes", {}, {
                 query: {

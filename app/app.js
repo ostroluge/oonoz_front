@@ -13,7 +13,8 @@ var oonozApp = angular.module('oonozApp', [
     'dialogs.main',
     'ui.bootstrap',
     'ultimateDataTableServices',
-    'naif.base64'
+    'naif.base64',
+    'ngMessages'
 ]);
 
 oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider,$httpProvider) {

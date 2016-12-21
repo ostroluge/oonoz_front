@@ -14,7 +14,6 @@ services.factory('ThemeListService', ['$resource', '$location',
                     }
                 });
             },
-
             deleteTheme: function (id) {
                // return $resource("http://localhost:8080/themes/" + id, {}, {
                     return $resource("http://localhost:8092/themes/" + id, {}, {
