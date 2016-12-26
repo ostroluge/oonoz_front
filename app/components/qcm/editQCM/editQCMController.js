@@ -138,7 +138,7 @@ controllers.controller('EditQCMCtrl', ['$scope', 'dialogs', 'EditQCMService', 'A
                     qcm.icon = $scope.qcm.icon.base64;
                 }
             }
-
+            
             qcm.prizeName = $scope.qcm.prizeName;
             qcm.prizeDescription = $scope.qcm.prizeDescription;
 

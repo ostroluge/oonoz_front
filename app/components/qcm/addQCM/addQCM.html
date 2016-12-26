@@ -2,7 +2,8 @@
 
 <div class="contenuInline newQCM">
     <div class="newQCMTitle">Création d'un QCM</div>
-    <form name="QCMForm" class="generalQCMForm" ng-submit="postQCM()" novalidate>
+    <form name="QCMForm" class="generalQCMForm" ng-submit="postQCM()"  novalidate>
+        <!-- QCM NAME -->
         <div>
             <label class="generalQCMLabel" for="name">Nom :</label>
             <input class="generalQCMInput" type="text" name="name" id="name" ng-model="name" ng-minlength="3" ng-maxlength="40"
@@ -10,8 +11,8 @@
             <div ng-messages="QCMForm.name.$error" ng-if="QCMForm.$submitted">
                 <div ng-messages-include="views/errorMessage.html"></div>
             </div>
-
         </div>
+        <!-- QCM DESCRIPTION -->
         <div>
             <label class="generalQCMLabel" for="description">Description :</label>
             <textarea class="generalQCMInput" type="text" name="description" id="description" ng-model="description"
@@ -21,12 +22,14 @@
                 <div ng-messages-include="views/errorMessage.html"></div>
             </div>
         </div>
+        <!-- QCM SUPPLIER -->
        <!--<div>
             <label class="generalQCMLabel" for="supplier">Fournisseur :</label>
             <select class="generalQCMInput" id="supplier" ng-model="supplier"
                     ng-options="supplier.lastName for supplier in suppliers" ng-required="true">
             </select>
         </div>-->
+        <!-- QCM THEME -->
         <div>
             <label class="generalQCMLabel" for="theme">Thème :</label>
             <select class="generalQCMInput" id="theme" ng-change="getSubThemes(theme)" ng-model="theme"
@@ -36,6 +39,7 @@
                 <div ng-messages-include="views/errorMessage.html"></div>
             </div>
         </div>
+        <!-- QCM SUBTHEME -->
         <div>
             <label class="generalQCMLabel" for="subThemes">Sous-thèmes :</label>
             <select class="generalQCMInput" id="subThemes" ng-change="onSubThemeSelect(subTheme)" ng-model="subTheme"
@@ -47,10 +51,12 @@
             <label>{{subTheme.label}}</label>
             <button class="generalQCMSubThemeDeleteButton" type="button" ng-click="deleteSubTheme($index)"><img src="images/delete-vert.png"></button>
         </div>
+        <!-- QCM ISFREE -->
         <div>
             <label class="generalQCMLabel" for="isFree">Est gratuit :</label>
             <input type="checkbox" name="isFree" id="isFree" ng-model="isFree">
         </div>
+        <!-- QCM PRICE-->
         <div>
             <label class="generalQCMLabel" for="price">Prix :</label>
             <input class="generalQCMInput" type="number" name="price" id="price" ng-model="price"
@@ -59,6 +65,7 @@
                 <div ng-messages-include="views/errorMessage.html"></div>
             </div>
         </div>
+        <!-- QCM CATEGORY -->
         <div>
             <label class="generalQCMLabel" for="category">Catégorie :</label>
             <select class="generalQCMInput" id="category" ng-model="category"
@@ -68,28 +75,33 @@
                 <div ng-messages-include="views/errorMessage.html"></div>
             </div>
         </div>
+        <!-- QCM MINIMAL SCORE -->
         <div>
             <label class="generalQCMLabel" for="minimalScore">Score minimal :</label>
             <label>{{minimalScore}}</label>
             <input class="generalQCMInput" type="range" id="minimalScore" name="minimalScore" ng-model="minimalScore" min="0" max="20" />
 
         </div>
+        <!-- QCM ICON -->
         <div>
             <label class="generalQCMLabel" for="icon">Icone :</label>
             <label class="generalQCMAddImg">
                 <img src="images/upload.png">
                 <span ng-if="!icon">Choisissez un fichier</span>
                 <span ng-if="icon">Modifier le fichier</span>
-                <input type="file" id="icon" name="icon" ng-model="icon" accept="image/*" base-sixty-four-input>
+                <!--<input type="file" id="icon" name="icon" ng-model="icon" accept="image/x-png,image/gif,image/jpeg" base-sixty-four-input>-->
+                <input type="file" id="icon" name="icon" ngf-select="onFileSelect($files)"/>
             </label>
         </div>
         <div class="generalQCMIconFileName">
             {{icon.filename}}
         </div>
+        <!-- QCM HASGIFT -->
         <div>
             <label class="generalQCMLabel" for="isFree">Cadeau à gagner :</label>
             <input type="checkbox" name="hasGift" id="hasGift" ng-model="hasGift">
         </div>
+        <!-- QCM GIFT NAME -->
         <div ng-if="hasGift">
             <label class="generalQCMLabel" for="prizeName">Nom du cadeau :</label>
             <input class="generalQCMInput" type="text" id="prizeName" name="prizeName" ng-model="prizeName" ng-disabled="!hasGift"
@@ -98,6 +110,7 @@
                 <div ng-messages-include="views/errorMessage.html"></div>
             </div>
         </div>
+        <!-- QCM GIFT DESCRIPTION -->
         <div ng-if="hasGift">
             <label class="generalQCMLabel" for="prizeDescription">Description du cadeau :</label>
             <input class="generalQCMInput" type="text" id="prizeDescription" name="prizeDescription" ng-model="prizeDescription"
@@ -106,9 +119,10 @@
                 <div ng-messages-include="views/errorMessage.html"></div>
             </div>
         </div>
+        <!-- QCM CREATE BUTTON -->
         <div>
-            <!--<button class="button"  ng-click="postQCM()">Valider le QCM</button>-->
-            <input class="button" type="submit" value="Valider le QCM"/>
+            <input class="button" type="submit"  value="Valider le QCM"/>
         </div>
     </form>
+    <span us-spinner spinner-key="spinner-1"></span>
 </div>
