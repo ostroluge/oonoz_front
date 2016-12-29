@@ -5,7 +5,7 @@
     <form name="QCMForm" class="generalQCMForm" ng-submit="postQCM()"  novalidate>
         <!-- QCM NAME -->
         <div>
-            <label class="generalQCMLabel" for="name">Nom :</label>
+            <label class="generalQCMLabel" for="name">Nom : </label>
             <input class="generalQCMInput" type="text" name="name" id="name" ng-model="name" ng-minlength="3" ng-maxlength="40"
                    required/>
             <div ng-messages="QCMForm.name.$error" ng-if="QCMForm.$submitted">
