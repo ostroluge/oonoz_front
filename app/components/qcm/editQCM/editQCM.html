@@ -9,35 +9,47 @@
     </div>
     <div class="editQCMGeneral" ng-show="showGeneralForm">
         <div class="editQCMTitle">Informations générales QCM</div>
-        <form class="generalQCMForm" >
+        <form class="generalQCMForm" name="generalQCMForm" ng-submit="editQCM()" novalidate>
+            <!-- QCM NAME -->
             <div>
                 <label class="generalQCMLabel" for="name">Nom :</label>
-                <input class="generalQCMInput" type="text" name="name" id="name" ng-model="qcm.name" placeholder="Nom"
-                       ng-required="true">
+                <input class="generalQCMInput" type="text" name="name" id="name" ng-model="qcm.name" placeholder="Nom" required>
+                <div ng-messages="generalQCMForm.name.$error" ng-if="generalQCMForm.$submitted">
+                    <div ng-messages-include="views/errorMessage.html"></div>
+                </div>
             </div>
+            <!-- QCM DESCRIPTION -->
             <div>
                 <label class="generalQCMLabel" for="description">Description :</label>
                 <textarea class="generalQCMInput" type="text" name="description" id="description" ng-model="qcm.description"
                           placeholder="Description"
-                          ng-minlength="4" ng-maxlength="20" required></textarea>
+                          ng-minlength="4" ng-maxlength="140" required></textarea>
+                <div ng-messages="generalQCMForm.description.$error" ng-if="generalQCMForm.$submitted">
+                    <div ng-messages-include="views/errorMessage.html"></div>
+                </div>
             </div>
-            <div>
+            <!-- QCM SUPPLIER -->
+            <!--<div>
                 <label class="generalQCMLabel" for="supplier">Fournisseur :</label>
                 <select class="generalQCMInput" id="supplier" ng-model="supplier"
                         ng-options="supplier.lastName for supplier in suppliers" ng-required="true">
                 </select>
-            </div>
+            </div>-->
+            <!-- QCM THEME -->
             <div>
                 <label class="generalQCMLabel" for="theme">Thème :</label>
                 <select class="generalQCMInput" id="theme" ng-change="getSubThemes(theme.idTheme)" ng-model="theme"
-                        ng-options="theme.label for theme in themes" ng-required="true">
+                        ng-options="theme.label for theme in themes" name="themes" required>
                 </select>
+                <div ng-messages="generalQCMForm.themes.$error" ng-if="generalQCMForm.$submitted">
+                    <div ng-messages-include="views/errorMessage.html"></div>
+                </div>
             </div>
-
+            <!-- QCM SUBTHEME -->
             <div>
                 <label class="generalQCMLabel" for="subThemes">Sous-thèmes :</label>
                 <select class="generalQCMInput" id="subThemes" ng-change="onSubThemeSelect(subTheme)" ng-model="subTheme"
-                        ng-options="subTheme.label for subTheme in subThemes">
+                        ng-options="subTheme.label for subTheme in subThemes" name="subThemes">
                 </select>
             </div>
             <label ng-if="(subThemesSelected.length>0 && subThemesSelected[0]!=null) || subThemesSelected.length>1">Sous-thèmes sélectionnés</label>
@@ -45,82 +57,121 @@
                 <label>{{subTheme.label}}</label>
                 <button class="generalQCMSubThemeDeleteButton" type="button" ng-click="deleteSubTheme($index)"><img src="images/delete-vert.png"></button>
             </div>
+            <!-- QCM ISFREE -->
             <div>
                 <label class="generalQCMLabel" for="isFree">Est gratuit :</label>
                 <input type="checkbox" name="isFree" id="isFree" ng-model="qcm.free">
             </div>
+            <!-- QCM PRICE-->
             <div>
                 <label class="generalQCMLabel" for="price">Prix :</label>
                 <input class="generalQCMInput" type="number" name="price" id="price" ng-model="qcm.price"
-                       ng-disabled="qcm.free">
+                       ng-disabled="qcm.free" ng-required="!qcm.free">
+                <div ng-messages="generalQCMForm.price.$error" ng-if="generalQCMForm.$submitted">
+                    <div ng-messages-include="views/errorMessage.html"></div>
+                </div>
             </div>
+            <!-- QCM CATEGORY -->
             <div>
                 <label class="generalQCMLabel" for="category">Catégorie :</label>
                 <select class="generalQCMInput" id="category" ng-model="category"
-                        ng-options="category.label for category in categories" ng-required="true">
+                        ng-options="category.label for category in categories" name="category" required>
                 </select>
+                <div ng-messages="generalQCMForm.category.$error" ng-if="generalQCMForm.$submitted" >
+                    <div ng-messages-include="views/errorMessage.html"></div>
+                </div>
             </div>
+            <!-- QCM MINIMAL SCORE -->
             <div>
                 <label class="generalQCMLabel" for="minimalScore">Score minimal :</label>
-                <input class="generalQCMInput" type="number" id="minimalScore" name="minimalScore" ng-model="qcm.minimalScore">
+                <label>{{qcm.minimalScore}}</label>
+                <input class="generalQCMInput" type="range" id="minimalScore" name="minimalScore" ng-model="qcm.minimalScore" min="0" max="20">
             </div>
+            <!-- QCM ICON -->
             <div>
                 <label class="generalQCMLabel" for="icon">Icone :</label>
                 <label class="generalQCMAddImg">
                     <img src="images/upload.png">
                     <span ng-if="!qcm.icon">Choisissez un fichier</span>
                     <span ng-if="qcm.icon">Modifier le fichier</span>
-                    <input type="file" id="icon" name="icon" ng-model="qcm.icon" accept="image/*" base-sixty-four-input>
+                    <input type="file" id="icon" name="icon" ngf-select="onFileSelect($files)">
                 </label>
             </div>
             <div class="generalQCMIconFileName">
-                {{qcm.icon.filename}}
+                {{filename}}
             </div>
+            <!-- QCM HASGIFT -->
             <div>
+                <label class="generalQCMLabel" for="isFree">Cadeau à gagner :</label>
+                <input type="checkbox" name="hasGift" id="hasGift" ng-model="hasGift">
+            </div>
+            <!-- QCM GIFT NAME -->
+            <div ng-if="hasGift">
                 <label class="generalQCMLabel" for="prizeName">Nom du cadeau :</label>
-                <input class="generalQCMInput" type="text" id="prizeName" name="prizeName" ng-model="qcm.prizeName">
+                <input class="generalQCMInput" type="text" id="prizeName" name="prizeName" ng-model="qcm.prizeName" ng-required="hasGift">
+                <div ng-messages="generalQCMForm.prizeName.$error" ng-if="generalQCMForm.$submitted" >
+                    <div ng-messages-include="views/errorMessage.html"></div>
+                </div>
             </div>
-            <div>
+            <!-- QCM GIFT DESCRIPTION -->
+            <div ng-if="hasGift">
                 <label class="generalQCMLabel" for="prizeDescription">Description du cadeau :</label>
-                <input class="generalQCMInput" type="text" id="prizeDescription" name="prizeDescription" ng-model="qcm.prizeDescription">
+                <input class="generalQCMInput" type="text" id="prizeDescription" name="prizeDescription" ng-model="qcm.prizeDescription" ng-required="hasGift">
+                <div ng-messages="generalQCMForm.prizeDescription.$error" ng-if="generalQCMForm.$submitted">
+                    <div ng-messages-include="views/errorMessage.html"></div>
+                </div>
             </div>
             <div>
-                <button class="button" ng-click="editQCM()">Modifier le QCM</button>
+                <button class="button" type="submit">Modifier le QCM</button>
             </div>
         </form>
     </div>
     <div class="editQCMQuestion" ng-show="showQuestionForm">
         <div class="editQCMTitle">Question </div>
-        <form class="questionQCMForm" >
+        <form name="questionQCMForm" class="questionQCMForm" ng-submit="editQuestion()" novalidate>
             <div>
                 <label class="questionQCMLabel" for="question">Intitulé de la question :</label>
                 <input class="questionQCMInput" type="text" name="question" id="question" ng-model="question.title" placeholder="Question"
-                       ng-required="true">
+                      required>
+                <div ng-messages="questionQCMForm.question.$error" ng-if="questionQCMForm.$submitted" >
+                    <div ng-messages-include="views/errorMessage.html"></div>
+                </div>
             </div>
             <div>
                 <label class="questionQCMLabel" for="answer">Réponse :</label>
                 <input class="questionQCMInput" type="text" name="answer" id="answer" ng-model="question.answer" placeholder="Réponse"
-                       ng-required="true">
+                       required>
+                <div ng-messages="questionQCMForm.answer.$error" ng-if="questionQCMForm.$submitted" >
+                    <div ng-messages-include="views/errorMessage.html"></div>
+                </div>
             </div>
             <div>
                 <label class="questionQCMLabel" for="proposition1">Pertubateur 1 :</label>
                 <input class="questionQCMInput" type="text" name="proposition1" id="proposition1" ng-model="question.proposition1" placeholder="Pertubateur 1"
-                       ng-required="true">
+                       required>
+                <div ng-messages="questionQCMForm.proposition1.$error" ng-if="questionQCMForm.$submitted" >
+                    <div ng-messages-include="views/errorMessage.html"></div>
+                </div>
             </div>
             <div>
                 <label class="questionQCMLabel" for="proposition2">Pertubateur 2 :</label>
                 <input class="questionQCMInput" type="text" name="proposition2" id="proposition2" ng-model="question.proposition2" placeholder="Pertubateur 2"
-                       ng-required="true">
+                       required>
+                <div ng-messages="questionQCMForm.proposition2.$error" ng-if="questionQCMForm.$submitted" >
+                    <div ng-messages-include="views/errorMessage.html"></div>
+                </div>
             </div>
             <div>
                 <label class="questionQCMLabel" for="proposition3">Pertubateur 3 :</label>
                 <input class="questionQCMInput" type="text" name="proposition3" id="proposition3" ng-model="question.proposition3" placeholder="Pertubateur 3"
-                       ng-required="true">
+                       required>
+                <div ng-messages="questionQCMForm.proposition3.$error" ng-if="questionQCMForm.$submitted" >
+                    <div ng-messages-include="views/errorMessage.html"></div>
+                </div>
             </div>
             <div>
                 <label class="questionQCMLabel" for="time">Délais :</label>
-                <input class="questionQCMInputSmall" type="number"  name="time" id="time" ng-model="question.time" placeholder="Délais"
-                       ng-required="true">
+                <input class="questionQCMInputSmall" type="number"  name="time" id="time" ng-model="question.time" placeholder="Délais" min="0"/>
                 <label class=questionQCMInputSmall">secondes</label>
             </div>
             <div>
@@ -129,16 +180,17 @@
                     <img src="images/upload.png">
                     <span ng-if="!media">Choisissez un fichier</span>
                     <span ng-if="media">Modifier le fichier</span>
-                    <input type="file" id="media" name="media" ng-model="media" accept="image/*" base-sixty-four-input>
+                    <input type="file" id="media" name="media" ngf-select="onFileSelect2($files)"/>
                 </label>
             </div>
             <div class="questionQCMAddMediaFileName">
                 {{media.filename}}
             </div>
             <div>
-                <button class="editQuestionButton"  type="submit" ng-click="editQuestion()">{{editQuestionButtonText}}</button>
+                <button class="editQuestionButton" type="submit">{{editQuestionButtonText}}</button>
             </div>
         </form>
         </div>
     </div>
+    <span us-spinner spinner-key="spinner-1"></span>
 </div>

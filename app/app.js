@@ -13,10 +13,13 @@ var oonozApp = angular.module('oonozApp', [
     'dialogs.main',
     'ui.bootstrap',
     'ultimateDataTableServices',
-    'naif.base64'
+    'naif.base64',
+    'ngMessages',
+    'ngFileUpload',
+    'angularSpinner'
 ]);
 
-oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider,$httpProvider) {
+oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinnerConfigProvider', function ($locationProvider, $routeProvider,$httpProvider,usSpinnerConfigProvider) {
     $httpProvider.defaults.withCredentials = true;
     $routeProvider
         .when('/login', {
@@ -96,4 +99,8 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             controller: 'EditQCMCtrl'
         })
         .otherwise({redirectTo: '/login'});
+
+    /**Set default configuration for load sprinner**/
+    usSpinnerConfigProvider.setDefaults({radius:30, width:8, length: 16});
 }]);
+   
