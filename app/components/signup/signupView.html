@@ -54,11 +54,11 @@
                 <img class="imgForm" src="images/mail.png">
                 <input type="email" name="mail" id="mail" ng-model="mail" class="inputForm"
                        placeholder="Email"
-                       required>
+                       ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required>
             </div>
             <span class="errorForm" ng-show="signupForm.mail.$error.required && signupForm.mail.$dirty">Champ obligatoire</span>
             <span class="errorForm"
-                  ng-show="!signupForm.mail.$error.required && signupForm.mail.$error.email && signupForm.mail.$dirty">Adresse mail invalide</span>
+                  ng-show="!signupForm.mail.$error.required && signupForm.mail.$error.pattern && signupForm.mail.$dirty">Adresse mail invalide</span>
 
 
             <div class="ligneForm">
