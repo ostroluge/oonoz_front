@@ -1,7 +1,7 @@
 <div ng-include="'views/menu.html'"></div>
 
 <div class="contenuOnline" ng-controller="EditThemeCtrl" ng-init="getTheme()">
-    <form class="addTform">
+    <form name="addTform" class="addTform">
         <div class="addTtitle">Editer le thème</div>
         <div ng-if="themeImage != null && themeImage.base64 == null">
             <img class="addTpresImg" ng-src="{{'data:image/*;base64,'+themeImage}}" />
@@ -13,14 +13,22 @@
             <label class="addTlabel">Nom</label>
             <input class="addTinput" type="text" name="label" id="label" ng-model="label"
                    placeholder="Nom du thème"
-                   ng-minlength="4" ng-maxlength="20" required>
+                   ng-minlength="3" ng-maxlength="20" required>
         </div>
+        <span class="errorForm" ng-show="addTform.label.$error.required && addTform.label.$dirty">Champ obligatoire</span>
+        <span class="errorForm" ng-show="!addTform.label.$error.required
+                    && (addTform.label.$error.minlength || addTform.label.$error.maxlength)
+                    && addTform.label.$dirty"> Le nom doit contenir 3 à 40 caractères.</span>
         <div>
             <label class="addTlabel">Description</label>
             <textarea class="addTinput" type="text" name="description" id="description" ng-model="description"
                       placeholder="Description"
-                      ng-minlength="4" ng-maxlength="20" required></textarea>
+                      ng-minlength="3" ng-maxlength="100" required></textarea>
         </div>
+        <span class="errorForm" ng-show="addTform.description.$error.required && addTform.description.$dirty">Champ obligatoire</span>
+        <span class="errorForm" ng-show="!addTform.description.$error.required
+                    && (addTform.description.$error.minlength || addTform.description.$error.maxlength)
+                    && addTform.description.$dirty"> La description doit contenir 3 à 100 caractères.</span>
         <div>
             <label class="addTlabel">Image</label>
             {{themeImage.filename}}
