@@ -3,9 +3,9 @@
 controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService', 'dialogs', '$filter',
     function ($scope, datatable, UserListService, dialogs, $filter) {
 
-        $scope.userType = false;
+        $scope.wannaBeSupplier = false;
         $scope.professionalState = true;
-        $scope.supplierAccountState=false;
+        $scope.supplierAccountState = false;
         var datatableConfig = {
             "name": "simple_datatable",
             "columns": [
@@ -97,7 +97,8 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
                     $scope.usernameModification = data.login;
                     $scope.mailModification = data.email;
                     $scope.birthDateModification = new Date(data.birthdate + 'T00:00:00');
-                    $scope.userType = data.supplier;
+                    //$scope.userType = data.supplier;
+                    $scope.wannaBeSupplier=data.supplier;
                     $scope.accountState = data.active;
                     if (data.supplier == true) {
                         $scope.supplierAccountState = data.supplierAccountState;
@@ -118,7 +119,6 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
         var datatableData = [];
         $scope.datatable = datatable(datatableConfig);
         $scope.datatable.setData(datatableData);
-
 
 
         var filteredSearch = function (criteria) {
@@ -144,17 +144,17 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
                                 "siretNumber": response.content[user].siretNumber
                             });
                         }
-                        console.log(response.content);
-                        if (response.totalPages!=1) {
+                        
+                        if (response.totalPages != 1) {
                             $scope.range = new Array(response.totalPages);
                         }
-                        else{
-                            $scope.range=0;
+                        else {
+                            $scope.range = 0;
                         }
                         $scope.datatable.setData(datatableData);
                     }
-                    ,function error(response) {
-                        if(response.status==-1){
+                    , function error(response) {
+                        if (response.status == -1) {
                             dialogs.error("Erreur", "L'application n'est pas disponible.")
                         }
                     }
@@ -167,11 +167,11 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
             criteria.firstnameSearch = $scope.firstname;
             criteria.pageNumber = pageNumber;
             criteria.pageSize = $scope.pageSize;
-            criteria.mailSearch=$scope.mail;
-            criteria.userActive=$scope.userActiveCbox;
-            criteria.userInactive=$scope.userInactiveCbox;
-            criteria.playerStatus=$scope.playerStatusCbox;
-            criteria.supplierStatus=$scope.supplierStatusCbox;
+            criteria.mailSearch = $scope.mail;
+            criteria.userActive = $scope.userActiveCbox;
+            criteria.userInactive = $scope.userInactiveCbox;
+            criteria.playerStatus = $scope.playerStatusCbox;
+            criteria.supplierStatus = $scope.supplierStatusCbox;
             filteredSearch(criteria);
         };
 
@@ -184,13 +184,13 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
             criteria.lastnameSearch = $scope.lastname;
             criteria.firstnameSearch = $scope.firstname;
             criteria.pageSize = $scope.pageSize;
-            criteria.mailSearch=$scope.mail;
-            criteria.userActive=$scope.userActiveCbox;
-            criteria.userInactive=$scope.userInactiveCbox;
-            criteria.playerStatus=$scope.playerStatusCbox;
-            criteria.supplierStatus=$scope.supplierStatusCbox;
+            criteria.mailSearch = $scope.mail;
+            criteria.userActive = $scope.userActiveCbox;
+            criteria.userInactive = $scope.userInactiveCbox;
+            criteria.playerStatus = $scope.playerStatusCbox;
+            criteria.supplierStatus = $scope.supplierStatusCbox;
             filteredSearch(criteria);
-        }
+        };
 
         $scope.search_ = function (pageSize) {
             var criteria = {};
@@ -198,52 +198,69 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
             criteria.lastnameSearch = $scope.lastname;
             criteria.firstnameSearch = $scope.firstname;
             criteria.pageSize = pageSize;
-            criteria.mailSearch=$scope.mail;
-            criteria.userActive=$scope.userActiveCbox;
-            criteria.userInactive=$scope.userInactiveCbox;
-            criteria.playerStatus=$scope.playerStatusCbox;
-            criteria.supplierStatus=$scope.supplierStatusCbox;
+            criteria.mailSearch = $scope.mail;
+            criteria.userActive = $scope.userActiveCbox;
+            criteria.userInactive = $scope.userInactiveCbox;
+            criteria.playerStatus = $scope.playerStatusCbox;
+            criteria.supplierStatus = $scope.supplierStatusCbox;
             filteredSearch(criteria);
-        }
+        };
 
         /**
          * Clear filter form
          */
-        $scope.erase=function(){
-            $scope.username=null;
-            $scope.lastname=null;
-            $scope.firstname=null;
-            $scope.mail=null;
-            $scope.userActiveCbox=false;
-            $scope.userInactiveCbox=false;
-            $scope.playerStatusCbox=false;
-            $scope.supplierStatusCbox=false;
-        }
+        $scope.erase = function () {
+            $scope.username = null;
+            $scope.lastname = null;
+            $scope.firstname = null;
+            $scope.mail = null;
+            $scope.userActiveCbox = false;
+            $scope.userInactiveCbox = false;
+            $scope.playerStatusCbox = false;
+            $scope.supplierStatusCbox = false;
+        };
 
         /**
          * Clear form
          */
-        var clearForm=function(){
-            $scope.idModification="";
-            $scope.firstnameModification="";
-            $scope.lastnameModification="";
-            $scope.usernameModification="";
-            $scope.mailModification="";
-            $scope.birthDateModification="";
-            $scope.userType="";
-            $scope.accountState="";
-            $scope.companyNameModification="";
-            $scope.companyAddressModification="";
-            $scope.siretNumberModification="";
+        var clearForm = function () {
+            $scope.idModification = "";
+            $scope.firstnameModification = "";
+            $scope.lastnameModification = "";
+            $scope.usernameModification = "";
+            $scope.mailModification = "";
+            $scope.birthDateModification = "";
+            //$scope.userType = "";
+            $scope.accountState = "";
+            $scope.companyNameModification = "";
+            $scope.companyAddressModification = "";
+            $scope.siretNumberModification = "";
 
-        }
+        };
+
+        $scope.changeStatus = function () {
+
+            UserListService.changeStatusUser($scope.idModification).query().$promise
+                .then(
+                    function success(response) {
+                        dialogs.notify("Succès changement statut", "Le statut de l'utilisateur a été modifié avec succès");
+                        $scope.search();
+                    },
+                    function error(response) {
+                        if (response.status == 409) {
+                            dialogs.error("Erreur", "L'utilisateur n'existe pas !")
+                        }
+                    }
+                )
+
+        };
 
         /**
          * Delete a user
          */
         $scope.delete = function () {
-            var dlg = dialogs.confirm("Supprimer un utilisateur","Voulez-vous vraiment supprimer cet utilisateur ?","");
-            dlg.result.then(function() {
+            var dlg = dialogs.confirm("Supprimer un utilisateur", "Voulez-vous vraiment supprimer cet utilisateur ?", "");
+            dlg.result.then(function () {
                 var idPlayer = $scope.idModification;
                 UserListService.deleteUser(idPlayer).query().$promise
                     .then(
@@ -252,26 +269,27 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
                             $scope.search();
                             clearForm();
                         },
-                        function error(errorResponse) {
+                        function error(response) {
                             if (response.status == 409) {
                                 dialogs.error("Erreur", "L'utilisateur n'existe pas !")
                             }
-                            else{
+                            else {
                                 dialogs.error("Erreur", "Une erreur interne s'est produite !")
                             }
                         }
-                    );
-            },function(){
+                    )
+                ;
+            }, function () {
 
             });
-        }
+        };
 
-        var controlForm=function(){
+        var controlForm = function () {
 
-        }
+        };
 
         $scope.update = function () {
-            
+
             var user = {};
             user.idPlayer = $scope.idModification;
             user.firstName = $scope.firstnameModification;
@@ -280,12 +298,11 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
             user.mail = $scope.mailModification;
             user.birthDate = $scope.birthDateModification;
             user.isActive = $scope.accountState;
-            user.isSupplier = $scope.userType;
+            user.isSupplier = $scope.wannaBeSupplier;
 
             if (user.isSupplier == true) {
                 user.isPrivateIndividual = $scope.professionalState;
                 user.isValid = $scope.supplierAccountState;
-                console.log(user);
                 if (user.isPrivateIndividual == false) {
                     user.companyName = $scope.companyNameModification;
                     user.companyAddress = $scope.companyAddressModification;
@@ -295,6 +312,7 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
                     .then(
                         function success(response) {
                             dialogs.notify("Succès modification", "Les informations de l'utilisateur ont été modifiées avec succès");
+                            $scope.search();
                         },
                         function error() {
 
@@ -306,6 +324,7 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
                     .then(
                         function success(response) {
                             dialogs.notify("Succès modification", "Les informations de l'utilisateur ont été modifiées avec succès");
+                            $scope.search();
                         },
                         function error() {
 

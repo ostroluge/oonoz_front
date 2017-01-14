@@ -1,6 +1,6 @@
 <div ng-include="'views/menu.html'"></div>
 
-<div class="contenuInline"  xmlns="http://www.w3.org/1999/xhtml">
+<div class="contenuOnline"  xmlns="http://www.w3.org/1999/xhtml">
 
     <form name="signupForm" ng-submit="submit()" class="createAccountconteneur">
         <div class="titreFormAdminCreateAccount">Créer un nouveau compte utilisateur</div>
@@ -43,11 +43,11 @@
         <div class="ligneFormAdminCreateAccount">
             <label>Email </label>
             <input type="email" name="mail" id="mail" ng-model="mail" class="inputFormAdminCreateAccount"
-                   required>
+                   ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required>
         </div>
         <span class="errorForm" ng-show="signupForm.mail.$error.required && signupForm.mail.$dirty">Champ obligatoire</span>
         <span class="errorForm"
-              ng-show="!signupForm.mail.$error.required && signupForm.mail.$error.mail && signupForm.mail.$dirty">Adresse mail invalide</span>
+              ng-show="!signupForm.mail.$error.required && signupForm.mail.$error.pattern && signupForm.mail.$dirty">Adresse mail invalide</span>
 
 
         <div class="ligneFormAdminCreateAccount">

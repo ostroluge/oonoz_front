@@ -13,10 +13,14 @@ var oonozApp = angular.module('oonozApp', [
     'dialogs.main',
     'ui.bootstrap',
     'ultimateDataTableServices',
-    'naif.base64'
+    'naif.base64',
+    'ngMessages',
+    'ngFileUpload',
+    'angularSpinner'
 ]);
 
-oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider) {
+oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinnerConfigProvider', function ($locationProvider, $routeProvider,$httpProvider,usSpinnerConfigProvider) {
+    $httpProvider.defaults.withCredentials = true;
     $routeProvider
         .when('/login', {
             templateUrl: 'components/login/loginView.html',
@@ -70,13 +74,37 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider', functio
             templateUrl: 'components/admin/supplierRequest/suppliersRequestView.html',
             controller: 'suppliersRequestCtrl'
         })
-        .when ('/admin/createAccount',{
+        .when('/admin/createAccount', {
             templateUrl: 'components/admin/createAccount/createAccountView.html',
             controller: 'createAccountCtrl'
+        })
+        .when ('/user/getSupplierQCM',{
+            templateUrl: 'components/supplier/listingQCM/listingQCMView.html',
+            controller: 'listingQCMCtrl'
         })
         .when ('/account',{
             templateUrl: 'components/account/accountView.html'
             //controller: 'accountCtrl'
         })
+        .when('/qcm/qcmDetail/:id', {
+            templateUrl: 'components/qcm/qcmDetail/qcmDetailView.html',
+            controller: 'QcmDetailCtrl'
+        })
+        .when('/qcms/new', {
+            templateUrl: 'components/qcm/addQCM/addQCM.html',
+            controller: 'AddQCMCtrl'
+        })
+        .when('/qcms/:id/edit', {
+            templateUrl: 'components/qcm/editQCM/editQCM.html',
+            controller: 'EditQCMCtrl'
+        })
+        .when('/admin/qcmManagement', {
+            templateUrl: 'components/admin/qcmManagement/qcmManagement.html',
+            controller: 'qcmManagementCtrl'
+        })
         .otherwise({redirectTo: '/login'});
+
+    /**Set default configuration for load sprinner**/
+    usSpinnerConfigProvider.setDefaults({radius:30, width:8, length: 16});
 }]);
+   

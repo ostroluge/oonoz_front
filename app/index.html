@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!-- <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">-->
-   <!-- <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">-->
+    <!-- <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">-->
+    <!-- <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">-->
     <link rel="stylesheet" href="app.css">
     <link rel="stylesheet" href="bower_components/angular-dialog-service/dist/dialogs.min.css">
     <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
@@ -26,6 +26,14 @@
     <link rel="stylesheet" type="text/css" href="components/admin/supplierRequest/suppliersRequest.css">
     <link rel="stylesheet" type="text/css" href="components/admin/userList/userList.css">
     <link rel="stylesheet" type="text/css" href="components/admin/createAccount/createAccount.css">
+    <link rel="stylesheet" type="text/css" href="components/admin/themes/themes.css">
+    <link rel="stylesheet" type="text/css" href="components/admin/themes/themeList/themeList.css">
+    <link rel="stylesheet" type="text/css" href="components/qcm/qcmDetail/qcmDetail.css">
+    <link rel="stylesheet" type="text/css" href="components/qcm/addQCM/addQCM.css">
+    <link rel="stylesheet" type="text/css" href="components/qcm/editQCM/editQCM.css">
+    <link rel="stylesheet" type="text/css" href="components/qcm/QCMgeneral.css">
+    <link rel="stylesheet" type="text/css" href="components/qcm/QCMquestion.css">
+    <link rel="stylesheet" type="text/css" href="components/supplier/listingQCM/listingQCM.css">
 
     <!-- CHANGER LE LIEN -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
@@ -34,10 +42,14 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-base64-upload/dist/angular-base64-upload.min.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/angular-spinner/angular-spinner.js"></script>
     <script src="app.js"></script>
     <script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>
     <script src="components/version/interpolate-filter.js"></script>
+    <script src="components/version/version.js"></script>
     <script src="components/login/loginController.js"></script>
     <script src="components/login/loginService.js"></script>
     <script src="components/signup/signupController.js"></script>
@@ -46,6 +58,7 @@
     <script src="components/term/termController.js"></script>
     <script src="components/term/termService.js"></script>
     <script src="components/model/playerModel.js"></script>
+    <script src="components/model/questionModel.js"></script>
     <script src="components/admin/supplierRequest/suppliersRequestController.js"></script>
     <script src="components/admin/supplierRequest/suppliersRequestService.js"></script>
     <script src="components/admin/createAccount/createAccountService.js"></script>
@@ -56,7 +69,8 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="bower_components/angular-dialog-service/dist/dialogs-default-translations.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="lib/ultimate-data-table/js/ultimate-datatable-3.3.0.min.js" ></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="lib/ultimate-data-table/js/ultimate-datatable-3.3.0.min.js"></script>
     <script src="components/model/supplierModel.js"></script>
     <script src="components/generatePassword/generatePasswordController.js"></script>
     <script src="components/admin/userList/userListController.js"></script>
@@ -72,6 +86,16 @@
     <script src="components/admin/themes/editTheme/editThemeService.js"></script>
     <script src="components/admin/themes/editSubTheme/editSubThemeController.js"></script>
     <script src="components/admin/themes/editSubTheme/editSubThemeService.js"></script>
+    <script src="components/admin/qcmManagement/qcmManagementController.js"></script>
+    <script src="components/admin/qcmManagement/qcmManagementService.js"></script>
+    <script src="components/qcm/qcmDetail/qcmDetailController.js"></script>
+    <script src="components/qcm/qcmDetail/qcmDetailService.js"></script>
+    <script src="components/qcm/addQCM/addQCMController.js"></script>
+    <script src="components/qcm/addQCM/addQCMService.js"></script>
+    <script src="components/supplier/listingQCM/listingQCMController.js"></script>
+    <script src="components/supplier/listingQCM/listingQCMService.js"></script>
+    <script src="components/qcm/editQCM/editQCMController.js"></script>
+    <script src="components/qcm/editQCM/editQCMService.js"></script>
 </head>
 <body>
 <div id="main">

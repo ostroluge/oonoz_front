@@ -1,6 +1,6 @@
 <div ng-include="'views/menu.html'"></div>
 
-<div class="contenuInline supplierRequest" ng-controller="suppliersRequestCtrl" ng-init="getSupplierRequest()">
+<div class="contenuOnline supplierRequest" ng-controller="suppliersRequestCtrl" ng-init="getSupplierRequest()">
     <div class="title">Demandes fournisseurs en cours</div>
 
     <div class="supplierRequestContenu">
@@ -39,8 +39,8 @@
                 </span>
             </div>
             <div class="buttons">
-                <button ng-click="accept(supplier.id)">Accepter</button>
-                <button ng-click="refuse(supplier.id)">Refuser</button>
+                <button ng-click="accept(supplier.idPlayer)">Accepter</button>
+                <button ng-click="refuse(supplier.idPlayer)">Refuser</button>
             </div>
         </div>
     </div>

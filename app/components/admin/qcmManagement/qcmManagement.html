@@ -1,0 +1,39 @@
+<div ng-include="'views/menu.html'"></div>
+
+<div ng-controller="qcmManagementCtrl" ng-init="getAllQcm()">
+    <div class="qcmListContainer">
+        <div class="qcmListTitle">Les QCM en attente de validation</div>
+        <div class="qcmListqcm" ng-repeat="qcm in notValidatedQcm">
+                <span class="qcmListIconContainer" ng-if="qcm.icon == null">
+                    <img class="qcmListIcon" ng-src="images/defaultPicture.png"/>
+                </span>
+                <span class="qcmListIconContainer" ng-if="qcm.icon != null">
+                    <img class="qcmListIcon" ng-src="{{'data:image/*;base64,'+qcm.icon}}"/>
+                </span>
+                <span class="qcmListName">
+                    {{qcm.name}}
+                </span>
+                <span class="qcmListDescription">
+                    {{qcm.description}}
+                </span>
+        </div>
+    </div>
+
+    <div class="qcmListContainer">
+        <div class="qcmListTitle">Les QCM validés</div>
+        <div class="qcmListqcm" ng-repeat="qcm in validatedQcm">
+                <span class="qcmListIconContainer" ng-if="qcm.icon == null">
+                    <img class="qcmListIcon" ng-src="images/defaultPicture.png"/>
+                </span>
+                <span class="qcmListIconContainer" ng-if="qcm.icon != null">
+                    <img class="qcmListIcon" ng-src="{{'data:image/*;base64,'+qcm.icon}}"/>
+                </span>
+                <span class="qcmListName">
+                    {{qcm.name}}
+                </span>
+                <span class="qcmListDescription">
+                    {{qcm.description}}
+                </span>
+        </div>
+    </div>
+</div>

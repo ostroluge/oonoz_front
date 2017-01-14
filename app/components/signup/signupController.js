@@ -16,6 +16,7 @@ controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'P
         $scope.submit = function () {
 
             if ($scope.wannaBeSupplier == true) {
+                
                 var supplier = new SupplierModel($scope);
                 if ($scope.typeAccount.toString() == "professional") {
                     supplier.isPrivateIndividual = "false";
@@ -41,7 +42,7 @@ controllers.controller('SignUpCtrl', ['$scope', '$location', 'SignUpService', 'P
             }
             else {
                 var player = new PlayerModel($scope);
-
+                
                 SignUpService.signUpPlayer().save(player)
                     .$promise
                     .then(

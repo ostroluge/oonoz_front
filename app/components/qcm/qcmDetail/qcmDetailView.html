@@ -1,0 +1,81 @@
+<div ng-include="'views/menu.html'"></div>
+
+<div class="contenuOnline">
+    <div class="QcmDetailGeneral">
+        <div class="QcmDetailGeneralImageConteneur">
+            <span ng-if="qcm.icon!= null">
+                    <img class="QcmDetailGeneralImage" ng-src="{{'data:image/*;base64,'+qcm.icon}}"/>
+            </span>
+            <span ng-if="qcm.icon== null">
+                    <img class="QcmDetailGeneralImage" src="images/defaultPicture.png">
+            </span>
+        </div>
+        <div class="QcmDetailGeneralInfos">
+            <div class="QcmDetailGeneralLigne QcmDetailGeneralName">{{qcm.name}}</div>
+            <div class="QcmDetailGeneralLigne">
+                <span class="QcmDetailGeneralTheme">
+                    {{qcm.themeName}} >
+                    <span ng-repeat="subtheme in qcm.subThemes">
+                        <span ng-if="qcm.subThemes[0]!=subtheme">, </span>
+                        {{subtheme.label}}
+                    </span>
+                </span>
+                <span class="QcmDetailGeneralSupplier">
+                    Fournisseur : {{qcm.supplierName}}
+                </span>
+            </div>
+            <div class="QcmDetailGeneralLigne QcmDetailGeneralDescription">{{qcm.description}}</div>
+            <div class="QcmDetailGeneralLigne">
+                <span class="QcmDetailGeneralCategory">
+                    {{qcm.category==="sommatif"?"QCM pour se tester":"QCM pour apprendre"}}
+                </span>
+                <span class="QcmDetailGeneralPrice" ng-if="qcm.free">
+                    Gratuit
+                </span>
+                <span class="QcmDetailGeneralPrice" ng-if="!qcm.free">
+                    Prix : {{qcm.price}}
+                </span>
+                <span class="QcmDetailGeneralGift" ng-if="qcm.prizeName">
+                    Cadeau : {{qcm.prizeName}}
+                </span>
+                <span class="QcmDetailGeneralGift" ng-if="!qcm.prizeName">
+                    Pas de cadeau
+                </span>
+                <div class="QcmDetailGeneralButtons">
+                    <button class="QcmDetailGeneralButton" ng-click="updateQCM()">Modifier</button>
+                    <button class="QcmDetailGeneralButton" ng-click="deleteQCM()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="QcmDetailQuestions">
+        <div class="QcmDetailQuestion" ng-repeat="question in qcm.questions | orderBy:['questionNumber']">
+            <div class="QcmDetailQuestionTop">
+                <button class="QcmDetailQuestionTopButton" ng-hide="detail" ng-click="detailQuestion[$index] =!detailQuestion[$index]; reduce=true ; detail=!detail"><img class="QcmDetailGeneralImage" src="images/add-vert.png"></button>
+                <button class="QcmDetailQuestionTopButton" ng-show="reduce" ng-click="detailQuestion[$index] =!detailQuestion[$index]; detail=false; reduce=false"><img class="QcmDetailGeneralImage" src="images/minus-vert.png"></button>
+                <img class="QcmDetailQuestionTopIconType" ng-if="question.mediaType" ng-src="{{'images/'+ question.mediaType +'.png'}}"/>
+                <p class="QcmDetailQuestionTopTitre">Question {{question.questionNumber}} : {{question.title}}</p>
+            </div>
+            <div  class="QcmDetailQuestionMiddle" ng-show="detailQuestion[$index]">
+                <span class="QcmDetailQuestionMiddleMedia" ng-if="question.mediaType== 'picture'">
+                    <img class="QcmDetailQuestionMiddleImage" ng-src="{{'data:image/*;base64,'+question.media}}"/>
+                </span>
+                <span class="QcmDetailQuestionMiddleMedia" ng-if="question.mediaType== 'video'">
+
+                </span>
+                <span class="QcmDetailQuestionMiddleMedia" ng-if="question.mediaType== 'sound'">
+
+                </span>
+                <span class="QcmDetailQuestionMiddleDelais">Délais : {{question.time}} secondes</span>
+                <div class="QcmDetailQuestionMiddleLigneReponse">
+                    <span class="QcmDetailQuestionMiddleReponse">{{question.answer}}</span>
+                    <span class="QcmDetailQuestionMiddlePerturbateur">{{question.proposition1}}</span>
+                </div>
+                <div class="QcmDetailQuestionMiddleLigneReponse">
+                    <span class="QcmDetailQuestionMiddlePerturbateur">{{question.proposition2}}</span>
+                    <span class="QcmDetailQuestionMiddlePerturbateur">{{question.proposition3}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

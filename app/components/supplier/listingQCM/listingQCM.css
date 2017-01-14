@@ -1,0 +1,164 @@
+/*Bouton rechercher de la zone de filtres*/
+.qcmListFilters button{
+    color: white;
+    background-color: #48E590;
+    height:35px;
+    width: 90px;
+    border: none;
+    /* display:block;
+     margin-left:auto;
+     margin-right:auto;*/
+    margin-top:10px;
+    margin-left:5px;
+}
+
+.qcmListFilters button:hover {
+    background-color: #287F50;
+}
+
+/*Pour aligner les filtres*/
+.qcmListFilters label{
+    width:55px;
+}
+
+
+.qcmListButtonsNew{
+    margin-top:25px;
+    width:300px;
+    max-width:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.qcmListButtonsNew a{
+    color:#287F50;
+    text-decoration:none;
+    margin-left:20px;
+}
+
+.qcmListButtonsNew a:hover{
+    color:#287F50;
+    font-weight: bold;
+}
+
+.qcmListButtonsNew a img{
+    width:20px;
+}
+
+.qcmListTitle {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #287F50;
+}
+
+@media screen and (min-width : 600px) {
+    .qcmListFilters{
+        float:left;
+        width:210px;
+        margin-left:5px;
+        margin-right:5px;
+        padding-left:5px;
+        padding-top:25px;
+        padding-bottom:25px;
+        background-color: #ceced2;
+    }
+
+    .qcmListContainer{
+        margin-left:210px;
+    }
+
+    .qcmListqcm{
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:15px;
+    }
+}
+
+
+@media screen and (max-width : 599px) {
+    .qcmListFilters {
+        margin-left: auto;
+        margin-right: auto;
+        width: 210px;
+        margin-top: 25px;
+        padding-left: 5px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        background-color: #ceced2;
+    }
+
+    .qcmListqcm {
+        margin-left: 3px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px;
+    }
+}
+
+
+    .qcmListqcm a, .qcmListqcm a:hover{
+        color:black;
+        text-decoration:none;
+        text-align:left;
+    }
+
+    .qcmListIconContainer{
+        width:50px;
+        margin-right:25px;
+    }
+
+    .qcmListIcon{
+        width:50px;
+    }
+
+
+    @media screen and (min-width : 983px) {
+        .qcmListqcm span{
+            display:inline-block;
+        }
+
+        .qcmListqcm{
+            width:700px;
+            max-width:90%;
+            border:solid 1px;
+            padding:5px;
+        }
+
+        .qcmListName{
+            width:100px;
+            margin-right:25px;
+        }
+
+        .qcmListDescription{
+            width:310px;
+            margin-right:25px;
+        }
+
+        .qcmListValide{
+            width:140px;
+        }
+    }
+
+    @media screen and (max-width : 982px) {
+        .qcmListqcm span{
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+        .qcmListName, .qcmListDescription, .qcmListValide{
+            width:90%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+        .qcmListqcm{
+            width:5500px;
+            max-width:90%;
+            border:solid 1px;
+            padding:5px;
+        }
+    }

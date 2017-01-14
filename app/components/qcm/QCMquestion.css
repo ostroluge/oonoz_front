@@ -1,0 +1,52 @@
+.questionQCMLabel{
+    width:150px;
+}
+
+.questionQCMInput{
+    width:170px;
+}
+
+.questionQCMInputSmall{
+    width:80px;
+}
+
+.questionQCMForm button{
+    display:block;
+    color: white;
+    background-color: #48E590;
+    height:35px;
+    width: 150px;
+    border: none;
+    margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.questionQCMForm button:hover {
+    background-color: #287F50;
+}
+
+.questionQCMAddMedia {
+    color: white;
+    background-color: lightgrey;
+    padding:3px 10px 3px 10px;
+    font-weight:400;
+    width:170px;
+}
+
+.questionQCMAddMedia:hover{
+    background-color:grey;
+}
+
+.questionQCMAddMedia img{
+    width:20px;
+    margin-bottom:3px;
+}
+
+.questionQCMAddMedia [type=file] {
+    display: none;
+}
+
+.questionQCMAddMediaFileName{
+    text-align:right;
+}

@@ -1,0 +1,194 @@
+@media screen and (min-width:700px) {
+    .QcmDetailGeneral{
+        width:700px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:25px;
+        display:flex;
+    }
+
+    .QcmDetailGeneralImageConteneur{
+        width:300px;
+    }
+
+    .QcmDetailGeneralImage{
+        max-width:300px;
+        max-height:300px;
+    }
+
+    .QcmDetailGeneralInfos{
+        width:500px;
+        margin-left:50px;
+    }
+
+    .QcmDetailQuestionMiddleMedia{
+        float:left;
+    }
+
+    .QcmDetailQuestionMiddleDelais{
+        float:right;
+    }
+
+    .QcmDetailQuestionMiddleLigneReponse{
+        margin-left:150px;
+        margin-right:150px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .QcmDetailGeneral{
+        width:100%;
+        margin-top:25px;
+    }
+
+    .QcmDetailGeneralImageConteneur{
+        width:300px;
+        max-width:90%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .QcmDetailGeneralImage{
+        max-height:300px;
+        max-width:100%;
+    }
+
+    .QcmDetailGeneralInfos{
+        width:500px;
+        max-width:90%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .QcmDetailGeneralName{
+        text-align:center;
+    }
+
+    .QcmDetailQuestionMiddleDelais, .QcmDelaisQuestionMiddleMedia{
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .QcmDetailQuestionMiddleLigneReponse{
+        width:300px;
+        max-width:95px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
+@media screen and (min-width:400px) {
+    .QcmDetailGeneralLigne{
+        margin-top:30px;
+        font-size:16px;
+    }
+
+    .QcmDetailGeneralTheme, .QcmDetailGeneralCategory, .QcmDetailGeneralPrice{
+        margin-right:30px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .QcmDetailGeneralLigne{
+        margin-top:15px;
+        font-size:14px;
+    }
+
+    .QcmDetailGeneralSupplier, .QcmDetailGeneralGift, .QcmDetailGeneralPrice{
+        display:block;
+    }
+}
+
+.QcmDetailGeneralName{
+    font-size : 30px;
+    color:#287F50;
+}
+
+.QcmDetailQuestions{
+    margin-top:25px;
+}
+
+.QcmDetailQuestion{
+    border:solid #424A60;
+    margin-top:10px;
+    width:90%;
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+.QcmDetailQuestionTop{
+    margin:10px;
+    font-size: 14px;
+}
+
+.QcmDetailQuestionTopButton{
+    float:left;
+    background-color:transparent;
+    border:none;
+}
+
+.QcmDetailQuestionTopButton img{
+    width:25px;
+}
+
+.QcmDetailQuestionTopTitre{
+    margin-left:35px;
+    margin-right:35px;
+    text-align:center;
+}
+
+.QcmDetailQuestionTopIconType{
+    width:25px;
+    height:25px;
+    float:right;
+}
+
+.QcmDetailQuestionMiddle{
+    text-align:center;
+    width:700px;
+    max-width:95%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.QcmDetailQuestionMiddleMedia{
+    width:70px;
+}
+
+.QcmDetailQuestionMiddleImage{
+    width:70px;
+    max-height:80px;
+}
+
+.QcmDetailQuestionMiddleReponse, .QcmDetailQuestionMiddlePerturbateur{
+    width:150px;
+    max-width:90%;
+    display:inline-block;
+}
+
+.QcmDetailQuestionMiddleReponse{
+    border:solid 1px #287F50;
+}
+
+.QcmDetailGeneralButtons{
+    width:185px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.QcmDetailGeneralButton {
+    color: white;
+    background-color: #287F50;
+    height:35px;
+    width: 90px;
+    border: none;
+}
+
+.QcmDetailGeneralButton:hover {
+    background-color: #48E590;
+}
