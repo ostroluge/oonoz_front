@@ -1,0 +1,16 @@
+.qcmList button{
+    color: white;
+    background-color: #48E590;
+    height:35px;
+    width: 90px;
+    border: none;
+    /* display:block;
+     margin-left:auto;
+     margin-right:auto;*/
+    margin-top:10px;
+    margin-left:5px;
+}
+
+.qcmList button:hover {
+    background-color: #287F50;
+}

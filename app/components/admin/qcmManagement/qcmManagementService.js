@@ -13,7 +13,7 @@ services.factory('QcmManagementService', ['$resource', '$location',
                     }
                 });
             },
-            getNotValidatedQCM: function(){
+            getNotValidatedQCM: function () {
                 return $resource("http://localhost:8092/admin/getNotValidatedQCM", {}, {
                     query: {
                         method: 'GET',
@@ -21,7 +21,30 @@ services.factory('QcmManagementService', ['$resource', '$location',
                         isArray: true
                     }
                 });
+            },
+            validateQCM: function (idQCM) {
+                return $resource("http://localhost:8092/admin/validateQCM", {}, {
+                    query: {
+                        method: 'PUT',
+                        cache: false,
+                        isArray: true,
+                        params: {
+                            "idQCM": idQCM
+                        }
+                    }
+                });
+            },
+            deleteQCM: function (idQCM) {
+                return $resource("http://localhost:8092/admin/deleteQCM", {}, {
+                    query: {
+                        method: 'DELETE',
+                        cache: false,
+                        isArray: true,
+                        params: {
+                            "idQCM": idQCM
+                        }
+                    }
+                });
             }
-
         }
     }]);
