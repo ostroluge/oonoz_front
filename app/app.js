@@ -102,6 +102,10 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinn
             templateUrl: 'components/admin/qcmManagement/qcmManagement.html',
             controller: 'qcmManagementCtrl'
         })
+        .when('/qcm/presentationQCM/:id', {
+            templateUrl: 'components/qcm/presentationQCM/presentationQCM.html',
+            controller: 'PresentationQcmCtrl'
+        })
         .otherwise({redirectTo: '/login'});
 
     /**Set default configuration for load sprinner**/

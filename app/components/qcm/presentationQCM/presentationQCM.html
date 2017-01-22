@@ -1,0 +1,13 @@
+<div ng-include="'views/menu.html'"></div>
+
+<div>
+    <h1>{{qcm.name}}</h1>
+    <span ng-if="qcm.icon!= null">
+                    <img class="QcmDetailGeneralImage" ng-src="{{'data:image/*;base64,'+qcm.icon}}"/>
+            </span>
+    <span ng-if="qcm.icon== null">
+                    <img class="QcmDetailGeneralImage" src="images/defaultPicture.png">
+    </span>
+
+    <span>{{qcm.description}}</span>
+</div>
