@@ -1,0 +1,13 @@
+.presQCMTitle{
+    font-size : 25px;
+    font-weight: bold;
+    text-align:center;
+    margin-top:25px;
+    margin-bottom: 15px;
+    color:#287F50;
+}
+
+.presQCMimg{
+    max-width: 300px;
+    min-width: 300px;
+}

@@ -12,6 +12,9 @@
     background:#6b727c;
     padding:0;
     box-shadow:0 0 5px;
+    position: fixed;
+    top: 0;
+    width:100%;
 }
 
 .headerInline:after {
@@ -38,6 +41,10 @@
 .headerInline a:hover, a:active{
     color: #48E590;
     text-decoration: none;
+}
+
+.contenuOnline{
+    margin-top:50px;
 }
 
 /*Style 'show menu' label button and hide it by default*/

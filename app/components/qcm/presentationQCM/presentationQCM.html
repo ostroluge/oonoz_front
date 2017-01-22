@@ -1,13 +1,19 @@
 <div ng-include="'views/menu.html'"></div>
 
-<div>
-    <h1>{{qcm.name}}</h1>
+<div class="contenuOnline">
+
+    <div class="presQCMTitle">{{qcm.name}}</div>
+
+    <div class="presQCMimg">
     <span ng-if="qcm.icon!= null">
                     <img class="QcmDetailGeneralImage" ng-src="{{'data:image/*;base64,'+qcm.icon}}"/>
             </span>
     <span ng-if="qcm.icon== null">
                     <img class="QcmDetailGeneralImage" src="images/defaultPicture.png">
     </span>
+    </div>
 
-    <span>{{qcm.description}}</span>
+    <div class="presQCMdesc">
+        {{qcm.description}}
+    </div>
 </div>
