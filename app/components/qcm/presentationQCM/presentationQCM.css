@@ -2,12 +2,60 @@
     font-size : 25px;
     font-weight: bold;
     text-align:center;
-    margin-top:25px;
+    margin-top:50px;
     margin-bottom: 15px;
     color:#287F50;
 }
 
-.presQCMimg{
+.presQCMImgCont{
+    width:300px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.presQCMImg{
     max-width: 300px;
     min-width: 300px;
+}
+
+.presQCMNotesDesc{
+    display:inline-flex;
+    text-align: center;
+    width:90%;
+    margin-top:50px;
+    margin-left:5%;
+}
+
+.presQCMNote{
+    width:50%;
+}
+
+.presQCMNoteImg{
+    width:200px;
+}
+
+.presQCMComs{
+    margin-top:20px;
+}
+
+.presQCMdesc{
+    width:50%;
+}
+
+.presQCMbutton{
+    text-align:center;
+}
+
+.presQCMbutton button{
+    color: white;
+    background-color: #48E590;
+    height:70px;
+    width: 70px;
+    border-radius: 50%;
+    border: none;
+    margin-top:10px;
+}
+
+.presQCMbutton button:hover{
+    background-color: #287F50;
 }

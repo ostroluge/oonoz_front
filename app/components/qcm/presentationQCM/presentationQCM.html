@@ -4,16 +4,34 @@
 
     <div class="presQCMTitle">{{qcm.name}}</div>
 
-    <div class="presQCMimg">
+    <div class="presQCMImgCont">
     <span ng-if="qcm.icon!= null">
-                    <img class="QcmDetailGeneralImage" ng-src="{{'data:image/*;base64,'+qcm.icon}}"/>
+                    <img class="presQCMImg" ng-src="{{'data:image/*;base64,'+qcm.icon}}"/>
             </span>
     <span ng-if="qcm.icon== null">
-                    <img class="QcmDetailGeneralImage" src="images/defaultPicture.png">
+                    <img class="presQCMImg" src="images/defaultPicture.png">
     </span>
     </div>
 
-    <div class="presQCMdesc">
-        {{qcm.description}}
+
+    <div class="presQCMNotesDesc">
+        <div class="presQCMNote">
+            <p>Les avis sur ce QCM
+            <img class="presQCMNoteImg" src="images/three-stars.png"></p>
+
+            <div class="presQCMComs">
+                <p class="presQCMCom">Jaqueline : De la qualité.</p>
+
+                <p class="presQCMCom">Michou : J'ai kiffé</p>
+            </div>
+        </div>
+
+        <div class="presQCMdesc">
+            {{qcm.description}}
+        </div>
+    </div>
+
+    <div class="presQCMbutton">
+        <button>Jouer !</button>
     </div>
 </div>
