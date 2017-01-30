@@ -4,8 +4,8 @@
 controllers.controller('themeCtrl', ['$scope', 'themeService','$location','$rootScope',
     function ($scope, themeService,$location,$rootScope) {
         $scope.items = [];
-        $rootScope.theme;
-        $rootScope.sbTheme;
+        $scope.theme;
+        $scope.sbTheme;
 
 
         $scope.getThemes = function () {
@@ -14,7 +14,6 @@ controllers.controller('themeCtrl', ['$scope', 'themeService','$location','$root
                 .$promise
                 .then(
                     function success(data) {
-                        console.log(data);
                         $scope.items = data;
                     },
                     function error() {
@@ -26,12 +25,11 @@ controllers.controller('themeCtrl', ['$scope', 'themeService','$location','$root
         $scope.clickOnTheme = function(idTheme){
             if (!$scope.subTheme){
                 $scope.subTheme = true;
-                $rootScope.theme = this.item.label;
+                $scope.theme = this.item.idTheme;
                 themeService.getThemeSubTheme(idTheme).query()
                     .$promise
                     .then(
                         function success(data) {
-                            console.log(data);
                             $scope.items = data;
                         },
                         function error() {
@@ -39,16 +37,16 @@ controllers.controller('themeCtrl', ['$scope', 'themeService','$location','$root
                         }
                     );
             }else {
-                $rootScope.sbTheme = this.item.label;
-                $location.path("/home");
+                $scope.sbTheme = this.item.id;
+                $location.path("/qcms/search/?theme="+$scope.theme+"&subtheme="+$scope.sbTheme);
             }
 
         };
 
 
         $scope.clickAll = function(){
-            $rootScope.sbTheme = "";
-            $location.path("/home");
+            $scope.sbTheme = "";
+            $location.path("/qcms/search/?theme="+$scope.theme);
         }
     }
 ]);
