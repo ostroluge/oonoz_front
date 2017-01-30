@@ -1,0 +1,93 @@
+<div ng-include="'views/menu.html'"></div>
+
+<!--FILTER SEARCH CONTAINER-->
+<div class="searchQCMContainer">
+    <div class="filterContainer">
+        <!-- NAME FILTER-->
+        <div>
+            <label for="nameFilter">Nom :</label>
+            <input type="text" name="nameFilter" id="nameFilter" ng-model="nameFilter">
+        </div>
+        <!-- CATEGORY FILTER-->
+        <div>
+            <label for="categoryFilter">Catégorie :</label>
+            <select class="" id="categoryFilter" ng-model="categoryFilter"
+                    ng-options="category for category in categories" name="categoryFilter">
+                <option value=""></option>
+            </select>
+        </div>
+        <!-- THEME FILTER-->
+        <div>
+            <label for="themeFilter">Thème :</label>
+            <select class="" id="themeFilter" ng-change="onThemeSelect(themeFilter)" ng-model="themeFilter"
+                    ng-options="theme.label for theme in themes" name="themeFilter">
+                <option value=""></option>
+            </select>
+        </div>
+        <!-- SUB-THEME FILTER-->
+        <div>
+            <label for="subthemeFilter">Sous-thème :</label>
+            <select class="" id="subthemeFilter" ng-model="subthemeFilter"
+                    ng-options="subtheme.label for subtheme in subthemes" name="subthemeFilter">
+                <option value=""></option>
+            </select>
+        </div>
+        <!-- MAX PRICE FILTER-->
+        <div>
+            <label for="maxPriceFilter">Prix maximum :</label>
+            <input type="number" name="maxPriceFilter" id="maxPriceFilter" ng-model="maxPriceFilter">
+        </div>
+        <!-- HAS GIFT FILTER-->
+        <div>
+            <label for="hasGiftFilter">Cadeau à gagner</label>
+            <input type="checkbox" id="hasGiftFilter"  ng-model="hasGiftFilter">
+        </div>
+        <button ng-click="search()">Rechercher</button>
+        <button ng-click="clearForm()">Effacer</button>
+    </div>
+
+<!--RESULT CONTAINER-->
+<div class="QCMresultContainer">
+    <div ng-repeat="qcm in result" class="searchQCMRow">
+        <span class="searchQCMResultIcon" ng-if="qcm.icon == null">
+            <img class="qcmListIcon" ng-src="images/defaultPicture.png"/>
+        </span>
+        <span class="qcmListIconContainer" ng-if="qcm.icon != null">
+            <img class="qcmListIcon" ng-src="{{'data:image/*;base64,'+qcm.icon}}"/>
+        </span>
+
+        <span class="searchQCMResultName">
+                        {{qcm.name}}
+        </span>
+
+        <span class="searchQCMResultCategory" ng-if="qcm.category==='sommatif'">
+          Apprendre
+        </span>
+        <span class="searchQCMResultCategory" ng-if="qcm.category==='formatif'">
+          Se tester
+        </span>
+         <span class="searchQCMResultCategory" ng-if="qcm.free===true">
+          Gratuit
+        </span>
+        <span class="searchQCMResultCategory" ng-if="qcm.free===false">
+          Prix : {{qcm.price}}
+        </span>
+        <div>
+            <span class="searchQCMResultThemeName">
+                        {{qcm.themeName}}>
+                <span ng-repeat="subtheme in qcm.subThemes">
+                        {{subtheme.label}}
+                </span>
+            </span>
+            <span ng-if="qcm.prizeName!==null">
+                Cadeau à gagner
+            </span>
+            <span ng-if="qcm.prizeName===null">
+                Pas de cadeau
+            </span>
+        </div>
+    </div>
+</div>
+
+<span us-spinner spinner-key="spinner-1"></span>
+</div>
