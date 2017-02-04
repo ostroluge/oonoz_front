@@ -38,10 +38,6 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinn
             templateUrl: 'components/signup/validationSignupView.html',
             controller: 'ValidationSignUpCtrl'
         })
-        .when('/listTheme', {
-            templateUrl: 'components/theme/themeView.html',
-            controller: 'themeCtrl'
-        })
         .when('/generatePassword', {
             templateUrl: 'components/generatePassword/generatePasswordView.html',
             controller: 'generatePasswordCtrl'

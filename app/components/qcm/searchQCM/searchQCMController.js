@@ -1,13 +1,14 @@
 'use strict';
 
-controllers.controller('SearchQCMCtrl', ['$scope', 'SearchQCMService', 'AddQCMService', '$location', 'usSpinnerService',
-    function ($scope, SearchQCMService, AddQCMService, usSpinnerService) {
+controllers.controller('SearchQCMCtrl', ['$scope', 'SearchQCMService', 'AddQCMService', '$location', 'usSpinnerService','$routeParams',
+    function ($scope, SearchQCMService, AddQCMService, usSpinnerService,$routeParams) {
 
         $scope.themes = {};
         $scope.result = {};
         $scope.hasGiftFilter=false;
         $scope.categories=["formatif","sommatif"];
 
+        console.log($routeParams.theme);
         /**
          * Get validated themes to fill select box.
          */
