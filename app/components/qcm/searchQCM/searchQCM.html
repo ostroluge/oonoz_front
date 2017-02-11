@@ -49,6 +49,7 @@
 <!--RESULT CONTAINER-->
 <div class="QCMresultContainer">
     <div ng-repeat="qcm in result" class="searchQCMRow">
+        <a href="#qcm/presentationQCM/{{qcm.id}}">
         <span class="searchQCMResultIcon" ng-if="qcm.icon == null">
             <img class="qcmListIcon" ng-src="images/defaultPicture.png"/>
         </span>
@@ -86,7 +87,9 @@
                 Pas de cadeau
             </span>
         </div>
+        </a>
     </div>
+
 </div>
 
 <span us-spinner spinner-key="spinner-1"></span>

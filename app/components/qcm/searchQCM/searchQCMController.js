@@ -10,7 +10,6 @@ controllers.controller('SearchQCMCtrl', ['$scope', 'SearchQCMService', 'AddQCMSe
 
         var idTheme=$routeParams.idTheme;
         var idSubTheme=$routeParams.idSubTheme;
-        console.log(idSubTheme);
         /**
          * Get validated themes to fill select box.
          */
