@@ -38,7 +38,7 @@ controllers.controller('themeCtrl', ['$scope', 'themeService','$location','$root
                     );
             }else {
                 $scope.sbTheme = this.item.id;
-                $location.path("/qcms/search?theme="+$scope.theme+"&subtheme="+$scope.sbTheme);
+                $location.path("/qcms/search/"+$scope.theme+"/"+$scope.sbTheme);
             }
 
         };
@@ -46,7 +46,7 @@ controllers.controller('themeCtrl', ['$scope', 'themeService','$location','$root
 
         $scope.clickAll = function(){
             $scope.sbTheme = "";
-            $location.path("/qcms/search?theme="+$scope.theme);
+            $location.path("/qcms/search/"+$scope.theme);
         }
     }
 ]);

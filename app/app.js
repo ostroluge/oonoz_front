@@ -38,6 +38,10 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinn
             templateUrl: 'components/signup/validationSignupView.html',
             controller: 'ValidationSignUpCtrl'
         })
+        .when('/listTheme', {
+            templateUrl: 'components/theme/themeView.html',
+            controller: 'themeCtrl'
+        })
         .when('/generatePassword', {
             templateUrl: 'components/generatePassword/generatePasswordView.html',
             controller: 'generatePasswordCtrl'
@@ -107,6 +111,14 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinn
             controller: 'PresentationQcmCtrl'
         })
         .when('/qcms/search', {
+            templateUrl: 'components/qcm/searchQCM/searchQCM.html',
+            controller: 'SearchQCMCtrl'
+        })
+        .when('/qcms/search/:idTheme', {
+            templateUrl: 'components/qcm/searchQCM/searchQCM.html',
+            controller: 'SearchQCMCtrl'
+        })
+        .when('/qcms/search/:idTheme/:idSubTheme', {
             templateUrl: 'components/qcm/searchQCM/searchQCM.html',
             controller: 'SearchQCMCtrl'
         })

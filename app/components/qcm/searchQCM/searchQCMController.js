@@ -1,6 +1,6 @@
 'use strict';
 
-controllers.controller('SearchQCMCtrl', ['$scope', 'SearchQCMService', 'AddQCMService', '$location', 'usSpinnerService','$routeParams',
+controllers.controller('SearchQCMCtrl', ['$scope', 'SearchQCMService', 'AddQCMService', 'usSpinnerService','$routeParams',
     function ($scope, SearchQCMService, AddQCMService, usSpinnerService,$routeParams) {
 
         $scope.themes = {};
@@ -8,7 +8,9 @@ controllers.controller('SearchQCMCtrl', ['$scope', 'SearchQCMService', 'AddQCMSe
         $scope.hasGiftFilter=false;
         $scope.categories=["formatif","sommatif"];
 
-        console.log($routeParams.theme);
+        var idTheme=$routeParams.idTheme;
+        var idSubTheme=$routeParams.idSubTheme;
+        console.log(idSubTheme);
         /**
          * Get validated themes to fill select box.
          */
@@ -16,6 +18,23 @@ controllers.controller('SearchQCMCtrl', ['$scope', 'SearchQCMService', 'AddQCMSe
             .then(
                 function success(response) {
                     $scope.themes = response;
+                    /**Pre-sélection d'un thème**/
+                    if(idTheme!==undefined)
+                        $scope.themes.forEach(function(theme){
+                            if (theme.idTheme == idTheme) {
+                                $scope.themeFilter = theme;
+                                $scope.subthemes=theme.subThemes;
+                                /**Pre-sélection d'un sous-thème**/
+                                if(idSubTheme!==undefined){
+                                    theme.subThemes.forEach(function(subTheme){
+                                        if(subTheme.id == idSubTheme){
+                                            $scope.subthemeFilter=subTheme;
+                                        }
+                                    });
+                                }
+                                $scope.search();
+                            }
+                        })
                 },
                 function error(response) {
                 }
