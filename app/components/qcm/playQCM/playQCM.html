@@ -1,0 +1,28 @@
+<div ng-include="'views/menu.html'"></div>
+
+<div class="playQCMContainer">
+
+    <!-- PROGRESS INDICATOR -->
+    <div class="progressContainer">
+        <span ng-repeat="answer in answers track by $index">{{answer}}</span>
+    </div>
+    <!-- QUESTION -->
+    <div class="questionContainer">
+
+        <h3>{{question.title}}</h3>
+        <!--<span class="questionIcon" ng-if="qcm.icon == null">
+            <img ng-src="images/defaultPicture.png"/>
+        </span>-->
+        <div class="propositionContainer">
+            <div>
+                <button class="proposition" ng-click="respond(question.proposition1)">{{question.proposition1}}</button>
+                <button class="proposition" ng-click="respond(question.proposition2)">{{question.proposition2}}</button>
+            </div>
+            <div>
+                <button class="proposition" ng-click="respond(question.proposition3)">{{question.proposition3}}</button>
+                <button class="proposition" ng-click="respond(question.answer)">{{question.answer}}</button>
+            </div>
+        </div>
+    </div>
+
+</div>
