@@ -19,12 +19,12 @@
         </span>-->
         <div class="propositionContainer">
             <div>
-                <button class="proposition" ng-click="respond(question.proposition1)">{{question.proposition1}}</button>
-                <button class="proposition" ng-click="respond(question.proposition2)">{{question.proposition2}}</button>
+                <button ng-style="btnResponseStyle" class="proposition" ng-click="respond(question.proposition1)">{{question.proposition1}}</button>
+                <button ng-style="btnResponseStyle" class="proposition" ng-click="respond(question.proposition2)">{{question.proposition2}}</button>
             </div>
             <div>
-                <button class="proposition" ng-click="respond(question.proposition3)">{{question.proposition3}}</button>
-                <button class="proposition" ng-click="respond(question.answer)">{{question.answer}}</button>
+                <button ng-style="btnResponseStyle" class="proposition" ng-click="respond(question.proposition3)">{{question.proposition3}}</button>
+                <button ng-style="btnResponseStyle" class="proposition" ng-click="respond(question.answer)">{{question.answer}}</button>
             </div>
         </div>
     </div>
