@@ -4,13 +4,12 @@ controllers.controller('PlayQCMCtrl',['$scope', 'PlayQCMService','usSpinnerServi
     function ($scope, PlayQCMService,usSpinnerService,$routeParams) {
 
         var questionNumber=0;
-        $scope.answers=new Int8Array(19).fill(0);
+        $scope.answers=new Int8Array(20).fill(0);
         var idQCM=$routeParams.idQCM;
         PlayQCMService.getValidatedQcm(idQCM).query().$promise
             .then(
                 function success(response) {
                     $scope.qcm=response;
-                    console.log(response);
                     $scope.question=$scope.qcm.questions[questionNumber];
                 },
                 function error(){

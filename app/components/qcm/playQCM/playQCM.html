@@ -1,10 +1,14 @@
 <div ng-include="'views/menu.html'"></div>
 
 <div class="playQCMContainer">
-
     <!-- PROGRESS INDICATOR -->
     <div class="progressContainer">
-        <span ng-repeat="answer in answers track by $index">{{answer}}</span>
+        <label class="qcmTitle">{{qcm.name}}</label>
+        <span ng-repeat="answer in answers track by $index">
+            <img class="progressCircle" src="images/no_response.png" ng-if="answer===0">
+            <img class="progressCircle" src="images/good_response.png" ng-if="answer===2">
+            <img class="progressCircle" src="images/bad_response.png" ng-if="answer===1">
+        </span>
     </div>
     <!-- QUESTION -->
     <div class="questionContainer">
