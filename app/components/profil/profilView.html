@@ -1,0 +1,13 @@
+<div ng-include="'views/menu.html'"></div>
+<div>Mon profil</div>
+<div ng-controller= "profilCtrl"  ng-init="getUser()">
+    <div>
+        <div>{{player.username}}</div>
+        <div>{{player.firstName}}</div>
+        <div>{{player.lastName}}</div>
+        <div>{{player.isSupplier}}</div>
+        <div>{{player.companyName}}</div>
+        <div>{{player.companyAddress}}</div>
+        <div>{{player.siretNumber}}</div>
+    </div>
+</div>

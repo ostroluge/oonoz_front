@@ -87,8 +87,8 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinn
             controller: 'listingQCMCtrl'
         })
         .when ('/account',{
-            templateUrl: 'components/account/accountView.html'
-            //controller: 'accountCtrl'
+            templateUrl: 'components/profil/profilView.html',
+            controller: 'profilCtrl'
         })
         .when('/qcm/qcmDetail/:id', {
             templateUrl: 'components/qcm/qcmDetail/qcmDetailView.html',
