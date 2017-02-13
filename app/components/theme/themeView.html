@@ -9,7 +9,7 @@
             <span>Tous les thèmes du thème {{completeTheme.label}}</span>
         </div>
         <div class="row ThemeItems">
-            <div class="col-md-2 themeItem" ng-show="subTheme" ng-click="clickAll()">
+            <div class="col-md-2 col-sm-4 themeItem" ng-show="subTheme" ng-click="clickAll()">
                 <span class="ThemeItemImgContainer" ng-if="completeTheme.iconUrl == null">
                     <img class="ThemeItemImg" ng-src="images/defaultPicture.png"/>
                 </span>
@@ -19,7 +19,7 @@
                 <div class="themeItemLabel">Tous les QCM du thème {{completeTheme.label}}</div>
             </div>
             <div  ng-repeat="item in items">
-                <div class="col-md-2 themeItem"  ng-click="clickOnTheme(item.idTheme)">
+                <div class="col-md-2 col-sm-4 themeItem"  ng-click="clickOnTheme(item.idTheme)">
                     <span class="ThemeItemImgContainer" ng-if="item.iconUrl == null">
                         <img class="ThemeItemImg" ng-src="images/defaultPicture.png"/>
                     </span>
