@@ -26,6 +26,7 @@ controllers.controller('themeCtrl', ['$scope', 'themeService','$location','$root
             if (!$scope.subTheme){
                 $scope.subTheme = true;
                 $scope.theme = this.item.idTheme;
+                $scope.completeTheme = this.item;
                 themeService.getThemeSubTheme(idTheme).query()
                     .$promise
                     .then(

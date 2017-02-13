@@ -31,6 +31,14 @@
     font-weight:bold;
 }
 
+.ThemeItemImgContainer{
+    height: 80px;
+    width: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .ThemeItemImg{
     max-width:80px;
     max-height:80px;
