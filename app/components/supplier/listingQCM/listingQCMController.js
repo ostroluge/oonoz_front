@@ -27,9 +27,9 @@ controllers.controller('listingQCMCtrl', ['$scope', 'listingQCMService', 'dialog
             $scope.subTheme = null;
         };
 
-        $scope.filteredSearch = function (theme,subTheme) {
-            console.log("ctrl : "+theme+subTheme);
-            listingQCMService.filteredSearch(theme,subTheme).query()
+        $scope.filteredSearch = function (theme, subTheme) {
+            console.log("ctrl : " + theme + subTheme);
+            listingQCMService.filteredSearch(theme, subTheme).query()
                 .$promise
                 .then(
                     function success(data) {
@@ -40,7 +40,32 @@ controllers.controller('listingQCMCtrl', ['$scope', 'listingQCMService', 'dialog
                         console.log("Error listingQCMCtrl:search")
                     }
                 );
-        }
+        };
+
+        $scope.parse = function (file) {
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                listingQCMService.uploadQCM().query(reader.result)
+                    .$promise
+                    .then(
+                        function success(data) {
+                            console.log(data);
+                        },
+                        function error() {
+                            console.log("Error listingQCMCtrl:uploadQCM ")
+                        }
+                    );
+            };
+
+            reader.readAsText(file);
+        };
+
+
+        $scope.uploadFile = function () {
+            var file = document.getElementById("uploadedFile").files[0];
+            $scope.parse(file);
+        };
 
 
     }
