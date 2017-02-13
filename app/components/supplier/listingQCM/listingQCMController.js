@@ -20,7 +20,7 @@ controllers.controller('listingQCMCtrl', ['$scope', 'listingQCMService', 'dialog
                         console.log("Error userStatusCtrl:getSupplierRequest")
                     }
                 );
-        }
+        };
 
         $scope.erase = function () {
             $scope.theme = null;

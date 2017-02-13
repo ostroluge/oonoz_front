@@ -183,6 +183,9 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
             criteria.usernameSearch = $scope.username;
             criteria.lastnameSearch = $scope.lastname;
             criteria.firstnameSearch = $scope.firstname;
+            if ($scope.pageSize == null) {
+                $scope.pageSize = 5;
+            }
             criteria.pageSize = $scope.pageSize;
             criteria.mailSearch = $scope.mail;
             criteria.userActive = $scope.userActiveCbox;
