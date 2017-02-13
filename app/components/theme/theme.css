@@ -1,3 +1,41 @@
+.ThemeTitre {
+    font-size: 25px;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #287F50;
+}
 
+.ThemePrevious{
+    margin-left:50px;
+    margin-bottom:30px;
+    color: #287F50;
+}
 
+.ThemePreviousButton{
+    width:40px;
+    height:40px;
+}
+.ThemeItems{
+    margin-left:25px;
+    margin-right:25px;
+}
 
+.themeItem{
+    text-align : center;
+}
+
+.themeItem:hover{
+    background-color:rgb(245,245,245);
+    font-weight:bold;
+}
+
+.ThemeItemImg{
+    max-width:80px;
+    max-height:80px;
+}
+
+.themeItemLabel{
+    color: #287F50;
+}

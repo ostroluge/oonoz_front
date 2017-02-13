@@ -1,24 +1,29 @@
 <div ng-include="'views/menu.html'"></div>
-<div>Les thèmes</div>
-    <div ng-controller= "themeCtrl"  ng-init="getThemes()">
-        <div >
-            <img class="imgForm" src="images/previous_logo.png" ng-show="subTheme" ng-click="getThemes()">
-            <div ng-show="subTheme" ng-click="clickAll()">
-                <div>Tous les QCM du thème</div>
-                <img class="ThemeListImg" ng-src="images/defaultPicture.png"/>
+
+<div class="contenuOnline" ng-controller= "themeCtrl"  ng-init="getThemes()">
+    <div class="ThemeTitre" ng-show="!subTheme">Les thèmes</div>
+    <div class="ThemeTitre" ng-show="subTheme">Les sous-thèmes</div>
+    <div>
+        <div class="ThemePrevious" ng-show="subTheme">
+            <img class="ThemePreviousButton" src="images/previous_logo.png"  ng-click="getThemes()">
+            <span>Tous les thèmes</span>
+        </div>
+        <div class="row ThemeItems">
+            <div class="col-md-2 themeItem" ng-show="subTheme" ng-click="clickAll()">
+                <img class="ThemeItemImg" ng-src="images/defaultPicture.png"/>
+                <div class="themeItemLabel">Tous les QCM du thème</div>
             </div>
             <div  ng-repeat="item in items">
-                <div ng-click="clickOnTheme(item.idTheme)">
-                    <div>{{item.label}}</div>
-                         <div>
-                        <span ng-if="item.iconUrl == null">
-                                <img class="ThemeListImg" ng-src="images/defaultPicture.png"/>
-                        </span>
-                          <span ng-if="item.iconUrl != null">
-                                <img class="ThemeListImg" ng-src="{{'data:image/*;base64,'+theme.iconUrl}}"/>
-                        </span>
-                         </div>
-                    </div>
+                <div class="col-md-2 themeItem"  ng-click="clickOnTheme(item.idTheme)">
+                    <span ng-if="item.iconUrl == null">
+                        <img class="ThemeItemImg" ng-src="images/defaultPicture.png"/>
+                    </span>
+                    <span ng-if="item.iconUrl != null">
+                        <img class="ThemeItemImg" ng-src="{{'data:image/*;base64,'+theme.iconUrl}}"/>
+                    </span>
+                    <div class="themeItemLabel">{{item.label}}</div>
                 </div>
+            </div>
         </div>
     </div>
+</div>

@@ -91,7 +91,6 @@
     }
 
     .qcmListqcm {
-        margin-left: 3px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 15px;
@@ -156,7 +155,7 @@
         }
 
         .qcmListqcm{
-            width:5500px;
+            width:700px;
             max-width:90%;
             border:solid 1px;
             padding:5px;

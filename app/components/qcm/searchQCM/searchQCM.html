@@ -1,8 +1,10 @@
 <div ng-include="'views/menu.html'"></div>
 
+
+<div class="searchQCMContainer contenuOnline">
+
 <!--FILTER SEARCH CONTAINER-->
-<div class="searchQCMContainer">
-    <div class="filterContainer">
+    <div class="searchQCMFilters">
         <!-- NAME FILTER-->
         <div>
             <label for="nameFilter">Nom :</label>
@@ -33,13 +35,13 @@
             </select>
         </div>
         <!-- MAX PRICE FILTER-->
-        <div>
-            <label for="maxPriceFilter">Prix maximum :</label>
+        <div class="searchQCMFiltersLongLabel">
+            <label  for="maxPriceFilter">Prix maximum :</label>
             <input type="number" name="maxPriceFilter" id="maxPriceFilter" ng-model="maxPriceFilter">
         </div>
         <!-- HAS GIFT FILTER-->
-        <div>
-            <label for="hasGiftFilter">Cadeau à gagner</label>
+        <div class="searchQCMFiltersLongLabel">
+            <label class="searchQCMFiltersLongLabel" for="hasGiftFilter">Cadeau à gagner</label>
             <input type="checkbox" id="hasGiftFilter"  ng-model="hasGiftFilter">
         </div>
         <button ng-click="search()">Rechercher</button>
@@ -50,47 +52,46 @@
 <div class="QCMresultContainer">
     <div ng-repeat="qcm in result" class="searchQCMRow">
         <a href="#qcm/presentationQCM/{{qcm.id}}">
-        <span class="searchQCMResultIcon" ng-if="qcm.icon == null">
-            <img class="qcmListIcon" ng-src="images/defaultPicture.png"/>
-        </span>
-        <span class="qcmListIconContainer" ng-if="qcm.icon != null">
-            <img class="qcmListIcon" ng-src="{{'data:image/*;base64,'+qcm.icon}}"/>
-        </span>
-
-        <span class="searchQCMResultName">
-                        {{qcm.name}}
-        </span>
-
-        <span class="searchQCMResultCategory" ng-if="qcm.category==='sommatif'">
-          Apprendre
-        </span>
-        <span class="searchQCMResultCategory" ng-if="qcm.category==='formatif'">
-          Se tester
-        </span>
-         <span class="searchQCMResultCategory" ng-if="qcm.free===true">
-          Gratuit
-        </span>
-        <span class="searchQCMResultCategory" ng-if="qcm.free===false">
-          Prix : {{qcm.price}}
-        </span>
-        <div>
-            <span class="searchQCMResultThemeName">
-                        {{qcm.themeName}}>
-                <span ng-repeat="subtheme in qcm.subThemes">
-                        {{subtheme.label}}
-                </span>
+            <span class="searchQCMIconContainer" ng-if="qcm.icon == null">
+                <img class="searchQCMIcon" ng-src="images/defaultPicture.png"/>
             </span>
-            <span ng-if="qcm.prizeName!==null">
+            <span class="searchQCMIconContainer" ng-if="qcm.icon != null">
+                <img class="searchQCMIcon" ng-src="{{'data:image/*;base64,'+qcm.icon}}"/>
+            </span>
+
+            <span class="searchQCMName">
+                            {{qcm.name}}
+            </span>
+
+            <span class="searchQCMCategory" ng-if="qcm.category==='sommatif'">
+              QCM pour apprendre
+            </span>
+            <span class="searchQCMCategory" ng-if="qcm.category==='formatif'">
+              QCM pour se tester
+            </span>
+             <span class="searchQCMPrice" ng-if="qcm.free===true">
+              Gratuit
+            </span>
+            <span class="searchQCMPrice" ng-if="qcm.free===false">
+              Prix : {{qcm.price}}
+            </span>
+            <span class="searchQCMTheme">
+                {{qcm.themeName}} >
+                <em ng-repeat="subtheme in qcm.subThemes">
+                    {{subtheme.label}}
+                </em>
+            </span>
+            <span ng-if="qcm.prizeName!==null" class="searchQCMGift">
                 Cadeau à gagner
             </span>
-            <span ng-if="qcm.prizeName===null">
+            <span ng-if="qcm.prizeName===null" class="searchQCMGift">
                 Pas de cadeau
             </span>
-        </div>
         </a>
     </div>
 
 </div>
 
 <span us-spinner spinner-key="spinner-1"></span>
+</div>
 </div>
