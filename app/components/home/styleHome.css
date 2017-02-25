@@ -1,6 +1,195 @@
-.HomeTitle{
-    font-size:x-large;
-    color:#287F50;
+.wrapper {
     text-align:center;
-    padding-top:50px;
+    font-size:20px;
+    color:transparent;
+    background-color: transparent;
+    position:relative;
 }
+
+.home-left{
+    padding: 25px;
+    font-size: 100px;
+    color:white;
+    font-family: Avenir;
+}
+
+.row-home{
+    color:transparent;
+}
+
+.mainCircle{
+    z-index: 1  ;
+    line-height:100px;
+    width: 400px;
+    border-radius:200px;
+    height:400px;
+    background: black;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    background-image: url("http://www.clipartbest.com/cliparts/KTj/p5M/KTjp5MaAc.jpg");
+    background-position: center;
+    position: relative;
+    position:absolute;
+    top:100px;
+    left:200px;
+}
+
+
+
+.circle {
+    line-height:100px;
+    width: 120px;
+    border-radius:80px;
+    height: 120px;
+    background: red;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    position: relative;
+    background-image: url("https://pbs.twimg.com/profile_images/515466447011586048/4XDWIN4T.jpeg");
+    background-position: center;
+    background-size: cover;
+    animation: mymove3 10s  ease-in-out 5s infinite;
+    position:absolute;
+    top:400px;
+    left:150px;
+}
+
+.circle2 {
+    z-index: 3;
+    line-height:100px;
+    width: 100px;
+    border-radius:50px;
+    height: 100px;
+    background-image: url("http://referentiel.nouvelobs.com/file/6246192-que-retenir-des-mondiaux-d-athletisme-bolt-et-le-bilan-bleu.jpg");
+    background-position: center;
+    background-size: cover;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    position: relative;
+    animation: mymove2 10s  ease-in-out 5s infinite;
+    position:absolute;
+    top:400px;
+    left:500px;
+}
+
+.circle3 {
+
+    line-height:100px;
+    width: 100px;
+    border-radius:50px;
+    height: 100px;
+    background: white;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    background-image: url("http://www.barsc.org.uk/wp-content/uploads/2010/12/iStock_000003138313XSmall.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    animation: mymove5 10s  ease-in-out 2s infinite;
+    position:absolute;
+    top:280px;
+    left:120px;
+}
+
+.circle4 {
+    z-index: 3;
+    line-height:100px;
+    width: 140px;
+    border-radius:70px;
+    height: 140px;
+    background-image: url("http://media.virginradio.fr/article-3207034-fb/coldplay-concert-a-head-full-of-dreams-tour.jpg");
+    background-position: center;
+    background-size: cover;
+    border-color : black;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    position: relative;
+    animation: mymove4 8s  ease-in-out 2s infinite;
+    position:absolute;
+    top:120px;
+    left:500px;
+}
+
+
+.circle5 {
+    z-index:2;
+    line-height:100px;
+    width: 170px;
+    border-radius:85px;
+    height: 170px;
+    background-image: url("http://blogvoyages.fr/wp-content/uploads/2014/05/voyage.jpg");
+    background-position: center;
+    background-size: cover;
+    border-color : black;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    position: relative;
+    animation: mymove 10s  ease-in-out 2s infinite;
+    position:absolute;
+    top:100px;
+    left:200px;
+}
+
+
+
+/* Chrome, Safari, Opera */
+@keyframes line {
+    0% { height:100px}
+    50% { height:200px}
+    100% { height:100px}
+}
+
+@keyframes mymove {
+    0% { top:100px}
+    50% { top:130px}
+    100% { top:100px}
+}
+
+
+@keyframes mymove2 {
+    0% { top:400px}
+    50% { top:450px}
+    100% { top:400px}
+}
+
+
+@keyframes mymove3 {
+    0% { top:400px}
+    50% { top:420px}
+    100% { top:400px}
+}
+
+@keyframes mymove4 {
+     0% { top:120px}
+     50% { top:160px}
+     100% { top:120px}
+ }
+
+
+@keyframes mymove5 {
+    0% { top:280px}
+    50% { top:300px}
+    100% { top:280px}
+}
+
+
+
+body {
+    background: url('http://www.planwallpaper.com/static/images/i-should-buy-a-boat.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.container{
+    padding: 25px;
+    background-color: transparent;
+}
+
