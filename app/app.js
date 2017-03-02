@@ -16,7 +16,8 @@ var oonozApp = angular.module('oonozApp', [
     'naif.base64',
     'ngMessages',
     'ngFileUpload',
-    'angularSpinner'
+    'angularSpinner',
+    'angular-encryption'
 ]);
 
 oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinnerConfigProvider', function ($locationProvider, $routeProvider,$httpProvider,usSpinnerConfigProvider) {
