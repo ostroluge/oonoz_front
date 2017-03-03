@@ -25,7 +25,7 @@ controllers.controller('QcmDetailCtrl', ['$scope','dialogs','QcmDetailService','
                     .then(
                         function success(response) {
                             dialogs.notify("Succès", "Le QCM a été supprimé avec succès");
-                            $location.path("/home")
+                            $location.path("/home");
 
                         },
                         function error(response) {

@@ -11,6 +11,15 @@ services.factory('PlayQCMService', ['$resource',
                         isArray: false
                     }
                 });
+            },
+            finishQCM: function () {
+                return $resource("http://localhost:8092/qcms/finishQCM", {}, {
+                    query: {
+                        method: 'POST',
+                        cache: false,
+                        isArray: false
+                    }
+                });
             }
         }
     }]);
