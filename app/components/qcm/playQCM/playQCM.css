@@ -1,0 +1,35 @@
+.propositionContainer .proposition {
+    color: white;
+    background-color: #287F50;
+    margin-bottom: 10%;
+    margin-right:5%;
+    margin-left:5%;
+    width: 30%;
+    height:10vh;
+}
+
+.progressCircle{
+    width:8px;
+}
+
+.progressContainer{
+    margin-top:5%;
+    width:40%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+
+.questionContainer h3{
+    margin-bottom: 20%;
+}
+
+.questionContainer{
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+
+
+

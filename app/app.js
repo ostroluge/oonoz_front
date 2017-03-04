@@ -16,7 +16,9 @@ var oonozApp = angular.module('oonozApp', [
     'naif.base64',
     'ngMessages',
     'ngFileUpload',
-    'angularSpinner'
+    'angularSpinner',
+    'angular-encryption',
+    'jkAngularRatingStars'
 ]);
 
 oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinnerConfigProvider', function ($locationProvider, $routeProvider,$httpProvider,usSpinnerConfigProvider) {
@@ -121,6 +123,10 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinn
         .when('/qcms/search/:idTheme/:idSubTheme', {
             templateUrl: 'components/qcm/searchQCM/searchQCM.html',
             controller: 'SearchQCMCtrl'
+        })
+        .when('/qcms/playQCM/:idQCM', {
+            templateUrl: 'components/qcm/playQCM/playQCM.html',
+            controller: 'PlayQCMCtrl'
         })
         .otherwise({redirectTo: '/login'});
 

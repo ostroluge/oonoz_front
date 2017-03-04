@@ -1,0 +1,55 @@
+<div ng-include="'views/menu.html'"></div>
+
+<div class="playQCMContainer" ng-hide="playContainer">
+    <!-- PROGRESS INDICATOR -->
+    <div class="progressContainer">
+        <label class="qcmTitle">{{qcm.name}}</label>
+        <span ng-repeat="answer in answers track by $index">
+            <img class="progressCircle" src="images/no_response.png" ng-if="answer===0">
+            <img class="progressCircle" src="images/good_response.png" ng-if="answer===2">
+            <img class="progressCircle" src="images/bad_response.png" ng-if="answer===1">
+        </span>
+    </div>
+    <!-- QUESTION -->
+    <div class="questionContainer">
+
+        <h3>{{question.title}}</h3>
+        <span class="questionIcon" ng-if="question.media!== null">
+            <img ng-src="{{'data:image/*;base64,'+question.media}}"/>
+        </span>
+        <!--<img class="qcmListIcon" ng-src="{{'data:image/*;base64,'+question.media}}"/>-->
+        <div class="propositionContainer">
+            <div>
+                <button ng-style="btnResponseStyle1" class="proposition" ng-click="respond(question.proposition1,1)" ng-disabled="lock">{{question.proposition1}}</button>
+                <button ng-style="btnResponseStyle2" class="proposition" ng-click="respond(question.proposition2,2)" ng-disabled="lock">{{question.proposition2}}</button>
+            </div>
+            <div>
+                <button ng-style="btnResponseStyle3" class="proposition" ng-click="respond(question.proposition3,3)" ng-disabled="lock">{{question.proposition3}}</button>
+                <button ng-style="btnResponseStyle4" class="proposition" ng-click="respond(question.proposition4,4)" ng-disabled="lock">{{question.proposition4}}</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="endQCMContainer" ng-hide="endContainer">
+    <div class="progressContainer">
+        <label class="qcmTitle">{{qcm.name}}</label>
+        <span ng-repeat="answer in answers track by $index">
+            <img class="progressCircle" src="images/no_response.png" ng-if="answer===0">
+            <img class="progressCircle" src="images/good_response.png" ng-if="answer===2">
+            <img class="progressCircle" src="images/bad_response.png" ng-if="answer===1">
+        </span>
+    </div>
+    <span>Score: {{score}}/20</span>
+    <!--<jk-rating-stars max-rating="8" rating="ctrl.rating" read-only="ctrl.readOnly" on-rating="ctrl.onRating(rating)" >
+    </jk-rating-stars>-->
+    <jk-rating-stars max-rating="5" on-rating="onRating(rating)" rating="ctrl.rating" >
+    </jk-rating-stars>
+    <form>
+         <textarea rows="4" cols="50" ng-model="comment">
+            At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
+        </textarea>
+        <button ng-click="sendQCM()">Envoyer</button>
+    </form>
+</div>

@@ -7,7 +7,6 @@ controllers.controller('PresentationQcmCtrl', ['$scope','PresentationQcmService'
             .then(
                 function success(response) {
                     $scope.qcm=response;
-                    console.log(response);
                 },
                 function error(response) {
 

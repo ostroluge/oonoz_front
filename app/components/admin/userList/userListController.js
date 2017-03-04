@@ -155,7 +155,7 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
                     }
                     , function error(response) {
                         if (response.status == -1) {
-                            dialogs.error("Erreur", "L'application n'est pas disponible.")
+                            dialogs.error("Erreur", "L'application n'est pas disponible.");
                         }
                     }
                 );
