@@ -2,7 +2,7 @@
 
 controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usSpinnerService','$routeParams','sha256','$location',
     function ($scope,$timeout, PlayQCMService,usSpinnerService,$routeParams,sha256,$location) {
-
+        usSpinnerService.spin('spinner-1');
         var questionNumber=0;
         $scope.score=0;
         $scope.answers=new Int8Array(20).fill(0);
@@ -26,8 +26,9 @@ controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usS
             .then(
                 function success(response) {
                     $scope.qcm=response;
-                    $scope.qcm.questions=shuffle($scope.qcm.questions)
+                    $scope.qcm.questions=shuffle($scope.qcm.questions);
                     randomProposition($scope.qcm.questions[questionNumber]);
+                    usSpinnerService.stop('spinner-1');
                 },
                 function error(){
 
