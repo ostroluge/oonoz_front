@@ -15,10 +15,18 @@ controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usS
         $scope.btnResponseStyle2={};
         $scope.btnResponseStyle3={};
         $scope.btnResponseStyle4={};
+
+        /**Rating**/
+        var note=0;
+        $scope.onRating=function(rating){
+            note=rating;
+        };
+
         PlayQCMService.getValidatedQcm(idQCM).query().$promise
             .then(
                 function success(response) {
                     $scope.qcm=response;
+                    $scope.qcm.questions=shuffle($scope.qcm.questions)
                     randomProposition($scope.qcm.questions[questionNumber]);
                 },
                 function error(){
@@ -131,18 +139,19 @@ controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usS
             endQCM.question19=($scope.answers[18]===2 ? true : false);
             endQCM.question20=($scope.answers[19]===2 ? true : false);
             endQCM.score=$scope.score;
+            endQCM.note=note;
             endQCM.comment=$scope.comment;
             endQCM.finished=true;
-            console.log(endQCM);
+            
 
             PlayQCMService.finishQCM().query(endQCM)
                 .$promise
                 .then(
                     function success(response) {
-
+                        $location.path("/qcm/presentationQCM/"+$scope.qcm.id);
                     },
                     function error(response) {
-
+                        dialogs.error("Erreur", "Une erreur est survenue.");
                     }
                 );
 
