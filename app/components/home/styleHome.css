@@ -27,8 +27,9 @@
     border-style: solid;
     border-width: 3px;
     border-color: white;
-    background-image: url("http://www.clipartbest.com/cliparts/KTj/p5M/KTjp5MaAc.jpg");
+    background-image: url("https://cdn.shutterstock.com/shutterstock/videos/11139788/thumb/1.jpg");
     background-position: center;
+    background-size: cover;
     position: relative;
     position:absolute;
     top:100px;

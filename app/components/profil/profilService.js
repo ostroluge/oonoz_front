@@ -16,7 +16,7 @@ services.factory('profilService', ['$resource', '$location',
                 });
             },
             updatePlayer: function(){
-                return $resource("http://localhost:8092/admin/updatePlayer", {}, {
+                return $resource("http://localhost:8092/user/updatePlayer", {}, {
                     // return $resource("http://localhost:8092/admin/updatePlayer", {}, {
                     query: {
                         method: 'PUT',
@@ -26,7 +26,7 @@ services.factory('profilService', ['$resource', '$location',
                 });
             },
             updateSupplier: function(){
-                return $resource("http://localhost:8092/admin/updateSupplier", {}, {
+                return $resource("http://localhost:8092/user/updateSupplier", {}, {
                     // return $resource("http://localhost:8092/admin/updateSupplier", {}, {
                     query: {
                         method: 'PUT',
