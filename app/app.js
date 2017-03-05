@@ -19,6 +19,7 @@ var oonozApp = angular.module('oonozApp', [
     'angularSpinner',
     'angular-encryption',
     'jkAngularRatingStars',
+    'star-rating',
     'pascalprecht.translate'
 ]);
 
