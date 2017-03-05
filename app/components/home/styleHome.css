@@ -181,16 +181,18 @@
 
 
 
-body {
+.containerHome {
     background: url('http://www.planwallpaper.com/static/images/i-should-buy-a-boat.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    padding:25px;
+    min-width:100%;
 }
 
-.container{
-    padding: 25px;
-    background-color: transparent;
+
+.titreHome{
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
