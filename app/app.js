@@ -18,7 +18,8 @@ var oonozApp = angular.module('oonozApp', [
     'ngFileUpload',
     'angularSpinner',
     'angular-encryption',
-    'jkAngularRatingStars'
+    'jkAngularRatingStars',
+    'pascalprecht.translate'
 ]);
 
 oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinnerConfigProvider', function ($locationProvider, $routeProvider,$httpProvider,usSpinnerConfigProvider) {
@@ -130,7 +131,30 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinn
         })
         .otherwise({redirectTo: '/login'});
 
-    /**Set default configuration for load sprinner**/
+    /**Set default configuration for load spinner**/
     usSpinnerConfigProvider.setDefaults({radius:30, width:8, length: 16});
 }]);
+
+oonozApp.factory('authHttpResponseInterceptor',['$q','$location',function($q,$location){
+    return {
+        response: function(response){
+            if (response.status === 401) {
+
+            }
+            return response || $q.when(response);
+        },
+        responseError: function(rejection) {
+            if (rejection.status === 401) {
+                $location.path('/login');
+            }
+            return $q.reject(rejection);
+        }
+    }
+}]);
+oonozApp.config(['$httpProvider','$translateProvider',function($httpProvider,$translateProvider) {
+        //Http Intercpetor to check auth failures for xhr requests
+        $httpProvider.interceptors.push('authHttpResponseInterceptor');
+        $translateProvider.preferredLanguage('fr-FR');
+        $translateProvider.useSanitizeValueStrategy('sanitize');
+    }]);
    
