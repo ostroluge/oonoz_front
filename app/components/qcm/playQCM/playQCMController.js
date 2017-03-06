@@ -1,7 +1,10 @@
 'use strict';
 
-controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usSpinnerService','$routeParams','sha256','$location',
-    function ($scope,$timeout, PlayQCMService,usSpinnerService,$routeParams,sha256,$location) {
+controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usSpinnerService','$routeParams','sha256','$location','dialogs','$interval',
+    function ($scope,$timeout, PlayQCMService,usSpinnerService,$routeParams,sha256,$location,dialogs,$interval) {
+        var responded=false;
+        var wait=false;
+        var questionDuration=0;
         usSpinnerService.spin('spinner-1');
         var questionNumber=0;
         $scope.score=0;
@@ -15,6 +18,14 @@ controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usS
         $scope.btnResponseStyle2={};
         $scope.btnResponseStyle3={};
         $scope.btnResponseStyle4={};
+
+        var time=questionDuration;
+
+        $interval(function(){
+            if(time>0) {
+                time--;
+                console.log(time/1000);
+            }},1000);
 
         /**Rating**/
         var note=0;
@@ -30,8 +41,11 @@ controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usS
                     randomProposition($scope.qcm.questions[questionNumber]);
                     usSpinnerService.stop('spinner-1');
                 },
-                function error(){
-
+                function error(response){
+                    if(response.status!==401) {
+                        dialogs.error("Erreur", "Le QCM n'est pas valide !");
+                        $location.path("/home");
+                    }
                 });
 
         /**
@@ -43,46 +57,62 @@ controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usS
          */
         $scope.respond=function(proposition,number){
             $scope.lock=true;
-            var encrypt=sha256.convertToSHA256(proposition);
+            
+            if(proposition!=null & proposition!=null) {
+                responded=true;
+                wait=true;
+                var encrypt = sha256.convertToSHA256(proposition);
 
-            if(encrypt===$scope.question.encryptAnswer){
-                $scope.answers[questionNumber]=2;
-                $scope.score++;
-                if(number===1)
-                    $scope.btnResponseStyle1={'background-color':'#42f480','color':'black'};
-                else if (number===2)
-                    $scope.btnResponseStyle2={'background-color':'#42f480','color':'black'};
-                else if (number===3)
-                    $scope.btnResponseStyle3={'background-color':'#42f480','color':'black'};
-                else
-                    $scope.btnResponseStyle4={'background-color':'#42f480','color':'black'};
-            }
-            else{
-                $scope.answers[questionNumber]=1;
-                if(number===1)
-                    $scope.btnResponseStyle1={'background-color':'#dd483e','color':'black'};
-                else if (number===2)
-                    $scope.btnResponseStyle2={'background-color':'#dd483e','color':'black'};
-                else if (number===3)
-                    $scope.btnResponseStyle3={'background-color':'#dd483e','color':'black'};
-                else
-                    $scope.btnResponseStyle4={'background-color':'#dd483e','color':'black'};
-            }
-            if(questionNumber!==19) {
-                $timeout(function () {
+                if (encrypt === $scope.question.encryptAnswer) {
+                    $scope.answers[questionNumber] = 2;
+                    $scope.score++;
+                    if (number === 1)
+                        $scope.btnResponseStyle1 = {'background-color': '#42f480', 'color': 'black'};
+                    else if (number === 2)
+                        $scope.btnResponseStyle2 = {'background-color': '#42f480', 'color': 'black'};
+                    else if (number === 3)
+                        $scope.btnResponseStyle3 = {'background-color': '#42f480', 'color': 'black'};
+                    else
+                        $scope.btnResponseStyle4 = {'background-color': '#42f480', 'color': 'black'};
+                }
+                else {
+                    $scope.answers[questionNumber] = 1;
+                    if (number === 1)
+                        $scope.btnResponseStyle1 = {'background-color': '#dd483e', 'color': 'black'};
+                    else if (number === 2)
+                        $scope.btnResponseStyle2 = {'background-color': '#dd483e', 'color': 'black'};
+                    else if (number === 3)
+                        $scope.btnResponseStyle3 = {'background-color': '#dd483e', 'color': 'black'};
+                    else
+                        $scope.btnResponseStyle4 = {'background-color': '#dd483e', 'color': 'black'};
+                }
+                if (questionNumber !== 19) {
+                    $timeout(function () {
+                        questionNumber++;
+                        randomProposition($scope.qcm.questions[questionNumber]);
+                        //$scope.question=$scope.qcm.questions[questionNumber];
+                        $scope.lock = false;
+                        $scope.btnResponseStyle1 = {'color': 'white', 'background-color': '#287F50'};
+                        $scope.btnResponseStyle2 = {'color': 'white', 'background-color': '#287F50'};
+                        $scope.btnResponseStyle3 = {'color': 'white', 'background-color': '#287F50'};
+                        $scope.btnResponseStyle4 = {'color': 'white', 'background-color': '#287F50'};
+                        wait=false;
+                    }, 2000);
+                }
+                else {
+                    $scope.playContainer = true;
+                    $scope.endContainer = false;
+                }
+            }else{
+                if (questionNumber !== 19) {
                     questionNumber++;
                     randomProposition($scope.qcm.questions[questionNumber]);
-                    //$scope.question=$scope.qcm.questions[questionNumber];
                     $scope.lock = false;
-                    $scope.btnResponseStyle1 = {'color': 'white', 'background-color': '#287F50'};
-                    $scope.btnResponseStyle2 = {'color': 'white', 'background-color': '#287F50'};
-                    $scope.btnResponseStyle3 = {'color': 'white', 'background-color': '#287F50'};
-                    $scope.btnResponseStyle4 = {'color': 'white', 'background-color': '#287F50'};
-                }, 2000);
-            }
-            else {
-                $scope.playContainer=true;
-                $scope.endContainer=false;
+                }
+                else{
+                    $scope.playContainer = true;
+                    $scope.endContainer = false;
+                }
             }
         };
 
@@ -98,6 +128,22 @@ controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usS
             $scope.question.proposition2=propositions[1];
             $scope.question.proposition3=propositions[2];
             $scope.question.proposition4=propositions[3];
+            console.log(question.time);
+            if(question.time===null){
+                questionDuration=5000;
+            }
+            else{
+                questionDuration=question.time*1000;
+            }
+            time=questionDuration;
+            $timeout(function () {
+                if(wait===false && responded==false){
+                    $scope.respond(null,null);
+                }else{
+                    responded=false;
+                }
+            },questionDuration);
+
         };
 
         function shuffle(a) {

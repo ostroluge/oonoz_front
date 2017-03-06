@@ -41,15 +41,17 @@
             <img class="progressCircle" src="images/bad_response.png" ng-if="answer===1">
         </span>
     </div>
-    <span>Score: {{score}}/20</span>
+    <span class="playQCMScore">{{score}}/20</span>
     <!--<jk-rating-stars max-rating="8" rating="ctrl.rating" read-only="ctrl.readOnly" on-rating="ctrl.onRating(rating)" >
     </jk-rating-stars>-->
-    <jk-rating-stars max-rating="5" on-rating="onRating(rating)" rating="ctrl.rating" >
-    </jk-rating-stars>
-    <form>
-         <textarea rows="4" cols="50" ng-model="comment">
-            At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
-        </textarea>
-        <button ng-click="sendQCM()">Envoyer</button>
+    <div class="playQCMRate">
+        <jk-rating-stars max-rating="5" on-rating="onRating(rating)" rating="ctrl.rating" >
+        </jk-rating-stars>
+        </div>
+        <form>
+             <textarea class="playQCMComment" rows="4" cols="50" ng-model="comment">
+                At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
+            </textarea>
+            <button class="playQCMCommentButton" ng-click="sendQCM()">Envoyer</button>
     </form>
 </div>
