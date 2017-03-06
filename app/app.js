@@ -130,6 +130,10 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinn
             templateUrl: 'components/qcm/playQCM/playQCM.html',
             controller: 'PlayQCMCtrl'
         })
+        .when('/logout', {
+            templateUrl: 'components/login/loginView.html',
+            controller: 'LogoutCtrl'
+        })
         .otherwise({redirectTo: '/login'});
 
     /**Set default configuration for load spinner**/

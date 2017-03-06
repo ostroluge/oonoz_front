@@ -1,12 +1,14 @@
-controllers.controller('PresentationQcmCtrl', ['$scope', 'PresentationQcmService', '$routeParams',
-    function ($scope, PresentationQcmService, $routeParams) {
-
+controllers.controller('PresentationQcmCtrl', ['$scope', 'PresentationQcmService', '$routeParams','usSpinnerService',
+    function ($scope, PresentationQcmService, $routeParams,usSpinnerService) {
+        usSpinnerService.spin('spinner-1');
         $scope.qcm = {};
-
+        $scope.buttonShow=true;
         PresentationQcmService.getQcm($routeParams.id).query().$promise
             .then(
                 function success(response) {
                     $scope.qcm = response;
+                    usSpinnerService.stop('spinner-1');
+                    $scope.buttonShow=false;
                 },
                 function error(response) {
 
