@@ -196,10 +196,10 @@
 .containerHome{
     margin:25px;
     max-width:90%;
+    padding-top:30%;
 }
 
 .titreHome{
-    margin-top:20%;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 5vw;
 }

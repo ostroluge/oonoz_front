@@ -64,9 +64,10 @@
 }
 
 /*Hide checkbox*/
-#show-menu{
+#show-menu, .lienAccueil{
     display: none;
 }
+
 
 /*Show menu when invisible checkbox is checked*/
 #show-menu:checked ~ .headerInline{
@@ -100,7 +101,7 @@
         width: 100%;
     }
     /*Display 'show menu' link*/
-    .show-menu {
+    .show-menu, .lienAccueil{
         display:block;
     }
 }
