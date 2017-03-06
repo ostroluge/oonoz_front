@@ -19,7 +19,6 @@
     <div class="qcmListContainer">
         <div class="qcmListButtonsNew">
             <a href="#qcms/new"><img src="images/add-vert.png"> Créer un QCM</a>
-            <a href=""><img src="images/add-vert.png"> Uploader un QCM</a>
         </div>
         <div class="qcmListTitle">Les QCM en attente de validation</div>
         <div class="qcmListqcm" ng-repeat="qcm in notValidatedQcm">
@@ -41,6 +40,9 @@
                     <button ng-click="deleteQCM(qcm.id)">Supprimer</button>
                 </div>
             </a>
+        </div>
+        <div ng-if="notValidatedQcm == null">
+            <p class="text-center">Aucun QCM en attente de validation.</p>
         </div>
     <div class="qcmList">
         <div class="qcmListTitle">Les QCM validés</div>
