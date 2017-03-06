@@ -9,6 +9,9 @@ controllers.controller('profilCtrl', ['$scope', 'profilService', 'dialogs', '$lo
         $scope.wannaBeSupplier = false;
         $scope.professionalState = false;
         $scope.isPrivateIndividual = true;
+        $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales", "Tele Sales", "Corporate Sales"];
+        $scope.data = [300, 500, 100, 40, 120];
+
 
         $scope.getUser = function () {
             profilService.getUser().query()

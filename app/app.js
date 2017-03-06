@@ -20,7 +20,8 @@ var oonozApp = angular.module('oonozApp', [
     'angular-encryption',
     'jkAngularRatingStars',
     'star-rating',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'angularChart'
 ]);
 
 oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinnerConfigProvider', function ($locationProvider, $routeProvider,$httpProvider,usSpinnerConfigProvider) {

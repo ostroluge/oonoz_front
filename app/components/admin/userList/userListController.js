@@ -6,6 +6,7 @@ controllers.controller('UserListCtrl', ['$scope', 'datatable', 'UserListService'
         $scope.wannaBeSupplier = false;
         $scope.professionalState = true;
         $scope.supplierAccountState = false;
+
         var datatableConfig = {
             "name": "simple_datatable",
             "columns": [
