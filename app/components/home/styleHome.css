@@ -179,21 +179,28 @@
     100% { top:280px}
 }
 
-
-
-.containerHome {
-    margin-top:40px;
+.pageHome{
+    background-repeat: no-repeat;
+    background-position: center;
     background-image: url(../../images/imageBackground.jpg);
+    background-attachment: fixed;
+    margin:0;
+    padding:0;
     -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
-    padding:25px;
-    min-width:100%;
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
 }
 
+.containerHome{
+    margin:25px;
+    max-width:90%;
+}
 
 .titreHome{
+    margin-top:20%;
     font-family: 'Source Sans Pro', sans-serif;
+    font-size: 5vw;
 }
 
