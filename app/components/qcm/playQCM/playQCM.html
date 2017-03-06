@@ -15,16 +15,16 @@
     <div class="questionContainer">
 
         <h3>{{question.title}}</h3>
-        <span class="questionIcon" ng-if="question.media!== null">
-            <img ng-src="{{'data:image/*;base64,'+question.media}}"/>
-        </span>
+        <div class="questionIcon">
+            <img ng-if="question.media!== null" ng-src="{{'data:image/*;base64,'+question.media}}"/>
+        </div>
         <!--<img class="qcmListIcon" ng-src="{{'data:image/*;base64,'+question.media}}"/>-->
         <div class="propositionContainer">
-            <div>
+            <div class="ligneproposition">
                 <button ng-style="btnResponseStyle1" class="proposition" ng-click="respond(question.proposition1,1)" ng-disabled="lock">{{question.proposition1}}</button>
                 <button ng-style="btnResponseStyle2" class="proposition" ng-click="respond(question.proposition2,2)" ng-disabled="lock">{{question.proposition2}}</button>
             </div>
-            <div>
+            <div class="ligneproposition">
                 <button ng-style="btnResponseStyle3" class="proposition" ng-click="respond(question.proposition3,3)" ng-disabled="lock">{{question.proposition3}}</button>
                 <button ng-style="btnResponseStyle4" class="proposition" ng-click="respond(question.proposition4,4)" ng-disabled="lock">{{question.proposition4}}</button>
             </div>

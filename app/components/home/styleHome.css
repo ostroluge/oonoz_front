@@ -183,7 +183,7 @@
 
 .containerHome {
     margin-top:40px;
-    background: url('http://www.planwallpaper.com/static/images/i-should-buy-a-boat.jpg') no-repeat center center fixed;
+    background-image: url(../../images/imageBackground.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
