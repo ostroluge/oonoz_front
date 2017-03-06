@@ -1,8 +1,8 @@
 'use strict';
-services.factory('QcmDetailService', ['$resource',function ($resource) {
+services.factory('QcmDetailService', ['$resource', function ($resource) {
     return {
         getQcm: function (id) {
-            return $resource("http://localhost:8092/qcms/"+id, {}, {
+            return $resource("http://localhost:8092/qcms/" + id, {}, {
                 query: {
                     method: 'GET',
                     cache: false,
@@ -10,13 +10,25 @@ services.factory('QcmDetailService', ['$resource',function ($resource) {
                 }
             });
         },
-        deleteQCM:function(id){
-            return $resource("http://localhost:8092/qcms/"+id, {}, {
+
+        deleteQCM: function (id) {
+            return $resource("http://localhost:8092/qcms/" + id, {}, {
                 query: {
                     method: 'DELETE',
                     cache: false,
                     isArray: false
                 }
             });
+        },
+
+        getWinners: function (id) {
+            return $resource("http://localhost:8092/qcms/" + id + "/winners", {}, {
+                query: {
+                    method: 'GET',
+                    cache: false,
+                    isArray: true
+                }
+            });
         }
-    }}]);
+    }
+}]);
