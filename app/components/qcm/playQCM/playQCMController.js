@@ -19,12 +19,12 @@ controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usS
         $scope.btnResponseStyle3={};
         $scope.btnResponseStyle4={};
 
-        var time=questionDuration;
+        $scope.time=10;
 
-        $interval(function(){
-            if(time>0) {
-                time--;
-                console.log(time/1000);
+        var interval=$interval(function(){
+            if($scope.time>0) {
+                $scope.time--;
+                
             }},1000);
 
         /**Rating**/
@@ -110,6 +110,7 @@ controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usS
                     $scope.lock = false;
                 }
                 else{
+                    $interval.cancel(interval);
                     $scope.playContainer = true;
                     $scope.endContainer = false;
                 }
@@ -128,21 +129,22 @@ controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usS
             $scope.question.proposition2=propositions[1];
             $scope.question.proposition3=propositions[2];
             $scope.question.proposition4=propositions[3];
-            console.log(question.time);
+            
             if(question.time===null){
-                questionDuration=5000;
+                questionDuration=10000;
             }
             else{
                 questionDuration=question.time*1000;
             }
-            time=questionDuration;
-            $timeout(function () {
+            //time=questionDuration;
+            $scope.time=10;
+            /*$timeout(function () {
                 if(wait===false && responded==false){
                     $scope.respond(null,null);
                 }else{
                     responded=false;
                 }
-            },questionDuration);
+            },questionDuration);*/
 
         };
 
@@ -161,7 +163,7 @@ controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usS
          * Send QCM result, comment and rating.
          */
         $scope.sendQCM=function(){
-          console.log('yeah buddy');
+          
             var endQCM={};
             endQCM.idQcm=$scope.qcm.id;
 
@@ -186,7 +188,7 @@ controllers.controller('PlayQCMCtrl',['$scope','$timeout', 'PlayQCMService','usS
             endQCM.question19=($scope.answers[18]===2 ? true : false);
             endQCM.question20=($scope.answers[19]===2 ? true : false);
             endQCM.score=$scope.score;
-            endQCM.note=note;
+            endQCM.rating=note;
             endQCM.comment=$scope.comment;
             endQCM.finished=true;
             
