@@ -1,6 +1,6 @@
 <div ng-include="'views/menu.html'"></div>
 
-<div class="contenuInline newQCM">
+<div class="contenuOnline newQCM">
     <div class="newQCMTitle">Création d'un QCM</div>
     <form name="QCMForm" class="generalQCMForm" ng-submit="postQCM()"  novalidate>
         <!-- QCM NAME -->
@@ -19,6 +19,16 @@
                       placeholder="Description"
                       ng-minlength="4" ng-maxlength="150" required></textarea>
             <div ng-messages="QCMForm.description.$error" ng-if="QCMForm.$submitted">
+                <div ng-messages-include="views/errorMessage.html"></div>
+            </div>
+        </div>
+        <!-- QCM CATEGORY -->
+        <div>
+            <label class="generalQCMLabel" for="category">Catégorie :</label>
+            <select class="generalQCMInput" id="category" ng-model="category"
+                    ng-options="category.label for category in categories" required name="category">
+            </select>
+            <div ng-messages="QCMForm.category.$error" ng-if="QCMForm.$submitted" >
                 <div ng-messages-include="views/errorMessage.html"></div>
             </div>
         </div>
@@ -52,26 +62,16 @@
             <button class="generalQCMSubThemeDeleteButton" type="button" ng-click="deleteSubTheme($index)"><img src="images/delete-vert.png"></button>
         </div>
         <!-- QCM ISFREE -->
-        <div>
+        <div ng-if="category.label!='Se tester'">
             <label class="generalQCMLabel" for="isFree">Est gratuit :</label>
             <input type="checkbox" name="isFree" id="isFree" ng-model="isFree">
         </div>
         <!-- QCM PRICE-->
-        <div>
+        <div ng-if="category.label!='Se tester'">
             <label class="generalQCMLabel" for="price">Prix :</label>
             <input class="generalQCMInput" type="number" name="price" id="price" ng-model="price"
                    ng-disabled="isFree" ng-required="!isFree">
             <div ng-messages="QCMForm.price.$error" ng-if="QCMForm.$submitted">
-                <div ng-messages-include="views/errorMessage.html"></div>
-            </div>
-        </div>
-        <!-- QCM CATEGORY -->
-        <div>
-            <label class="generalQCMLabel" for="category">Catégorie :</label>
-            <select class="generalQCMInput" id="category" ng-model="category"
-                    ng-options="category.label for category in categories" required name="category">
-            </select>
-            <div ng-messages="QCMForm.category.$error" ng-if="QCMForm.$submitted" >
                 <div ng-messages-include="views/errorMessage.html"></div>
             </div>
         </div>

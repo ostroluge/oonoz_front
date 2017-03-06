@@ -1,6 +1,6 @@
 <div ng-include="'views/menu.html'"></div>
 
-<div class="contenuOnline qcmList" ng-controller="listingQCMCtrl">
+<div class="contenuOnline qcmList" ng-controller="listingQCMCtrl" ng-init="filteredSearch()">
     <div class="qcmListFilters">
         <form>
             <div>
@@ -18,7 +18,7 @@
     <div class="qcmListContainer">
         <div class="qcmListButtonsNew">
             <a href="#qcms/new"><img src="images/add-vert.png"> Créer un QCM</a>
-            <a href=""><img src="images/add-vert.png"> Uploader un QCM</a>
+            <!--<a href=""><img src="images/add-vert.png"> Uploader un QCM</a>-->
         </div>
         <div class="qcmListTitle">Mes QCM</div>
         <div class="qcmListqcm" ng-repeat="qcm in supplierQCM">
@@ -41,6 +41,7 @@
                 <span ng-if="!qcm.validated" class="qcmListValide">
                         En attente de validation
                 </span>
+            </a>
         </div>
     </div>
 </div>

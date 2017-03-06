@@ -1,0 +1,19 @@
+.qcmListButtons{
+    margin-left:auto;
+    margin-right:auto;
+    width:200px;
+}
+
+.qcmListContainer button{
+    color: white;
+    background-color: #48E590;
+    height:35px;
+    width: 90px;
+    border: none;
+    margin-top:10px;
+    margin-left:5px;
+}
+
+.qcmListContainer button:hover {
+    background-color: #287F50;
+}

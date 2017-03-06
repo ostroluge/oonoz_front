@@ -20,7 +20,7 @@
                        ng-minlength="4" ng-maxlength="20" ng-pattern="/^[A-z][a-zA-Z0-9À-ÿ]*$/" required>
             </div>
             <span class="errorForm" ng-show="signupForm.username.$error.required && signupForm.username.$dirty">Champ obligatoire</span>
-            <span class="errorForm" ng-show="!signupForm.username.$error.minLenght && !signupForm.username.$error.maxLength &&
+            <span class="errorForm" ng-show="!signupForm.username.$error.minLength && !signupForm.username.$error.maxLength &&
                     signupForm.username.$error.pattern && signupForm.username.$dirty">Doit commencer par une lettre et contenir uniquement des lettres et chiffres</span>
             <span class="errorForm" ng-show="!signupForm.username.$error.required
                     && (signupForm.username.$error.minlength || signupForm.username.$error.maxlength)

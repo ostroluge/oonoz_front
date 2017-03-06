@@ -1,9 +1,29 @@
 <div ng-include="'views/menu.html'"></div>
 
-<div ng-controller="qcmManagementCtrl" ng-init="getAllQcm()">
+<div class="contenuOnline" ng-controller="qcmManagementCtrl" ng-init="getAllQcm()">
+
+    <div class="qcmListFilters">
+        <form>
+            <div>
+                <label for="theme">Theme :</label>
+                <input type="text" name="theme" id="theme" ng-model="theme" >
+            </div>
+            <div >
+                <label for="subTheme">Sous-thème :</label>
+                <input type="text" name="subTheme" id="subTheme" ng-model="subTheme">
+            </div>
+            <button ng-click="filteredSearch(theme,subTheme)">Rechercher</button>
+            <button ng-click="erase()">Effacer</button>
+        </form>
+    </div>
     <div class="qcmListContainer">
+        <div class="qcmListButtonsNew">
+            <a href="#qcms/new"><img src="images/add-vert.png"> Créer un QCM</a>
+            <a href=""><img src="images/add-vert.png"> Uploader un QCM</a>
+        </div>
         <div class="qcmListTitle">Les QCM en attente de validation</div>
         <div class="qcmListqcm" ng-repeat="qcm in notValidatedQcm">
+            <a href="#qcm/qcmDetail/{{qcm.id}}">
                 <span class="qcmListIconContainer" ng-if="qcm.icon == null">
                     <img class="qcmListIcon" ng-src="images/defaultPicture.png"/>
                 </span>
@@ -16,12 +36,16 @@
                 <span class="qcmListDescription">
                     {{qcm.description}}
                 </span>
+                <div class="qcmListButtons">
+                    <button ng-click="validateQCM(qcm.id)">Valider</button>
+                    <button ng-click="deleteQCM(qcm.id)">Supprimer</button>
+                </div>
+            </a>
         </div>
-    </div>
-
-    <div class="qcmListContainer">
+    <div class="qcmList">
         <div class="qcmListTitle">Les QCM validés</div>
         <div class="qcmListqcm" ng-repeat="qcm in validatedQcm">
+            <a href="#qcm/qcmDetail/{{qcm.id}}">
                 <span class="qcmListIconContainer" ng-if="qcm.icon == null">
                     <img class="qcmListIcon" ng-src="images/defaultPicture.png"/>
                 </span>
@@ -34,6 +58,8 @@
                 <span class="qcmListDescription">
                     {{qcm.description}}
                 </span>
+            </a>
+        </div>
         </div>
     </div>
 </div>

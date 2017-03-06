@@ -108,13 +108,18 @@ controllers.controller('AddQCMCtrl', ['$scope', 'dialogs', 'AddQCMService', '$ro
                 var qcm = {};
                 qcm.name = $scope.name;
                 qcm.description = $scope.description;
+                qcm.category = $scope.getCategory($scope.category.label);
                 qcm.idTheme = $scope.theme.idTheme;
                 //qcm.idSupplier = $scope.supplier.idPlayer;
-                qcm.free = $scope.isFree;
+                if ($scope.category.label=='Se tester') {
+                    qcm.free = true;
+                }
+                if ($scope.category.label!='Se tester') {
+                    qcm.free = $scope.isFree;
+                }
                 if (!$scope.isFree) {
                     qcm.price = $scope.price;
                 }
-                qcm.category = $scope.getCategory($scope.category.label);
                 qcm.minimalScore = $scope.minimalScore;
 
                 if (img != null) {

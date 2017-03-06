@@ -1,0 +1,84 @@
+.propositionContainer .proposition {
+    color: white;
+    background-color: #287F50;
+    margin-right:5%;
+    margin-left:5%;
+    width: 30%;
+    height:10vh;
+}
+
+.ligneproposition + .ligneproposition{
+    margin-top:25px;
+}
+
+.progressCircle{
+    width:8px;
+}
+
+.progressContainer{
+    margin-top:5%;
+    width:40%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+
+.questionContainer h3{
+    margin-bottom: 20px;
+}
+
+.questionContainer{
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+
+.playQCMScore{
+    font-size:50px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #287F50;
+}
+
+.playQCMRate{
+    width:200px;
+    max-width:90%;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.playQCMComment{
+    width:450px;
+    max-width:90%;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}
+
+.playQCMCommentButton{
+    color: white;
+    background-color: #48E590;
+    height:35px;
+    width: 90px;
+    border: none;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}
+
+.playQCMCommentButton:hover {
+    background-color: #287F50;
+}
+
+.questionIcon{
+    height:250px;
+}
+
+.questionIcon img{
+    max-width:90%;
+}

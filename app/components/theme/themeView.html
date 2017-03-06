@@ -1,0 +1,34 @@
+<div ng-include="'views/menu.html'"></div>
+
+<div class="contenuOnline" ng-controller= "themeCtrl"  ng-init="getThemes()">
+    <div class="ThemeTitre" ng-show="!subTheme">Les thèmes</div>
+    <div class="ThemeTitre" ng-show="subTheme">Les sous-thèmes</div>
+    <div>
+        <div class="ThemePrevious" ng-show="subTheme">
+            <img class="ThemePreviousButton" src="images/previous_logo.png"  ng-click="getThemes()">
+            <span>Retour</span>
+        </div>
+        <div class="row ThemeItems">
+            <div class="col-md-2 col-sm-4 themeItem" ng-show="subTheme" ng-click="clickAll()">
+                <span class="ThemeItemImgContainer" ng-if="completeTheme.iconUrl == null">
+                    <img class="ThemeItemImg" ng-src="images/defaultPicture.png"/>
+                </span>
+                <span class="ThemeItemImgContainer" ng-if="completeTheme.iconUrl != null">
+                    <img class="ThemeItemImg" ng-src="{{'data:image/*;base64,'+completeTheme.iconUrl}}"/>
+                </span>
+                <div class="themeItemLabel">Tous les QCM du thème {{completeTheme.label}}</div>
+            </div>
+            <div  ng-repeat="item in items">
+                <div class="col-md-2 col-sm-4 themeItem"  ng-click="clickOnTheme(item.idTheme)">
+                    <span class="ThemeItemImgContainer" ng-if="item.iconUrl == null">
+                        <img class="ThemeItemImg" ng-src="images/defaultPicture.png"/>
+                    </span>
+                    <span class="ThemeItemImgContainer" ng-if="item.iconUrl != null">
+                        <img class="ThemeItemImg" ng-src="{{'data:image/*;base64,'+item.iconUrl}}"/>
+                    </span>
+                    <div class="themeItemLabel">{{item.label}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
