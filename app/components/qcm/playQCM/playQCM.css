@@ -4,10 +4,9 @@
     margin-right:5%;
     margin-left:5%;
     width: 30%;
+    min-width:220px;
     height:10vh;
-}
-
-.ligneproposition + .ligneproposition{
+    display:inline-block;
     margin-top:25px;
 }
 
