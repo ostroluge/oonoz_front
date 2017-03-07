@@ -48,6 +48,7 @@ controllers.controller('QcmDetailCtrl', ['$scope', 'dialogs', 'QcmDetailService'
                         a.href = uri;
                         a.innerHTML = "Clic droit et 'Enregistrer le lien sous...'";
                         a.style.color = "#287F50";
+                        a.style.textDecoration = "underline";
                     },
                     function error () {
                         console.log('Error getWinners');
