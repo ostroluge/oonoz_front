@@ -2,7 +2,7 @@
 services.factory('EditQCMService', ['$resource',function ($resource) {
     return {
         getQCM: function (id) {
-            return $resource("http://localhost:8092/qcms/"+id, {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/qcms/"+id, {}, {
                 query: {
                     method: 'GET',
                     cache: false,
@@ -11,7 +11,7 @@ services.factory('EditQCMService', ['$resource',function ($resource) {
             });
         },
         editQCM: function (id) {
-            return $resource("http://localhost:8092/qcms/"+id, {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/qcms/"+id, {}, {
                 query: {
                     method: 'PUT',
                     cache: false,
@@ -20,7 +20,7 @@ services.factory('EditQCMService', ['$resource',function ($resource) {
             })
         },
         editQuestion: function (idQCM,idQuestion) {
-            return $resource("http://localhost:8092/qcms/"+idQCM+"/questions/"+idQuestion, {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/qcms/"+idQCM+"/questions/"+idQuestion, {}, {
                 query: {
                     method: 'PUT',
                     cache: false,
@@ -29,7 +29,7 @@ services.factory('EditQCMService', ['$resource',function ($resource) {
             })
         },
         createQuestion: function (idQCM) {
-            return $resource("http://localhost:8092/qcms/"+idQCM+"/questions", {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/qcms/"+idQCM+"/questions", {}, {
                 query: {
                     method: 'POST',
                     cache: false,
@@ -38,7 +38,7 @@ services.factory('EditQCMService', ['$resource',function ($resource) {
             })
         },
         getQuestionByNumber: function (qcmId,questionNumber) {
-            return $resource("http://localhost:8092/qcms/"+qcmId+"/questions/questionNumber/"+questionNumber, {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/qcms/"+qcmId+"/questions/questionNumber/"+questionNumber, {}, {
                 query: {
                     method: 'GET',
                     cache: false,

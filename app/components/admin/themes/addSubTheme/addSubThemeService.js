@@ -6,7 +6,7 @@ services.factory('AddSubThemeService', ['$resource', '$location',
         return {
             postSubTheme: function (id) {
                // return $resource("http://localhost:8080/themes/"+id+"/subthemes", {}, {
-                    return $resource("http://localhost:8092/themes/"+id+"/subthemes", {}, {
+                    return $resource("http://5.135.165.108:8092/Oonoz/themes/"+id+"/subthemes", {}, {
                     query: {
                         method: 'POST',
                         cache: false,

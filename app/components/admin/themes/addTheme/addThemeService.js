@@ -6,7 +6,7 @@ services.factory('AddThemeService', ['$resource', '$location',
         return {
             postTheme: function () {
         //        return $resource("http://localhost:8080/themes", {}, {
-                    return $resource("http://localhost:8092/themes", {}, {
+                    return $resource("http://5.135.165.108:8092/Oonoz/themes", {}, {
                     query: {
                         method: 'POST',
                         cache: false,

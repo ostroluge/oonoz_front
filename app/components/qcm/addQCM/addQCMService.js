@@ -2,7 +2,7 @@
 services.factory('AddQCMService', ['$resource',function ($resource) {
     return {
         postQCM: function () {
-            return $resource("http://localhost:8092/qcms", {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/qcms", {}, {
                 query: {
                     method: 'POST',
                     cache: false,
@@ -11,7 +11,7 @@ services.factory('AddQCMService', ['$resource',function ($resource) {
             });
         },
         getThemes: function () {
-            return $resource("http://localhost:8092/themes", {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/themes", {}, {
                 query: {
                     method: 'GET',
                     cache: false,
@@ -20,7 +20,7 @@ services.factory('AddQCMService', ['$resource',function ($resource) {
             });
         },
         getValidatedThemes: function () {
-            return $resource("http://localhost:8092/validatedThemes", {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/validatedThemes", {}, {
                 query: {
                     method: 'GET',
                     cache: false,
@@ -29,7 +29,7 @@ services.factory('AddQCMService', ['$resource',function ($resource) {
             });
         },
         getSubThemes: function (idTheme) {
-            return $resource("http://localhost:8092/themes/"+idTheme+"/subthemes", {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/themes/"+idTheme+"/subthemes", {}, {
                 query: {
                     method: 'GET',
                     cache: false,
@@ -38,7 +38,7 @@ services.factory('AddQCMService', ['$resource',function ($resource) {
             });
         },
         getSuppliers: function () {
-            return $resource("http://localhost:8092/user/suppliers", {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/user/suppliers", {}, {
                query: {
                    method: 'GET',
                    cache: false,
@@ -47,7 +47,7 @@ services.factory('AddQCMService', ['$resource',function ($resource) {
             });
         },
         addSubTheme: function (idQCM, idSubTheme) {
-            return $resource("http://localhost:8092/qcms/"+idQCM+"/subthemes/"+idSubTheme, {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/qcms/"+idQCM+"/subthemes/"+idSubTheme, {}, {
                query: {
                    method: 'POST',
                    cache: false,

@@ -5,7 +5,7 @@ services.factory('themeService', ['$resource', '$location',
     function ($resource) {
         return {
             getAllValidatedThemes: function() {
-                return $resource("http://localhost:8092/validatedThemes", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/validatedThemes", {}, {
                     query: {
                         method: 'GET',
                         cache: false,
@@ -14,7 +14,7 @@ services.factory('themeService', ['$resource', '$location',
                 });
             },
             getThemeSubTheme: function(idTheme){
-                return $resource("http://localhost:8092/themes/"+idTheme+"/subthemes", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/themes/"+idTheme+"/subthemes", {}, {
                     query: {
                         method: 'GET',
                         cache: false,

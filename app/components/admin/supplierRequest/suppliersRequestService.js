@@ -7,7 +7,7 @@ services.factory('suppliersRequestService', ['$resource', '$location',
         return {
             getSupplierRequest: function () {
            //     return $resource("http://localhost:8080/admin/getSupplierRequest", {}, {
-                    return $resource("http://localhost:8092/admin/getSupplierRequest", {}, {
+                    return $resource("http://5.135.165.108:8092/Oonoz/admin/getSupplierRequest", {}, {
                     generate: {
                         method: 'GET',
                         cache: false,
@@ -17,7 +17,7 @@ services.factory('suppliersRequestService', ['$resource', '$location',
             },
             refuse: function(id){
                // return $resource("http://localhost:8080/admin/refuseSupplierRequest",{},{
-                        return $resource("http://localhost:8092/admin/refuseSupplierRequest",{},{
+                        return $resource("http://5.135.165.108:8092/Oonoz/admin/refuseSupplierRequest",{},{
                     query: {
                         method: 'DELETE',
                         cache: false,
@@ -30,7 +30,7 @@ services.factory('suppliersRequestService', ['$resource', '$location',
             },
             accept: function(id){
                // return $resource("http://localhost:8080/admin/acceptSupplierRequest",{},{
-                    return $resource("http://localhost:8092/admin/acceptSupplierRequest",{},{
+                    return $resource("http://5.135.165.108:8092/Oonoz/admin/acceptSupplierRequest",{},{
                     query: {
                         method: 'POST',
                         cache: false,

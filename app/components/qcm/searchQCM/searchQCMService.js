@@ -4,7 +4,7 @@ services.factory('SearchQCMService', ['$resource',
     function ($resource) {
         return {
         filteredSearch: function(filterObject){
-            return $resource("http://localhost:8092/qcms/filteredSearch",{},{
+            return $resource("http://5.135.165.108:8092/Oonoz/qcms/filteredSearch",{},{
                 query: {
                     method: 'POST',
                     cache: false,

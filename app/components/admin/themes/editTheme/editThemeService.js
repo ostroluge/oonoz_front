@@ -6,7 +6,7 @@ services.factory('EditThemeService', ['$resource', '$location',
         return {
             editTheme: function (id) {
          //       return $resource("http://localhost:8080/themes/"+id, {}, {
-                    return $resource("http://localhost:8092/themes/"+id, {}, {
+                    return $resource("http://5.135.165.108:8092/Oonoz/themes/"+id, {}, {
                     query: {
                         method: 'PUT',
                         cache: false,
@@ -16,7 +16,7 @@ services.factory('EditThemeService', ['$resource', '$location',
             },
             getTheme: function (id) {
                // return $resource("http://localhost:8080/themes/"+id, {}, {
-                    return $resource("http://localhost:8092/themes/"+id, {}, {
+                    return $resource("http://5.135.165.108:8092/Oonoz/themes/"+id, {}, {
                     query: {
                         method: 'GET',
                         cache: false,

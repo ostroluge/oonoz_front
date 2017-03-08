@@ -5,7 +5,7 @@ services.factory('EditSubThemeService', ['$resource', '$location',
     function ($resource) {
         return {
             editSubTheme: function (idTheme, idSubTheme) {
-                return $resource("http://localhost:8092/themes/"+idTheme+"/subthemes/"+idSubTheme, {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/themes/"+idTheme+"/subthemes/"+idSubTheme, {}, {
                //     return $resource("http://localhost:8080/themes/"+idTheme+"/subthemes/"+idSubTheme, {}, {
 
                         query: {
@@ -16,7 +16,7 @@ services.factory('EditSubThemeService', ['$resource', '$location',
                 });
             },
             getSubTheme: function (idTheme, idSubTheme) {
-                return $resource("http://localhost:8092/themes/"+idTheme+"/subthemes/"+idSubTheme, {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/themes/"+idTheme+"/subthemes/"+idSubTheme, {}, {
                     //  return $resource("http://localhost:8080/themes/"+idTheme+"/subthemes/"+idSubTheme, {}, {
                     query: {
                         method: 'GET',

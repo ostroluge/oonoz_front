@@ -5,7 +5,7 @@ services.factory('listingQCMService', ['$resource', '$location',
     function ($resource) {
         return {
             getSupplierQCM: function () {
-                return $resource("http://localhost:8092/user/getSupplierQCM", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/user/getSupplierQCM", {}, {
                     query: {
                         method: 'GET',
                         cache: false,
@@ -15,7 +15,7 @@ services.factory('listingQCMService', ['$resource', '$location',
             },
             filteredSearch: function(mTheme,mSubTheme){
                 // return $resource("http://localhost:8080/admin/acceptSupplierRequest",{},{
-                return $resource("http://localhost:8092/searchSupplierQCM",{},{
+                return $resource("http://5.135.165.108:8092/Oonoz/searchSupplierQCM",{},{
                     query: {
                         method: 'GET',
                         cache: false,

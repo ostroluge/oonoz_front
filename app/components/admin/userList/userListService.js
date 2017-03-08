@@ -2,7 +2,7 @@ services.factory('UserListService', ['$resource','$location',
     function($resource) {
         return {
             filteredSearch: function () {
-              return $resource("http://localhost:8092/admin/filteredSearch", {}, {
+              return $resource("http://5.135.165.108:8092/Oonoz/admin/filteredSearch", {}, {
                    // return $resource("http://localhost:8092/admin/filteredSearch", {}, {
                     query: {
                         method: 'POST',
@@ -12,7 +12,7 @@ services.factory('UserListService', ['$resource','$location',
                 });
             },
             updatePlayer: function(){
-             return $resource("http://localhost:8092/admin/updatePlayer", {}, {
+             return $resource("http://5.135.165.108:8092/Oonoz/admin/updatePlayer", {}, {
                    // return $resource("http://localhost:8092/admin/updatePlayer", {}, {
                     query: {
                         method: 'PUT',
@@ -22,7 +22,7 @@ services.factory('UserListService', ['$resource','$location',
                 });
             },
             updateSupplier: function(){
-             return $resource("http://localhost:8092/admin/updateSupplier", {}, {
+             return $resource("http://5.135.165.108:8092/Oonoz/admin/updateSupplier", {}, {
                    // return $resource("http://localhost:8092/admin/updateSupplier", {}, {
                     query: {
                         method: 'PUT',
@@ -32,7 +32,7 @@ services.factory('UserListService', ['$resource','$location',
                 });
             },
             deleteUser: function(idPlayer){
-            return $resource("http://localhost:8092/admin/deleteUser", {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/admin/deleteUser", {}, {
                    // return $resource("http://localhost:8092/admin/deleteUser", {}, {
                     query: {
                         method: 'DELETE',
@@ -46,7 +46,7 @@ services.factory('UserListService', ['$resource','$location',
                 });
             },
             changeStatusUser: function(idPlayer){
-                return $resource("http://localhost:8092/admin/changeStatusUser", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/admin/changeStatusUser", {}, {
                 //return $resource("http://localhost:8092/admin/changeStatusUser", {}, {
                     query: {
                         method: 'GET',
