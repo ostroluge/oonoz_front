@@ -5,7 +5,7 @@ services.factory('QcmManagementService', ['$resource', '$location',
     function ($resource) {
         return {
             getValidatedQCM: function () {
-                return $resource("http://localhost:8092/admin/getValidatedQCM", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/admin/getValidatedQCM", {}, {
                     query: {
                         method: 'GET',
                         cache: false,
@@ -14,7 +14,7 @@ services.factory('QcmManagementService', ['$resource', '$location',
                 });
             },
             getNotValidatedQCM: function () {
-                return $resource("http://localhost:8092/admin/getNotValidatedQCM", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/admin/getNotValidatedQCM", {}, {
                     query: {
                         method: 'GET',
                         cache: false,
@@ -23,7 +23,7 @@ services.factory('QcmManagementService', ['$resource', '$location',
                 });
             },
             validateQCM: function (idQCM) {
-                return $resource("http://localhost:8092/admin/validateQCM", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/admin/validateQCM", {}, {
                     query: {
                         method: 'PUT',
                         cache: false,
