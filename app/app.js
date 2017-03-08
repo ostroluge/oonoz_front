@@ -21,6 +21,8 @@ var oonozApp = angular.module('oonozApp', [
 
 oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinnerConfigProvider', function ($locationProvider, $routeProvider,$httpProvider,usSpinnerConfigProvider) {
     $httpProvider.defaults.withCredentials = true;
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('!');
     $routeProvider
         .when('/login', {
             templateUrl: 'components/login/loginView.html',
