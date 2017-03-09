@@ -6,7 +6,7 @@
 describe('creation de compte', function() {
 
     it('refuser compte fournisseur', function () {
-        browser.get("http://localhost:63342/oonoz_front/app/index.html?#/login");
+        browser.get("http://5.135.165.108/Oonoz_front/app/#!/login");
         element(by.linkText('Pas de compte? Je m\'inscris')).click();
         element(by.model('username')).sendKeys('demandeFournisseur');
         element(by.model('firstName')).sendKeys('demandeFournisseur');
@@ -30,7 +30,7 @@ describe('creation de compte', function() {
 
 
     it('create player account', function () {
-        browser.get("http://localhost:63342/oonoz_front/app/index.html?#/login");
+        browser.get("http://5.135.165.108/Oonoz_front/app/#!/login");
         element(by.linkText('Pas de compte? Je m\'inscris')).click();
         element(by.model('username')).sendKeys('player');
         element(by.model('firstName')).sendKeys('player');
