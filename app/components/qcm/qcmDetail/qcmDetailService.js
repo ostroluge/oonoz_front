@@ -23,7 +23,7 @@ services.factory('QcmDetailService', ['$resource', function ($resource) {
         },
 
         getWinners: function (id) {
-            return $resource("http://localhost:8092/qcms/" + id + "/winners", {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/qcms/" + id + "/winners", {}, {
                 query: {
                     method: 'GET',
                     cache: false,
