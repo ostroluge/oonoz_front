@@ -4,7 +4,7 @@ services.factory('PlayQCMService', ['$resource',
     function ($resource) {
         return {
             getValidatedQcm: function (id) {
-                return $resource("http://localhost:8092/qcms/validated/" + id, {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/qcms/validated/" + id, {}, {
                     query: {
                         method: 'GET',
                         cache: false,
@@ -13,7 +13,7 @@ services.factory('PlayQCMService', ['$resource',
                 });
             },
             finishQCM: function () {
-                return $resource("http://localhost:8092/qcms/finishQCM", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/qcms/finishQCM", {}, {
                     query: {
                         method: 'POST',
                         cache: false,

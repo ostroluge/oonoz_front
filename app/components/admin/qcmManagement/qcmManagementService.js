@@ -35,7 +35,7 @@ services.factory('QcmManagementService', ['$resource', '$location',
                 });
             },
             deleteQCM: function (idQCM) {
-                return $resource("http://localhost:8092/admin/deleteQCM", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/admin/deleteQCM", {}, {
                     query: {
                         method: 'DELETE',
                         cache: false,

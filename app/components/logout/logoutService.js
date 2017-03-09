@@ -4,7 +4,7 @@ services.factory('LogoutService', ['$resource','$location',
         return{
             logout:function() {
                 //   return $resource("http://localhost:8080/user/login", {}, {
-                return $resource("http://localhost:8092/user/logout", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/user/logout", {}, {
                     query: {
                         method: 'GET',
                         cache: false, isArray: false

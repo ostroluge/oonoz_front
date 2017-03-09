@@ -7,7 +7,7 @@ services.factory('profilService', ['$resource', '$location',
     function ($resource) {
         return {
             getUser: function () {
-                return $resource("http://localhost:8092/user/profil", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/user/profil", {}, {
                     query: {
                         method: 'GET',
                         cache: false,
@@ -16,7 +16,7 @@ services.factory('profilService', ['$resource', '$location',
                 });
             },
             updatePlayer: function(){
-                return $resource("http://localhost:8092/user/updatePlayer", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/user/updatePlayer", {}, {
                     // return $resource("http://localhost:8092/admin/updatePlayer", {}, {
                     query: {
                         method: 'PUT',
@@ -26,7 +26,7 @@ services.factory('profilService', ['$resource', '$location',
                 });
             },
             updateSupplier: function(){
-                return $resource("http://localhost:8092/user/updateSupplier", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/user/updateSupplier", {}, {
                     // return $resource("http://localhost:8092/admin/updateSupplier", {}, {
                     query: {
                         method: 'PUT',
@@ -37,7 +37,7 @@ services.factory('profilService', ['$resource', '$location',
             },
             requestSupplierStatus: function(idPlayer){
                 console.log("service supplier Status :  "+idPlayer);
-                return $resource("http://localhost:8092/user/requestSupplierStatus", {}, {
+                return $resource("http://5.135.165.108:8092/Oonoz/user/requestSupplierStatus", {}, {
                     query: {
                         method: 'GET',
                         cache: false,

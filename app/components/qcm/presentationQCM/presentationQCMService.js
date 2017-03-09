@@ -1,7 +1,7 @@
 services.factory('PresentationQcmService', ['$resource', function ($resource) {
     return {
         getQcm: function (id) {
-            return $resource("http://5.135.165.108:8092/Oonoz/qcms/"+id, {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/Oonoz/qcms/"+id, {}, {
                 query: {
                     method: 'GET',
                     cache: false,
@@ -11,7 +11,7 @@ services.factory('PresentationQcmService', ['$resource', function ($resource) {
         },
 
         getFeedback: function (id) {
-            return $resource("http://localhost:8092/qcms/" + id + "/feedback", {}, {
+            return $resource("http://5.135.165.108:8092/Oonoz/qcms/" + id + "/feedback", {}, {
                 query: {
                     method: 'GET',
                     cache: false,
