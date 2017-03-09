@@ -8,7 +8,7 @@
     <span ng-if="qcm.icon!= null">
                     <img class="presQCMImg" ng-src="{{'data:image/*;base64,'+qcm.icon}}"/>
             </span>
-    <span ng-if="qcm.icon== null">
+        <span ng-if="qcm.icon== null">
                     <img class="presQCMImg" src="images/defaultPicture.png">
     </span>
     </div>
@@ -16,13 +16,20 @@
 
     <div class="presQCMNotesDesc">
         <div class="presQCMNote">
-            <p>Les avis sur ce QCM
-            <img class="presQCMNoteImg" src="images/three-stars.png"></p>
-
-            <div class="presQCMComs">
-                <p class="presQCMCom">Jaqueline : De la qualité.</p>
-
-                <p class="presQCMCom">Michou : J'ai kiffé</p>
+            <p>Les avis sur ce QCM</p>
+            <label>Note générale (sur {{totalRatings}} avis) :</label><br>
+            <star-rating-comp
+                    read-only="true"
+                    show-half-stars="true"
+                    rating=averageRating
+                    label-text=averageRating>
+            </star-rating-comp>
+            <p>Commentaires ({{totalComments}}) :</p>
+            <div ng-repeat="comment in comments">
+                <p>{{comment.author}} - ({{comment.rating}}/5) : {{comment.value}}</p>
+            </div>
+            <div ng-if="totalComments === 0">
+                <p>Il n'y a pas de commentaire pour ce QCM pour le moment.</p>
             </div>
         </div>
 
@@ -31,7 +38,8 @@
         </div>
     </div>
 
-    <div class="presQCMbutton">
-        <button>Jouer !</button>
+    <div class="presQCMbutton" ng-hide="buttonShow">
+       <a href="#qcms/playQCM/{{qcm.id}}"><button>Jouer !</button></a>
     </div>
+    <span us-spinner spinner-key="spinner-1"></span>
 </div>

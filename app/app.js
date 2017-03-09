@@ -16,7 +16,11 @@ var oonozApp = angular.module('oonozApp', [
     'naif.base64',
     'ngMessages',
     'ngFileUpload',
-    'angularSpinner'
+    'angularSpinner',
+    'angular-encryption',
+    'jkAngularRatingStars',
+    'star-rating',
+    'pascalprecht.translate'
 ]);
 
 oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinnerConfigProvider', function ($locationProvider, $routeProvider,$httpProvider,usSpinnerConfigProvider) {
@@ -89,8 +93,8 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinn
             controller: 'listingQCMCtrl'
         })
         .when ('/account',{
-            templateUrl: 'components/account/accountView.html'
-            //controller: 'accountCtrl'
+            templateUrl: 'components/profil/profilView.html',
+            controller: 'profilCtrl'
         })
         .when('/qcm/qcmDetail/:id', {
             templateUrl: 'components/qcm/qcmDetail/qcmDetailView.html',
@@ -124,9 +128,40 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinn
             templateUrl: 'components/qcm/searchQCM/searchQCM.html',
             controller: 'SearchQCMCtrl'
         })
+        .when('/qcms/playQCM/:idQCM', {
+            templateUrl: 'components/qcm/playQCM/playQCM.html',
+            controller: 'PlayQCMCtrl'
+        })
+        .when('/logout', {
+            templateUrl: 'components/login/loginView.html',
+            controller: 'LogoutCtrl'
+        })
         .otherwise({redirectTo: '/login'});
 
-    /**Set default configuration for load sprinner**/
+    /**Set default configuration for load spinner**/
     usSpinnerConfigProvider.setDefaults({radius:30, width:8, length: 16});
 }]);
+
+oonozApp.factory('authHttpResponseInterceptor',['$q','$location',function($q,$location){
+    return {
+        response: function(response){
+            if (response.status === 401) {
+
+            }
+            return response || $q.when(response);
+        },
+        responseError: function(rejection) {
+            if (rejection.status === 401) {
+                $location.path('/login');
+            }
+            return $q.reject(rejection);
+        }
+    }
+}]);
+oonozApp.config(['$httpProvider','$translateProvider',function($httpProvider,$translateProvider) {
+        //Http Intercpetor to check auth failures for xhr requests
+        $httpProvider.interceptors.push('authHttpResponseInterceptor');
+        $translateProvider.preferredLanguage('fr-FR');
+        $translateProvider.useSanitizeValueStrategy('sanitize');
+    }]);
    

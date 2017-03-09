@@ -137,13 +137,18 @@ controllers.controller('EditQCMCtrl', ['$scope', 'dialogs', 'EditQCMService', 'A
                 qcm.id = $routeParams.id;
                 qcm.name = $scope.qcm.name;
                 qcm.description = $scope.qcm.description;
+                qcm.category = $scope.getCategory($scope.category.label);
                 qcm.idTheme = $scope.theme.idTheme;
                 //qcm.idSupplier = $scope.supplier.idPlayer;
-                qcm.free = $scope.qcm.free;
+                if ($scope.category.label=='Se tester') {
+                    qcm.free = true;
+                }
+                if ($scope.category.label!='Se tester') {
+                    qcm.free = $scope.qcm.free;
+                }
                 if (!$scope.qcm.free) {
                     qcm.price = $scope.qcm.price;
                 }
-                qcm.category = $scope.getCategory($scope.category.label);
                 qcm.minimalScore = $scope.qcm.minimalScore;
                 qcm.subThemes = $scope.subThemesSelected;
 

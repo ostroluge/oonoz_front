@@ -1,0 +1,141 @@
+<div ng-include="'views/menu.html'"></div>
+<div ng-controller= "profilCtrl"  ng-init="getUser()">
+<div class="container" style="padding-top: 60px;">
+    <h1 class="page-header">Mon profil</h1>
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="text-center">
+                <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                <!--<h6>Upload a different photo...</h6>-->
+                <!--<input type="file" class="text-center center-block well well-sm">-->
+            </div>
+        </div>
+        <!-- edit form column -->
+        <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+       <!--     <div class="alert alert-info alert-dismissable">
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <i class="fa fa-coffee"></i>
+                This is an <strong>.alert</strong>. Use this to show important messages to the user.
+            </div>-->
+            <h3>Informations personnelles</h3>
+            <form class="form-horizontal" name="profilForm" role="form">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Pseudo :</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" ng-model ="username" type="text" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Email :</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" ng-model ="mail" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Nom :</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" name="firstname" type="text" ng-model ="firstname" ng-minlength="3"
+                               ng-maxlength="40">
+                        <span class="errorProfilForm" ng-show="profilForm.firstname.$error.minlength">Le nom est trop court.</span>
+                        <span class="errorProfilForm" ng-show="profilForm.firstname.$error.maxlength">Le nom est trop long.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Prénom :</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" ng-model ="lastname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Date de naissance :</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" value="{{player.birthDate}}" type="date" ng-model="birthDate">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Crédit :</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" name="credit" type="number" ng-model="credit" ng-pattern="/^\d{0,9}(\.\d{1,9})?$/" >
+                        <span class="errorProfilForm" ng-show="profilForm.credit.$error.pattern">Veuillez renseigner un chiffre</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Nouveau mot de passe :</label>
+                    <div class="col-md-8">
+                        <input class="form-control" name="password" type="password" ng-model ="password"
+                               ng-minlength="8" ng-maxlength="40"
+                               ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/">
+                        <span class="errorProfilForm" ng-show="profilForm.password.$error.pattern">Le mot de passe doit être formé d'au moins une majuscule, une minuscule, et au moins 1 chiffre ou caractère spécial</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Confirmer :</label>
+                    <div class="col-md-8">
+                        <input class="form-control" name="passwordConfirmation" type="password" ng-keyup="checkPasswords()" ng-model ="passwordConfirmation">
+                        <span class="errorProfilForm" ng-show="passwordsMatch">Doit être identique au mot de passe</span>
+                    </div>
+                </div>
+
+                <div ng-show="!isSupplier">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Devenir fournisseur</label>
+                        <div class="col-lg-8">
+                            <input class="col-lg-8" type="checkbox" name="wannaBeSupplier" id="wannaBeSupplier"  ng-model="wannaBeSupplier" ng-click="requestSupplierStatus()">
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-show="wannaBeSupplier || (isSupplier && isPrivateIndividual)">
+                    <div class="form-group">
+                        <div>
+                            <label class="col-lg-3 control-label">Professionel : </label>
+                            <div class="col-lg-8">
+                                <label class="col-sm-2">Oui</label>
+                                <input  class="col-sm-1" type="radio" name="professionalState" ng-model="professionalState"
+                                       ng-checked="professionalState==true"  value="false" ng-click="professionalState=true "/>
+                                <label class="col-sm-2">Non</label>
+                                <input  class="col-sm-1" type="radio" name="professionalState" ng-model="professionalState"
+                                       ng-checked="professionalState==false" value="true" ng-click="professionalState=false"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="professionalState || !isPrivateIndividual ">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Société :</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" ng-model = "companyName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Adresse :</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" ng-model = "companyAddress">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">N° Siret :</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" name="siretNumber" type="text" ng-model = "siretNumber"
+                                       ng-minlength="14" ng-maxlength="14">
+                                <span class="errorProfilForm" ng-show="profilForm.siretNumber.$error.minlength">Le numero siret est trop court. Il doit faire 14 chiffres</span>
+                                <span class="errorProfilForm" ng-show="profilForm.siretNumber.$error.maxlength">Le numero siret est trop long. Il doit faire 14 chiffres</span>
+                            </div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input class="btn btn-primary" value="Sauvegarder" type="button" ng-click="update()">
+                        <span></span>
+                        <input class="btn btn-default" value="Annuler" type="button" ng-click="getUser()">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+
