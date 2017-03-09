@@ -39,7 +39,12 @@
                         Validé
                 </span>
                 <span ng-if="!qcm.validated" class="qcmListValide">
+                    <span ng-if="qcm.complete">
                         En attente de validation
+                    </span>
+                    <span ng-if="!qcm.complete">
+                        QCM incomplet
+                    </span>
                 </span>
             </a>
         </div>

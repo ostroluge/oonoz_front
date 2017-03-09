@@ -20,7 +20,8 @@ var oonozApp = angular.module('oonozApp', [
     'angular-encryption',
     'jkAngularRatingStars',
     'star-rating',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'angularChart'
 ]);
 
 oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinnerConfigProvider', function ($locationProvider, $routeProvider,$httpProvider,usSpinnerConfigProvider) {
@@ -92,6 +93,10 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinn
             templateUrl: 'components/supplier/listingQCM/listingQCMView.html',
             controller: 'listingQCMCtrl'
         })
+        .when ('/user/getStat',{
+            templateUrl: 'components/statistic/statisticView.html',
+            controller: 'statCtrl'
+        })
         .when ('/account',{
             templateUrl: 'components/profil/profilView.html',
             controller: 'profilCtrl'
@@ -127,6 +132,10 @@ oonozApp.config(['$locationProvider', '$routeProvider', '$httpProvider','usSpinn
         .when('/qcms/search/:idTheme/:idSubTheme', {
             templateUrl: 'components/qcm/searchQCM/searchQCM.html',
             controller: 'SearchQCMCtrl'
+        })
+        .when('/qcms/playQCM/:idQCM', {
+            templateUrl: 'components/qcm/playQCM/playQCM.html',
+            controller: 'PlayQCMCtrl'
         })
         .when('/qcms/playQCM/:idQCM', {
             templateUrl: 'components/qcm/playQCM/playQCM.html',
