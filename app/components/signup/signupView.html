@@ -161,7 +161,7 @@
             </div>
 
             <div>
-                <label for="termsOfService">J'accepte les <a ng-href="#/terms/{{kindTerm}}">conditions générales d'utilisation</a>
+                <label for="termsOfService">J'accepte les <a ng-href="#!/terms/{{kindTerm}}">conditions générales d'utilisation</a>
                 <input type="checkbox" name="termsOfService" id="termsOfService" ng-model="termsOfService">
                 </label>
             </div>
@@ -170,7 +170,7 @@
                 <button class="button" type="submit" value="S'inscrire"
                         ng-disabled="!signupForm.$valid || !termsOfService">S'inscrire
                 </button>
-                <a href="#/login">Déjà un compte ? Se connecter</a>
+                <a href="#!/login">Déjà un compte ? Se connecter</a>
             </div>
         </form>
     </div>

@@ -18,11 +18,11 @@
     </div>
     <div class="qcmListContainer">
         <div class="qcmListButtonsNew">
-            <a href="#qcms/new"><img src="images/add-vert.png"> Créer un QCM</a>
+            <a href="#!/qcms/new"><img src="images/add-vert.png"> Créer un QCM</a>
         </div>
         <div class="qcmListTitle">Les QCM en attente de validation</div>
         <div class="qcmListqcm" ng-repeat="qcm in notValidatedQcm">
-            <a href="#qcm/qcmDetail/{{qcm.id}}">
+            <a href="#!/qcm/qcmDetail/{{qcm.id}}">
                 <span class="qcmListIconContainer" ng-if="qcm.icon == null">
                     <img class="qcmListIcon" ng-src="images/defaultPicture.png"/>
                 </span>
@@ -47,7 +47,7 @@
     <div class="qcmList">
         <div class="qcmListTitle">Les QCM validés</div>
         <div class="qcmListqcm" ng-repeat="qcm in validatedQcm">
-            <a href="#qcm/qcmDetail/{{qcm.id}}">
+            <a href="#!/qcm/qcmDetail/{{qcm.id}}">
                 <span class="qcmListIconContainer" ng-if="qcm.icon == null">
                     <img class="qcmListIcon" ng-src="images/defaultPicture.png"/>
                 </span>

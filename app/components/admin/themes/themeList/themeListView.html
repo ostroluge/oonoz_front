@@ -61,7 +61,7 @@
     <div class="ThemeListTitre">Thèmes et sous-thèmes validés</div>
     <div class="ThemeListValides">
         <div class="ThemeListUnTheme ThemeListLienAjout">
-            <a class="ThemeListUnThemeLink" href="#/themes/new">
+            <a class="ThemeListUnThemeLink" href="#!/themes/new">
                 <img class="ThemeListIcon" src="images/add-vert.png">
                 Ajouter un thème
             </a>
@@ -77,7 +77,7 @@
                 </span>
                 </span>
             <span class="ThemeListNom">{{theme.label}}</span>
-            <a class="ThemeListBouton" href="#/themes/{{theme.idTheme}}/edit">
+            <a class="ThemeListBouton" href="#!/themes/{{theme.idTheme}}/edit">
                 <img class="ThemeListIcon" src="images/edit-blanc.png">
                 Éditer
             </a>
@@ -96,7 +96,7 @@
                     </span>
                 </span>
                 <span class="ThemeListNom">{{subtheme.label}}</span>
-                <a class="ThemeListBouton" href="#/themes/{{theme.idTheme}}/subthemes/{{subtheme.id}}/edit">
+                <a class="ThemeListBouton" href="#!/themes/{{theme.idTheme}}/subthemes/{{subtheme.id}}/edit">
                     <img class="ThemeListIcon" src="images/edit-blanc.png">
                     Éditer
                 </a>
@@ -107,7 +107,7 @@
         </div>
         <div ng-show="theme.validated">
             <div class="ThemeListSousTheme ThemeListLienAjout">
-                <a class="ThemeListSousThemeLink" href="#/themes/{{theme.idTheme}}/subthemes/new">
+                <a class="ThemeListSousThemeLink" href="#!/themes/{{theme.idTheme}}/subthemes/new">
                     <img class="ThemeListIcon" src="images/add-gris.png">
                     Ajouter un sous-thème
                 </a>
